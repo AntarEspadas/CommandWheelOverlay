@@ -1,4 +1,5 @@
 ﻿using CommandWheelOverlay.Controller;
+using CommandWheelOverlay.Settings;
 using CommandWheelOverlay.View;
 using CommandWheelOverlay.View.Editors;
 using System;
@@ -14,8 +15,8 @@ namespace CommandWheelOverlay.Connection
         IWheelElements IOverlayController.Elements => throw new NotImplementedException();
 
         IOverlayView IOverlayController.View { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        IElementsEditor IOverlayController.ElementsEditor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        ISettingsEditor IOverlayController.SettingsEditor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        IUserSettings IOverlayController.Settings => throw new NotImplementedException();
 
         private IOverlayView view;
         TcpListener listener;
