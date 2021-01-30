@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommandWheelOverlay.Connection;
+using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.Input;
 using CommandWheelOverlay.View;
 using Linearstar.Windows.RawInput;
@@ -16,11 +17,15 @@ namespace CommandWheelForms
 {
     partial class MainWindow : Form
     {
+        private FormWindowState lastState;
+        private bool closeForReal = false;
         private TcpOverlayView view;
+        private OverlayController controller;
         public MainWindow()
         {
+            controller = new OverlayController();
             InitializeComponent();
-            view = new TcpOverlayView(null, 7777);
+            view = new TcpOverlayView(controller, 7777);
             while (true)
             {
                 try
@@ -33,6 +38,7 @@ namespace CommandWheelForms
                     continue;
                 }
             }
+            controller.View = view;
             
         }
 
@@ -65,6 +71,8 @@ namespace CommandWheelForms
                     new RawInputDeviceRegistration(HidUsageAndPage.Mouse, flags, handle)
             };
             RawInputDevice.RegisterDevice(registrations);
+
+            trayIcon.Visible = true;
         }
         private void MainWindow_Shown(object sender, EventArgs e)
         {
@@ -74,6 +82,54 @@ namespace CommandWheelForms
         {
             RawInputDevice.UnregisterDevice(HidUsageAndPage.Keyboard);
             RawInputDevice.UnregisterDevice(HidUsageAndPage.Mouse);
+            trayIcon.Visible = false;
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            closeForReal = true;
+            Application.Exit();
+        }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            Show();
+            Activate();
+        }
+
+        private void trayIcon_DoubleClick(object sender, EventArgs e)
+        {
+            Show();
+            Activate();
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !closeForReal;
+            Hide();
+        }
+
+        private void MainWindow_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                WindowState = lastState;
+            }
+            else
+            {
+                lastState = WindowState;
+            }
+        }
+
+        private void editElementsButton_Click(object sender, EventArgs e)
+        {
+            controller.UpdateElements();
+        }
+
+        private void editSettingsButton_Click(object sender, EventArgs e)
+        {
+            controller.UpdateSettings();
         }
     }
 }
