@@ -12,6 +12,10 @@ namespace CommandWheelOverlay.Connection
     {
         IWheelElements IOverlayController.Elements => throw new NotImplementedException();
 
+        IOverlayView IOverlayController.View { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        IElementsEditor IOverlayController.ElementsEditor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        ISettingsEditor IOverlayController.SettingsEditor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         private IOverlayView view;
         TcpListener listener;
         Bridge bridge;
@@ -32,7 +36,7 @@ namespace CommandWheelOverlay.Connection
             bridge.Pass(parameters: actionIndex);
         }
 
-        void IOverlayController.UpdateDisplay()
+        void IOverlayController.UpdateElements()
         {
             throw new NotImplementedException();
         }
