@@ -10,6 +10,8 @@ namespace CommandWheelOverlay.Connection
 {
     public class TcpOverlayController : IOverlayController
     {
+        IWheelElements IOverlayController.Elements => throw new NotImplementedException();
+
         private IOverlayView view;
         TcpListener listener;
         Bridge bridge;
@@ -18,6 +20,7 @@ namespace CommandWheelOverlay.Connection
             this.view = view;
             listener = new TcpListener(IPAddress.Any, port);
         }
+
         public void Connect()
         {
             listener.Start();
@@ -27,6 +30,16 @@ namespace CommandWheelOverlay.Connection
         public void PerformAction(int actionIndex)
         {
             bridge.Pass(parameters: actionIndex);
+        }
+
+        void IOverlayController.UpdateDisplay()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IOverlayController.UpdateSettings()
+        {
+            throw new NotImplementedException();
         }
     }
 }
