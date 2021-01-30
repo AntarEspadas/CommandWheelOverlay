@@ -52,7 +52,7 @@ namespace CommandWheelOverlay.Connection
             bridge.Pass(parameters: input);
         }
 
-        public void UpdateElements(ISimplifiedWheelElements elements)
+        public void UpdateElements(SimplifiedWheelElements elements)
         {
 #if NO_CONNECTION
             return;
