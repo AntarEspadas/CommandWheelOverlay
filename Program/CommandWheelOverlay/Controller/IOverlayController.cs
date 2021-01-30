@@ -1,4 +1,5 @@
-﻿using CommandWheelOverlay.View;
+﻿using CommandWheelOverlay.Settings;
+using CommandWheelOverlay.View;
 using CommandWheelOverlay.View.Editors;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace CommandWheelOverlay.Controller
         ISettingsEditor SettingsEditor { get; set; }
 
         IWheelElements Elements { get; }
+        IUserSettings Settings { get; }
         void PerformAction(int actionIndex);
         void UpdateSettings();
         void UpdateElements();
