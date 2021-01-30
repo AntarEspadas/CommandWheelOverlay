@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CommandWheelOverlay.View
 {
+    [Serializable]
     public struct SimplifiedWheel
     {
         public int[] ButtonIndices { get; }

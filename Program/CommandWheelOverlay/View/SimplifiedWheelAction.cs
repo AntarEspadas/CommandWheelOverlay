@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CommandWheelOverlay.View
 {
+    [Serializable]
     public struct SimplifiedWheelAction
     {
         int Type { get; }

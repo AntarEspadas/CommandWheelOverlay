@@ -4,14 +4,15 @@ using System.Text;
 
 namespace CommandWheelOverlay.View
 {
+    [Serializable]
     public struct SimplifiedWheelButton
     {
         public string Label { get; }
         public string ImgPath { get; }
         public int SubWheelIndex { get; }
-        public ISimplifiedWheelAction Action { get; }
+        public SimplifiedWheelAction Action { get; }
 
-        public SimplifiedWheelButton(string label, string imgPath, int subWheelIndex, ISimplifiedWheelAction action)
+        public SimplifiedWheelButton(string label, string imgPath, int subWheelIndex, SimplifiedWheelAction action)
         {
             Label = label;
             ImgPath = imgPath;
