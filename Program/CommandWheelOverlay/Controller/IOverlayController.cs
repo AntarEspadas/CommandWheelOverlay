@@ -10,7 +10,6 @@ namespace CommandWheelOverlay.Controller
     public interface IOverlayController
     {
         IOverlayView View { get; set; }
-        ISettingsEditor SettingsEditor { get; set; }
 
         IWheelElements Elements { get; }
         IUserSettings Settings { get; }
