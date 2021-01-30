@@ -41,7 +41,7 @@ namespace Testing
             Console.WriteLine(input.ToString());
         }
 
-        public void UpdateElements(ISimplifiedWheelElements elements)
+        public void UpdateElements(SimplifiedWheelElements elements)
         {
             throw new NotImplementedException();
         }

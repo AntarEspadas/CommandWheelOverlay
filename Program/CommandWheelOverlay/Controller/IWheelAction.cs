@@ -9,6 +9,6 @@ namespace CommandWheelOverlay.Controller
     {
         void Perform();
 
-        ISimplifiedWheelAction Simplify();
+        SimplifiedWheelAction Simplify();
     }
 }

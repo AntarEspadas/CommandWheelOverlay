@@ -4,11 +4,13 @@ using System.Text;
 
 namespace CommandWheelOverlay.View
 {
-    public interface ISimplifiedWheelButton
+    public struct SimplifiedWheelAction
     {
-        string Label
+        int Type { get; }
+
+        public SimplifiedWheelAction(int type)
         {
-            get; set;
+            Type = type;
         }
     }
 }

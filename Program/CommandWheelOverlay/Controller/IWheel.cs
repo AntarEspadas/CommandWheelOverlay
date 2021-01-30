@@ -12,6 +12,6 @@ namespace CommandWheelOverlay.Controller
         Color AccentColor { get; set; }
         Color BgColor { get; set; }
 
-        ISimplifiedWheel Simplify(IList<IWheelButton> buttons);
+        SimplifiedWheel Simplify(IList<IWheelButton> buttons);
     }
 }
