@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CommandWheelOverlay.Settings
 {
-    public interface IUserSettings
+    public interface IUserSettings : ICloneable
     {
     }
 }
