@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CommandWheelOverlay.Controller
 {
-    class OverlayController : IOverlayController
+    public class OverlayController : IOverlayController
     {
         public IOverlayView View { get; set; }
 
