@@ -8,7 +8,6 @@ namespace CommandWheelOverlay.Controller
     {
         IList<IWheel> Wheels { get; set; }
         IList<IWheelButton> Buttons { get; set; }
-
         ISimplifiedWheelElements Simplify();
     }
 }

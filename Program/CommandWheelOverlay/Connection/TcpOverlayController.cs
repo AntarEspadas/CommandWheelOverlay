@@ -1,5 +1,6 @@
 ﻿using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.View;
+using CommandWheelOverlay.View.Editors;
 using System;
 using System.Collections.Generic;
 using System.Net;

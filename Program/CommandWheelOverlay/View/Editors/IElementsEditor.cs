@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommandWheelOverlay.View
+namespace CommandWheelOverlay.View.Editors
 {
     public interface IElementsEditor
     {
