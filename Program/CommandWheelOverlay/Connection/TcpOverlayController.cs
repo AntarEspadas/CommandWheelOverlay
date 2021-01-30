@@ -29,22 +29,34 @@ namespace CommandWheelOverlay.Connection
 
         public void Connect()
         {
+#if NO_CONNECTION || UNITY_EDITOR
+            return;
+#endif
             listener.Start();
             Socket client = listener.AcceptSocket();
             bridge = new Bridge(new NetworkStream(client), view);
         }
         public void PerformAction(int actionIndex)
         {
+#if NO_CONNECTION || UNITY_EDITOR
+            return;
+#endif
             bridge.Pass(parameters: actionIndex);
         }
 
         void IOverlayController.UpdateElements()
         {
+#if NO_CONNECTION || UNITY_EDITOR
+            return;
+#endif
             throw new NotImplementedException();
         }
 
         void IOverlayController.UpdateSettings()
         {
+#if NO_CONNECTION || UNITY_EDITOR
+            return;
+#endif
             throw new NotImplementedException();
         }
     }
