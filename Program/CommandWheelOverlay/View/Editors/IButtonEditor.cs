@@ -7,7 +7,8 @@ namespace CommandWheelOverlay.View.Editors
 {
     public interface IButtonEditor
     {
-        IWheelButton CreateButton();
-        IWheelButton EditButton(IWheelButton button);
+        IWheelButton AddButton(IWheelElements elements);
+        void EditButton(IWheelButton button, IWheelElements elements);
+        void RemoveButton(IWheelButton button, IWheelElements elements);
     }
 }
