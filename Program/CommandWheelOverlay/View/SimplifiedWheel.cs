@@ -11,11 +11,17 @@ namespace CommandWheelOverlay.View
         public int[] AccentColor { get; }
         public int[] BgColor { get; }
 
-        public SimplifiedWheel(int[] buttonIndices, int[] accentColor, int[] bgColor)
+        public SimplifiedWheel(int[] buttonIndices, Color accentColor, Color bgColor)
         {
             ButtonIndices = buttonIndices;
-            AccentColor = accentColor;
-            BgColor = bgColor;
+            AccentColor = ToArray(accentColor);
+            BgColor = ToArray(bgColor);
+
+            int[] ToArray(Color color)
+            {
+                return new int[] { color.R, color.G, color.B, color.A };
+            }
         }
+
     }
 }
