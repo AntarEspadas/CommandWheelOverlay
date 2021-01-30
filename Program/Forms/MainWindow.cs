@@ -21,7 +21,19 @@ namespace CommandWheelForms
         {
             InitializeComponent();
             view = new TcpOverlayView(null, 7777);
-            view.Connect();
+            while (true)
+            {
+                try
+                {
+                    view.Connect();
+                    break;
+                }
+                catch (System.Net.Sockets.SocketException)
+                {
+                    continue;
+                }
+            }
+            
         }
 
         protected override void WndProc(ref Message m)
@@ -54,15 +66,14 @@ namespace CommandWheelForms
             };
             RawInputDevice.RegisterDevice(registrations);
         }
-
+        private void MainWindow_Shown(object sender, EventArgs e)
+        {
+            Hide();
+        }
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             RawInputDevice.UnregisterDevice(HidUsageAndPage.Keyboard);
             RawInputDevice.UnregisterDevice(HidUsageAndPage.Mouse);
-        }
-        private void MainWindow_Shown(object sender, EventArgs e)
-        {
-            Hide();
         }
     }
 }
