@@ -27,7 +27,7 @@ namespace CommandWheelOverlay.Connection
         }
         public void Connect()
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             client.Connect(IPAddress.Parse("127.0.0.1"), port);
@@ -36,7 +36,7 @@ namespace CommandWheelOverlay.Connection
 
         public void SendInput(KeyboardInput input)
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             Validate();
@@ -45,7 +45,7 @@ namespace CommandWheelOverlay.Connection
 
         public void SendInput(MouseInput input)
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             Validate();
@@ -54,7 +54,7 @@ namespace CommandWheelOverlay.Connection
 
         public void UpdateElements(ISimplifiedWheelElements elements)
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             Validate();
@@ -63,7 +63,7 @@ namespace CommandWheelOverlay.Connection
 
         public void UpdateSettings(IUserSettings settings)
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             Validate();

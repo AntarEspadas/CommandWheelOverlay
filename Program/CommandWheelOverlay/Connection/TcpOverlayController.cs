@@ -29,7 +29,7 @@ namespace CommandWheelOverlay.Connection
 
         public void Connect()
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             listener.Start();
@@ -38,7 +38,7 @@ namespace CommandWheelOverlay.Connection
         }
         public void PerformAction(int actionIndex)
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             bridge.Pass(parameters: actionIndex);
@@ -46,7 +46,7 @@ namespace CommandWheelOverlay.Connection
 
         void IOverlayController.UpdateElements()
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             throw new NotImplementedException();
@@ -54,7 +54,7 @@ namespace CommandWheelOverlay.Connection
 
         void IOverlayController.UpdateSettings()
         {
-#if NO_CONNECTION || UNITY_EDITOR
+#if NO_CONNECTION
             return;
 #endif
             throw new NotImplementedException();
