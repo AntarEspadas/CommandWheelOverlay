@@ -10,8 +10,8 @@ namespace CommandWheelOverlay.Controller
     public class WheelElements : IWheelElements
     {
         public IElementsEditor Editor { get; set; }
-        public IList<IWheel> Wheels { get; set; }
-        public IList<IWheelButton> Buttons { get; set; }
+        public IList<IWheel> Wheels { get; set; } = new List<IWheel>();
+        public IList<IWheelButton> Buttons { get; set; } = new List<IWheelButton>();
 
         public object Clone()
         {
