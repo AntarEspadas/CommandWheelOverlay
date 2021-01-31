@@ -189,6 +189,13 @@
     <Compile Include="Editors\ElementsEditorForm.Designer.cs">
       <DependentUpon>ElementsEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\WheelEditor.cs" />
+    <Compile Include="Editors\WheelEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\WheelEditorForm.Designer.cs">
+      <DependentUpon>WheelEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +206,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Editors\ElementsEditorForm.resx">
       <DependentUpon>ElementsEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\WheelEditorForm.resx">
+      <DependentUpon>WheelEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

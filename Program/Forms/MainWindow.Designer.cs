@@ -106,6 +106,7 @@ namespace CommandWheelForms
             this.Controls.Add(this.editSettingsButton);
             this.Controls.Add(this.editElementsButton);
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);

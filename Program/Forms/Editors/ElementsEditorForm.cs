@@ -1,4 +1,5 @@
 ﻿using CommandWheelOverlay.Controller;
+using CommandWheelOverlay.View.Editors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,35 +15,44 @@ namespace CommandWheelForms.Editors
 {
     public partial class ElementsEditorForm : Form
     {
-        private IList<IWheel> wheels;
-        private IList<IWheelButton> buttons;
-        public ElementsEditorForm() : this(new List<IWheel>(), new List<IWheelButton>())
-        {
-        }
+        private IWheelElements elements;
 
-        public ElementsEditorForm(IList<IWheel> wheels, IList<IWheelButton> buttons)
+        public ElementsEditorForm(IWheelElements elements)
         {
             InitializeComponent();
-            this.wheels = wheels;
-            this.buttons = buttons;
+            this.elements = elements;
+            UpdateButtonsList();
+            UpdateWheelsList();
         }
 
-        private void UpdateButtonsList()
+        private void UpdateWheelsList()
         {
             wheelsListView.Items.Clear();
-            for (int i = 0; i < wheels.Count; i++)
+            for (int i = 0; i < elements.Wheels.Count; i++)
             {
                 wheelsListView.Items.Add($"Wheel {i + 1}");
             }
         }
 
-        private void UpdateWheelsList()
+        private void UpdateButtonsList()
         {
             buttonsListView.Items.Clear();
-            for (int i = 0; i < buttons.Count; i++)
+            for (int i = 0; i < elements.Buttons.Count; i++)
             {
                 buttonsListView.Items.Add($"Button {i + 1}");
             }
+        }
+
+        private void addWheelButton_Click(object sender, EventArgs e)
+        {
+            elements.Editor.WheelEditor.AddWheel(elements);
+            UpdateWheelsList();
+        }
+
+        private void addButtonButton_Click(object sender, EventArgs e)
+        {
+            elements.Editor.ButtonEditor.AddButton(elements);
+            UpdateButtonsList();
         }
     }
 }

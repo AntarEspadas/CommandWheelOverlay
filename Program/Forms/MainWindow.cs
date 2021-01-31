@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CommandWheelForms.Editors;
 using CommandWheelOverlay.Connection;
 using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.Input;
@@ -25,7 +26,10 @@ namespace CommandWheelForms
         {
             IWheelElements elements = new WheelElements()
             {
-                Editor = null
+                Editor = new ElementsEditor()
+                {
+                    WheelEditor = new WheelEditor<Wheel>()
+                }
             };
             controller = new OverlayController(elements, null);
             InitializeComponent();
