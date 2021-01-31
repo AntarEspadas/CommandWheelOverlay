@@ -18,7 +18,8 @@ namespace CommandWheelOverlay.Controller
             WheelElements clone = new WheelElements
             {
                 Wheels = new List<IWheel>(Wheels.Count),
-                Buttons = new List<IWheelButton>(Buttons.Count)
+                Buttons = new List<IWheelButton>(Buttons.Count),
+                Editor = Editor
             };
             var wheelsDict = new Dictionary<IWheel, int>();
             var buttonsDict = new Dictionary<IWheelButton, int>();
