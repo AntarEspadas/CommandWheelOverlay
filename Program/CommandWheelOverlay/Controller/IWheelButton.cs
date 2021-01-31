@@ -5,7 +5,7 @@ using CommandWheelOverlay.View;
 
 namespace CommandWheelOverlay.Controller
 {
-    public interface IWheelButton
+    public interface IWheelButton : ICloneable
     {
         string Label { get; set; }
         string ImgPath { get; set; }

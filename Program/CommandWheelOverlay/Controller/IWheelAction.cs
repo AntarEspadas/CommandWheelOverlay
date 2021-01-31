@@ -5,7 +5,7 @@ using CommandWheelOverlay.View;
 
 namespace CommandWheelOverlay.Controller
 {
-    public interface IWheelAction
+    public interface IWheelAction : ICloneable
     {
         void Perform();
 

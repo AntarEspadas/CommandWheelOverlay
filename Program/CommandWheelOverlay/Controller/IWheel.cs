@@ -6,7 +6,7 @@ using CommandWheelOverlay.View;
 
 namespace CommandWheelOverlay.Controller
 {
-    public interface IWheel
+    public interface IWheel : ICloneable
     {
         IList<IWheelButton> Buttons { get; set; }
         Color AccentColor { get; set; }
