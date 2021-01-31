@@ -37,8 +37,8 @@ namespace CommandWheelForms.Editors
             this.addWheel = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.wheelsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -146,8 +146,8 @@ namespace CommandWheelForms.Editors
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.wheelsLayoutPanel, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.buttonsLayoutPanel, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -157,23 +157,25 @@ namespace CommandWheelForms.Editors
             this.tableLayoutPanel4.Size = new System.Drawing.Size(632, 455);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // flowLayoutPanel1
+            // wheelsLayoutPanel
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 449);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.wheelsLayoutPanel.AutoScroll = true;
+            this.wheelsLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.wheelsLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wheelsLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.wheelsLayoutPanel.Name = "wheelsLayoutPanel";
+            this.wheelsLayoutPanel.Size = new System.Drawing.Size(310, 449);
+            this.wheelsLayoutPanel.TabIndex = 0;
             // 
-            // flowLayoutPanel2
+            // buttonsLayoutPanel
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(319, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(310, 449);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this.buttonsLayoutPanel.AutoScroll = true;
+            this.buttonsLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonsLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonsLayoutPanel.Location = new System.Drawing.Point(319, 3);
+            this.buttonsLayoutPanel.Name = "buttonsLayoutPanel";
+            this.buttonsLayoutPanel.Size = new System.Drawing.Size(310, 449);
+            this.buttonsLayoutPanel.TabIndex = 0;
             // 
             // ElementsEditorForm
             // 
@@ -202,7 +204,7 @@ namespace CommandWheelForms.Editors
         private System.Windows.Forms.Button addWheel;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel wheelsLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel buttonsLayoutPanel;
     }
 }
