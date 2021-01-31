@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CommandWheelOverlay.Controller
 {
-    class WheelElements : IWheelElements
+    public class WheelElements : IWheelElements
     {
         public IElementsEditor Editor { get; set; }
         public IList<IWheel> Wheels { get; set; }
