@@ -23,7 +23,11 @@ namespace CommandWheelForms
         private OverlayController controller;
         public MainWindow()
         {
-            controller = new OverlayController();
+            IWheelElements elements = new WheelElements()
+            {
+                Editor = null
+            };
+            controller = new OverlayController(elements, null);
             InitializeComponent();
             view = new TcpOverlayView(controller, 7777);
             while (true)
