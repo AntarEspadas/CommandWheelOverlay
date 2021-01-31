@@ -17,5 +17,9 @@ namespace CommandWheelForms.Controlls
         {
             InitializeComponent();
         }
+        public ElementListItem(object element) : this()
+        {
+            Element = element;
+        }
     }
 }
