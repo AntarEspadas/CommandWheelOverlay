@@ -182,6 +182,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Editors\ButtonEditor.cs" />
+    <Compile Include="Editors\ButtonEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\ButtonEditorForm.Designer.cs">
+      <DependentUpon>ButtonEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editors\ElementsEditor.cs" />
     <Compile Include="Editors\ElementsEditorForm.cs">
       <SubType>Form</SubType>
@@ -204,6 +211,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Editors\ButtonEditorForm.resx">
+      <DependentUpon>ButtonEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editors\ElementsEditorForm.resx">
       <DependentUpon>ElementsEditorForm.cs</DependentUpon>
     </EmbeddedResource>
