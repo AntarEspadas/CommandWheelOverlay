@@ -102,6 +102,6 @@ namespace CommandWheelForms.Controlls
         private System.Windows.Forms.TableLayoutPanel mainPanel;
         public System.Windows.Forms.Button deleteButton;
         public System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label1;
     }
 }
