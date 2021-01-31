@@ -8,7 +8,7 @@ namespace CommandWheelOverlay.View.Editors
     public interface IWheelEditor
     {
         IWheel AddWheel(IWheelElements elements);
-        void EditWheel(IWheel wheel, IWheelElements elements);
-        void RemoveWheel(IWheel wheel, IWheelElements elements);
+        bool EditWheel(IWheel wheel, IWheelElements elements);
+        bool RemoveWheel(IWheel wheel, IWheelElements elements);
     }
 }
