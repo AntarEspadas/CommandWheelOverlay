@@ -27,29 +27,29 @@ namespace CommandWheelForms.Editors
 
         private void UpdateWheelsList()
         {
-            wheelsListView.Items.Clear();
-            for (int i = 0; i < elements.Wheels.Count; i++)
-            {
-                wheelsListView.Items.Add($"Wheel {i + 1}");
-            }
+            //wheelsListView.Items.Clear();
+            //for (int i = 0; i < elements.Wheels.Count; i++)
+            //{
+            //    wheelsListView.Items.Add($"Wheel {i + 1}");
+            //}
         }
 
         private void UpdateButtonsList()
         {
-            buttonsListView.Items.Clear();
-            for (int i = 0; i < elements.Buttons.Count; i++)
-            {
-                buttonsListView.Items.Add($"Button {i + 1}");
-            }
+            //buttonsListView.Items.Clear();
+            //for (int i = 0; i < elements.Buttons.Count; i++)
+            //{
+            //    buttonsListView.Items.Add($"Button {i + 1}");
+            //}
         }
 
-        private void addWheelButton_Click(object sender, EventArgs e)
+        private void AddWheelClick(object sender, EventArgs e)
         {
             elements.Editor.WheelEditor.AddWheel(elements);
             UpdateWheelsList();
         }
 
-        private void addButtonButton_Click(object sender, EventArgs e)
+        private void AddButtonClick(object sender, EventArgs e)
         {
             elements.Editor.ButtonEditor.AddButton(elements);
             UpdateButtonsList();

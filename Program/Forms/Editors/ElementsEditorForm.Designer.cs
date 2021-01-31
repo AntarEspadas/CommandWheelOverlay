@@ -29,97 +29,180 @@ namespace CommandWheelForms.Editors
         /// </summary>
         private void InitializeComponent()
         {
-            this.wheelsListView = new System.Windows.Forms.ListView();
-            this.buttonsListView = new System.Windows.Forms.ListView();
-            this.addWheelButton = new System.Windows.Forms.Button();
-            this.addButtonButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.addWheel = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // wheelsListView
+            // tableLayoutPanel1
             // 
-            this.wheelsListView.HideSelection = false;
-            this.wheelsListView.Location = new System.Drawing.Point(12, 73);
-            this.wheelsListView.Name = "wheelsListView";
-            this.wheelsListView.Size = new System.Drawing.Size(197, 426);
-            this.wheelsListView.TabIndex = 0;
-            this.wheelsListView.UseCompatibleStateImageBehavior = false;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(638, 541);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // buttonsListView
+            // tableLayoutPanel2
             // 
-            this.buttonsListView.HideSelection = false;
-            this.buttonsListView.Location = new System.Drawing.Point(234, 73);
-            this.buttonsListView.Name = "buttonsListView";
-            this.buttonsListView.Size = new System.Drawing.Size(200, 426);
-            this.buttonsListView.TabIndex = 0;
-            this.buttonsListView.UseCompatibleStateImageBehavior = false;
-            // 
-            // addWheelButton
-            // 
-            this.addWheelButton.Location = new System.Drawing.Point(12, 33);
-            this.addWheelButton.Name = "addWheelButton";
-            this.addWheelButton.Size = new System.Drawing.Size(197, 34);
-            this.addWheelButton.TabIndex = 1;
-            this.addWheelButton.Text = "Add Wheel";
-            this.addWheelButton.UseVisualStyleBackColor = true;
-            this.addWheelButton.Click += new System.EventHandler(this.addWheelButton_Click);
-            // 
-            // addButtonButton
-            // 
-            this.addButtonButton.Location = new System.Drawing.Point(234, 33);
-            this.addButtonButton.Name = "addButtonButton";
-            this.addButtonButton.Size = new System.Drawing.Size(197, 34);
-            this.addButtonButton.TabIndex = 1;
-            this.addButtonButton.Text = "Add Button";
-            this.addButtonButton.UseVisualStyleBackColor = true;
-            this.addButtonButton.Click += new System.EventHandler(this.addButtonButton_Click);
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.okButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cancelButton, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 504);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(632, 34);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // okButton
             // 
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(12, 506);
+            this.okButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.okButton.Location = new System.Drawing.Point(3, 3);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 2;
+            this.okButton.Size = new System.Drawing.Size(94, 28);
+            this.okButton.TabIndex = 1;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(356, 506);
+            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelButton.Location = new System.Drawing.Point(535, 3);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 2;
+            this.cancelButton.Size = new System.Drawing.Size(94, 28);
+            this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 5;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.Controls.Add(this.addWheel, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.addButton, 3, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 464);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(632, 34);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // addWheel
+            // 
+            this.addWheel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addWheel.Location = new System.Drawing.Point(111, 3);
+            this.addWheel.Name = "addWheel";
+            this.addWheel.Size = new System.Drawing.Size(94, 28);
+            this.addWheel.TabIndex = 0;
+            this.addWheel.Text = "Add Wheel";
+            this.addWheel.UseVisualStyleBackColor = true;
+            this.addWheel.Click += new System.EventHandler(this.AddWheelClick);
+            // 
+            // addButton
+            // 
+            this.addButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addButton.Location = new System.Drawing.Point(427, 3);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(94, 28);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Add Button";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButtonClick);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(632, 455);
+            this.tableLayoutPanel4.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 449);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(319, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(310, 449);
+            this.flowLayoutPanel2.TabIndex = 0;
             // 
             // ElementsEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 541);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.okButton);
-            this.Controls.Add(this.addButtonButton);
-            this.Controls.Add(this.addWheelButton);
-            this.Controls.Add(this.buttonsListView);
-            this.Controls.Add(this.wheelsListView);
+            this.ClientSize = new System.Drawing.Size(638, 541);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ElementsEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ElementsEditorForm";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView wheelsListView;
-        private System.Windows.Forms.ListView buttonsListView;
-        private System.Windows.Forms.Button addWheelButton;
-        private System.Windows.Forms.Button addButtonButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button addWheel;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }
