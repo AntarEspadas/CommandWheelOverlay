@@ -17,6 +17,17 @@ namespace CommandWheelOverlay.Controller
         public IUserSettings Settings => settings;
         private IUserSettings settings;
 
+        public OverlayController()
+        {
+
+        }
+
+        public OverlayController(IWheelElements elements, IUserSettings settings)
+        {
+            this.elements = elements;
+            this.settings = settings;
+        }
+
         public void PerformAction(int actionIndex)
         {
             Elements.Buttons[actionIndex].Action.Perform();
