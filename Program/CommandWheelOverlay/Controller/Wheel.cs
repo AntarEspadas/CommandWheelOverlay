@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace CommandWheelOverlay.Controller
 {
-    class Wheel : IWheel
+    public class Wheel : IWheel
     {
         public IList<IWheelButton> Buttons { get; set; } = new List<IWheelButton>();
         public Color AccentColor { get; set; } = Color.White;
