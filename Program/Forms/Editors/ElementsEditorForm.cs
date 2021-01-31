@@ -1,4 +1,5 @@
-﻿using CommandWheelOverlay.Controller;
+﻿using CommandWheelForms.Controlls;
+using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.View.Editors;
 using System;
 using System.Collections.Generic;
@@ -27,32 +28,80 @@ namespace CommandWheelForms.Editors
 
         private void UpdateWheelsList()
         {
-            //wheelsListView.Items.Clear();
-            //for (int i = 0; i < elements.Wheels.Count; i++)
-            //{
-            //    wheelsListView.Items.Add($"Wheel {i + 1}");
-            //}
+            wheelsLayoutPanel.Controls.Clear();
+            for (int i = 0; i < elements.Wheels.Count; i++)
+            {
+                var item = new ElementListItem(elements.Wheels[i]);
+                item.label1.Text = $"Wheel {i + 1}";
+                item.deleteButton.Click += DeleteWheel_Click;
+                item.editButton.Click += EditWheel_Click;
+                wheelsLayoutPanel.Controls.Add(item);
+            }
         }
 
         private void UpdateButtonsList()
         {
-            //buttonsListView.Items.Clear();
-            //for (int i = 0; i < elements.Buttons.Count; i++)
-            //{
-            //    buttonsListView.Items.Add($"Button {i + 1}");
-            //}
+            buttonsLayoutPanel.Controls.Clear();
+            for (int i = 0; i < elements.Buttons.Count; i++)
+            {
+                var item = new ElementListItem(elements.Buttons[i]);
+                item.label1.Text = elements.Buttons[i].Label;
+                item.deleteButton.Click += DeleteButton_Click;
+                item.editButton.Click += EditButton_Click;
+                buttonsLayoutPanel.Controls.Add(item);
+            }
+        }
+
+
+        private void ActOnElement<T>(object child, Func<T, IWheelElements, bool> action)
+        {
+            ElementListItem item = (ElementListItem)((Button)child).Parent.Parent;
+            bool reload = action((T)item.Element, elements);
+            if (reload)
+            {
+                UpdateWheelsList();
+                UpdateButtonsList();
+            }
+        }
+
+        private void EditWheel_Click(object sender, EventArgs e)
+        {
+            ActOnElement<IWheel>(sender, elements.Editor.WheelEditor.EditWheel);
+        }
+
+        private void DeleteWheel_Click(object sender, EventArgs e)
+        {
+            ActOnElement<IWheel>(sender, elements.Editor.WheelEditor.RemoveWheel);
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            ActOnElement<IWheelButton>(sender, elements.Editor.ButtonEditor.EditButton);
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            ActOnElement<IWheelButton>(sender, elements.Editor.ButtonEditor.RemoveButton);
         }
 
         private void AddWheelClick(object sender, EventArgs e)
         {
-            elements.Editor.WheelEditor.AddWheel(elements);
-            UpdateWheelsList();
+            var wheel = elements.Editor.WheelEditor.AddWheel(elements);
+            if (wheel != null)
+            {
+                UpdateWheelsList();
+                UpdateButtonsList();
+            }
         }
 
         private void AddButtonClick(object sender, EventArgs e)
         {
-            elements.Editor.ButtonEditor.AddButton(elements);
-            UpdateButtonsList();
+            var button = elements.Editor.ButtonEditor.AddButton(elements);
+            if (button != null)
+            {
+                UpdateWheelsList();
+                UpdateButtonsList();
+            }
         }
     }
 }

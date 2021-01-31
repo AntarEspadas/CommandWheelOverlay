@@ -182,10 +182,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlls\ElementListItem.cs">
+    <Compile Include="Controls\ElementListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controlls\ElementListItem.Designer.cs">
+    <Compile Include="Controls\ElementListItem.Designer.cs">
       <DependentUpon>ElementListItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\ButtonEditor.cs" />
@@ -217,7 +217,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controlls\ElementListItem.resx">
+    <EmbeddedResource Include="Controls\ElementListItem.resx">
       <DependentUpon>ElementListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editors\ButtonEditorForm.resx">
