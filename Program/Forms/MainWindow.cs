@@ -28,7 +28,8 @@ namespace CommandWheelForms
             {
                 Editor = new ElementsEditor()
                 {
-                    WheelEditor = new WheelEditor<Wheel>()
+                    WheelEditor = new WheelEditor<Wheel>(),
+                    ButtonEditor = new ButtonEditor<WheelButton>
                 }
             };
             controller = new OverlayController(elements, null);

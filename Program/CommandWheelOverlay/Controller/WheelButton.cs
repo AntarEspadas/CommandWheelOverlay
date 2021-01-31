@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CommandWheelOverlay.Controller
 {
-    class WheelButton : IWheelButton
+    public class WheelButton : IWheelButton
     {
         public string Label { get; set; } = "Button";
         public string ImgPath { get; set; } = null;
