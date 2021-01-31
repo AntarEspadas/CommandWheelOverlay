@@ -12,6 +12,13 @@ namespace CommandWheelOverlay.Controller
         public Color AccentColor { get; set; } = Color.White;
         public Color BgColor { get; set; } = Color.Black;
 
+        public object Clone()
+        {
+            var clone = (Wheel)MemberwiseClone();
+            clone.Buttons = new List<IWheelButton>(Buttons);
+            return clone;
+        }
+
         public SimplifiedWheel Simplify(IList<IWheelButton> buttons)
         {
             var buttonsDict = new Dictionary<IWheelButton, int>();

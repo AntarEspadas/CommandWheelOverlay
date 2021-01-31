@@ -8,6 +8,12 @@ namespace CommandWheelOverlay.Controller.Actions
     {
         public string ProgramPath { get; set; }
         public string Arguments { get; set; }
+
+        public object Clone()
+        {
+            return (OpenProgramAction)MemberwiseClone();
+        }
+
         public void Perform()
         {
             Process process = new Process();
