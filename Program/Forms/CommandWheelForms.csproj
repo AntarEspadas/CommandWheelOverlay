@@ -188,7 +188,20 @@
     <Compile Include="Controls\ElementListItem.Designer.cs">
       <DependentUpon>ElementListItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BasicLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BasicLayout.Designer.cs">
+      <DependentUpon>BasicLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\Actions\ShowSubwheelActionEditor.cs" />
     <Compile Include="Editors\ButtonEditor.cs" />
+    <Compile Include="Forms\Actions\ShowSubwheelActionEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Actions\ShowSubwheelActionEditorForm.Designer.cs">
+      <DependentUpon>ShowSubwheelActionEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ButtonEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +238,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\ElementListItem.resx">
       <DependentUpon>ElementListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BasicLayout.resx">
+      <DependentUpon>BasicLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Actions\ShowSubwheelActionEditorForm.resx">
+      <DependentUpon>ShowSubwheelActionEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ButtonEditorForm.resx">
       <DependentUpon>ButtonEditorForm.cs</DependentUpon>

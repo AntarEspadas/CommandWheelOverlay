@@ -68,7 +68,7 @@ namespace CommandWheelForms.Forms
             if (actionComboBox.SelectedIndex == 0) Action = null;
             else
             {
-                Action = elements.Editor.ActionEditors[actionComboBox.SelectedIndex + 1].CreateAction();
+                Action = elements.Editor.ActionEditors[actionComboBox.SelectedIndex + 1].CreateAction(elements);
                 if (Action is null) actionComboBox.SelectedIndex = 0;
             }
         }
@@ -77,7 +77,7 @@ namespace CommandWheelForms.Forms
         {
             if (actionComboBox.SelectedIndex == 0) return;
             Hide();
-            elements.Editor.ActionEditors[actionComboBox.SelectedIndex - 1].EditAction(Action);
+            elements.Editor.ActionEditors[actionComboBox.SelectedIndex - 1].EditAction(Action, elements);
             Show();
         }
     }
