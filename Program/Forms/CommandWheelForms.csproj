@@ -196,6 +196,12 @@
       <DependentUpon>ButtonEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\ElementsEditor.cs" />
+    <Compile Include="Forms\ComfirmationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ComfirmationDialog.Designer.cs">
+      <DependentUpon>ComfirmationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ElementsEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ButtonEditorForm.resx">
       <DependentUpon>ButtonEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ComfirmationDialog.resx">
+      <DependentUpon>ComfirmationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ElementsEditorForm.resx">
       <DependentUpon>ElementsEditorForm.cs</DependentUpon>

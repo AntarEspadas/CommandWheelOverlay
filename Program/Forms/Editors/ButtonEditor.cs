@@ -36,12 +36,15 @@ namespace CommandWheelForms.Editors
 
         public bool RemoveButton(IWheelButton button, IWheelElements elements)
         {
-            bool result = false;
+            var dialog = new ComfirmationDialog($"Are you sure you wish to delete button '{button.Label}'?", "Comfirmation");
+            if (dialog.ShowDialog() != DialogResult.OK)
+                return false;
+            elements.Buttons.Remove(button);
             foreach (IWheel wheel in elements.Wheels)
             {
-                result |= wheel.Buttons.Remove(button);
+                wheel.Buttons.Remove(button);
             }
-            return result;
+            return true;
         }
 
         IWheelButton IButtonEditor.AddButton(IWheelElements elements) => AddButton(elements);
