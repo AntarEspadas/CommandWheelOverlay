@@ -1,5 +1,5 @@
 ﻿
-namespace CommandWheelForms
+namespace CommandWheelForms.Forms
 {
     partial class MainWindow
     {

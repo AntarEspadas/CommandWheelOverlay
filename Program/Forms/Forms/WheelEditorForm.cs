@@ -9,23 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CommandWheelForms.Editors
+namespace CommandWheelForms.Forms
 {
-    public partial class ButtonEditorForm : Form
+    public partial class WheelEditorForm : Form
     {
-        private IWheelButton button;
+        private IWheel wheel;
         private IWheelElements elements;
-
-        public ButtonEditorForm(IWheelButton button, IWheelElements elements)
+        public WheelEditorForm(IWheel wheel, IWheelElements elements)
         {
             InitializeComponent();
-            this.button = button;
+            this.wheel = wheel;
             this.elements = elements;
-        }
-
-        private void ButtonEditorForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

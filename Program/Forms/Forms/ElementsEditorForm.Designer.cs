@@ -1,5 +1,5 @@
 ﻿
-namespace CommandWheelForms.Editors
+namespace CommandWheelForms.Forms
 {
     partial class ElementsEditorForm
     {

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListView;
 
-namespace CommandWheelForms.Editors
+namespace CommandWheelForms.Forms
 {
     public partial class ElementsEditorForm : Form
     {

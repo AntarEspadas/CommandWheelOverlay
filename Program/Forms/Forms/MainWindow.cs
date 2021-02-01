@@ -14,7 +14,7 @@ using CommandWheelOverlay.Input;
 using CommandWheelOverlay.View;
 using Linearstar.Windows.RawInput;
 
-namespace CommandWheelForms
+namespace CommandWheelForms.Forms
 {
     partial class MainWindow : Form
     {

@@ -7,6 +7,7 @@ using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
 using CommandWheelOverlay.Connection;
 using CommandWheelOverlay.Input;
+using CommandWheelForms.Forms;
 
 namespace CommandWheelForms
 {
