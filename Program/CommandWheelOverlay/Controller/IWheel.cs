@@ -11,6 +11,7 @@ namespace CommandWheelOverlay.Controller
         IList<IWheelButton> Buttons { get; set; }
         Color AccentColor { get; set; }
         Color BgColor { get; set; }
+        string Label { get; set; }
 
         SimplifiedWheel Simplify(IList<IWheelButton> buttons);
     }
