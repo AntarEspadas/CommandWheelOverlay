@@ -24,7 +24,7 @@ namespace CommandWheelOverlay.Controller.Actions
 
         public SimplifiedWheelAction Simplify()
         {
-            return new SimplifiedWheelAction(2);
+            return new SimplifiedWheelAction(WheelActionType.Other);
         }
     }
 }
