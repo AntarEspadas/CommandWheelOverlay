@@ -36,6 +36,7 @@ namespace CommandWheelForms.Editors
                 item.deleteButton.Click += DeleteWheel_Click;
                 item.editButton.Click += EditWheel_Click;
                 wheelsLayoutPanel.Controls.Add(item);
+                AdjustWidth(item);
             }
         }
 
@@ -49,6 +50,7 @@ namespace CommandWheelForms.Editors
                 item.deleteButton.Click += DeleteButton_Click;
                 item.editButton.Click += EditButton_Click;
                 buttonsLayoutPanel.Controls.Add(item);
+                AdjustWidth(item);
             }
         }
 
@@ -82,6 +84,24 @@ namespace CommandWheelForms.Editors
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             ActOnElement<IWheelButton>(sender, elements.Editor.ButtonEditor.RemoveButton);
+        }
+
+        private void ElementsEditorForm_Resize(object sender, EventArgs e)
+        {
+            foreach (Control control in wheelsLayoutPanel.Controls)
+            {
+                AdjustWidth(control);
+            }
+            foreach (Control control in buttonsLayoutPanel.Controls)
+            {
+                AdjustWidth(control);
+            }
+        }
+
+        private void AdjustWidth(Control control)
+        {
+            Control parent = control.Parent;
+            control.Width = parent.Width - control.Margin.Left - control.Margin.Right;
         }
 
         private void AddWheelClick(object sender, EventArgs e)
