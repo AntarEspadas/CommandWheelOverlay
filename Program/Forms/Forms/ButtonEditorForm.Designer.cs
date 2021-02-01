@@ -123,9 +123,9 @@ namespace CommandWheelForms.Forms
             // 
             // editActionButton
             // 
-            this.editActionButton.Location = new System.Drawing.Point(177, 116);
+            this.editActionButton.Location = new System.Drawing.Point(282, 114);
             this.editActionButton.Name = "editActionButton";
-            this.editActionButton.Size = new System.Drawing.Size(75, 23);
+            this.editActionButton.Size = new System.Drawing.Size(75, 26);
             this.editActionButton.TabIndex = 7;
             this.editActionButton.Text = "Edit";
             this.editActionButton.UseVisualStyleBackColor = true;
@@ -142,10 +142,11 @@ namespace CommandWheelForms.Forms
             // 
             // actionComboBox
             // 
+            this.actionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.actionComboBox.FormattingEnabled = true;
             this.actionComboBox.Location = new System.Drawing.Point(12, 116);
             this.actionComboBox.Name = "actionComboBox";
-            this.actionComboBox.Size = new System.Drawing.Size(121, 24);
+            this.actionComboBox.Size = new System.Drawing.Size(240, 24);
             this.actionComboBox.TabIndex = 5;
             this.actionComboBox.SelectedValueChanged += new System.EventHandler(this.actionComboBox_SelectedValueChanged);
             // 
