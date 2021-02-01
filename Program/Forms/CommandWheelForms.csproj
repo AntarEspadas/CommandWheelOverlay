@@ -188,11 +188,11 @@
     <Compile Include="Controls\ElementListItem.Designer.cs">
       <DependentUpon>ElementListItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\BasicLayout.cs">
+    <Compile Include="Controls\ButtonLayout.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\BasicLayout.Designer.cs">
-      <DependentUpon>BasicLayout.cs</DependentUpon>
+    <Compile Include="Controls\ButtonLayout.Designer.cs">
+      <DependentUpon>ButtonLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\Actions\ShowSubwheelActionEditor.cs" />
     <Compile Include="Editors\ButtonEditor.cs" />
@@ -239,8 +239,8 @@
     <EmbeddedResource Include="Controls\ElementListItem.resx">
       <DependentUpon>ElementListItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\BasicLayout.resx">
-      <DependentUpon>BasicLayout.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ButtonLayout.resx">
+      <DependentUpon>ButtonLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Actions\ShowSubwheelActionEditorForm.resx">
       <DependentUpon>ShowSubwheelActionEditorForm.cs</DependentUpon>

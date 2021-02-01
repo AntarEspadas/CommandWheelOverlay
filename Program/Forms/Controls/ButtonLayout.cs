@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace CommandWheelForms.Controls
 {
-    public partial class BasicLayout : UserControl
+    public partial class ButtonLayout : UserControl
     {
         public event EventHandler ClickOkButton;
         public event EventHandler ClickCancelButton;
 
-        public BasicLayout()
+        public ButtonLayout()
         {
             InitializeComponent();
         }
