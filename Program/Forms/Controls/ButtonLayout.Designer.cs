@@ -63,6 +63,7 @@ namespace CommandWheelForms.Controls
             this.okButton.TabIndex = 0;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // cancelButton
             // 
@@ -73,14 +74,15 @@ namespace CommandWheelForms.Controls
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // BasicLayout
+            // ButtonLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonTable);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "BasicLayout";
+            this.Name = "ButtonLayout";
             this.Size = new System.Drawing.Size(335, 40);
             this.buttonTable.ResumeLayout(false);
             this.ResumeLayout(false);
