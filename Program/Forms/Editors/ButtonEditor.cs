@@ -29,6 +29,9 @@ namespace CommandWheelForms.Editors
             ButtonEditorForm form = new ButtonEditorForm(button, elements);
             if (form.ShowDialog() == DialogResult.OK)
             {
+                button.Label = form.Label;
+                button.ImgPath = form.ImgPath;
+                button.Action = form.Action;
                 return true;
             }
             return false;
