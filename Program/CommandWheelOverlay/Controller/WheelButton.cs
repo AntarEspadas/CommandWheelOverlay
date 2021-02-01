@@ -9,7 +9,6 @@ namespace CommandWheelOverlay.Controller
     {
         public string Label { get; set; } = "Button";
         public string ImgPath { get; set; } = null;
-        public IWheel SubWheel { get; set; } = null;
         public IWheelAction Action { get; set; } = null;
 
         public object Clone()
@@ -21,9 +20,8 @@ namespace CommandWheelOverlay.Controller
 
         public SimplifiedWheelButton Simplify(IList<IWheel> wheels)
         {
-            int wheelIndex = SubWheel is null ? -1 : wheels.IndexOf(SubWheel);
-            SimplifiedWheelAction action = Action is null ? default : Action.Simplify();
-            return new SimplifiedWheelButton(Label, ImgPath, wheelIndex, action);
+            SimplifiedWheelAction action = Action is null ? default : Action.Simplify(wheels);
+            return new SimplifiedWheelButton(Label, ImgPath, action);
         }
     }
 }

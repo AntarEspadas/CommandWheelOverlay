@@ -9,7 +9,6 @@ namespace CommandWheelOverlay.Controller
     {
         string Label { get; set; }
         string ImgPath { get; set; }
-        IWheel SubWheel { get; set; }
         IWheelAction Action { get; set; }
 
         SimplifiedWheelButton Simplify(IList<IWheel> wheels);

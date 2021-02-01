@@ -42,9 +42,9 @@ namespace CommandWheelOverlay.Controller
                 }
             foreach (IWheelButton button in clone.Buttons)
             {
-                if (button.SubWheel is null) continue;
-                int wheelIndex = wheelsDict[button.SubWheel];
-                button.SubWheel = clone.Wheels[wheelIndex];
+                if (button.Action is null) continue;
+                int wheelIndex = wheelsDict[button.Action.SubWheel];
+                button.Action.SubWheel = clone.Wheels[wheelIndex];
             }
             return clone;
         }

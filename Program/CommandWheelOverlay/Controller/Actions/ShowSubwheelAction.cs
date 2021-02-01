@@ -7,6 +7,8 @@ namespace CommandWheelOverlay.Controller.Actions
 {
     public class ShowSubwheelAction : IWheelAction
     {
+        public IWheel SubWheel { get; set; }
+
         public object Clone()
         {
             return MemberwiseClone();
@@ -17,9 +19,10 @@ namespace CommandWheelOverlay.Controller.Actions
             throw new NotSupportedException();
         }
 
-        public SimplifiedWheelAction Simplify()
+        public SimplifiedWheelAction Simplify(IList<IWheel> wheels)
         {
-            return new SimplifiedWheelAction(WheelActionType.DisplaySubwheel);
+            int wheelIndex = SubWheel is null ? -1 : wheels.IndexOf(SubWheel);
+            return new SimplifiedWheelAction(WheelActionType.DisplaySubwheel, wheelIndex);
         }
     }
 }

@@ -7,11 +7,13 @@ namespace CommandWheelOverlay.View
     [Serializable]
     public struct SimplifiedWheelAction
     {
-        WheelActionType Type { get; }
+        public int SubWheelIndex { get; }
+        public WheelActionType Type { get; }
 
-        public SimplifiedWheelAction(WheelActionType type)
+        public SimplifiedWheelAction(WheelActionType type, int subWheelIndex)
         {
             Type = type;
+            SubWheelIndex = subWheelIndex;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CommandWheelOverlay.View;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace CommandWheelOverlay.Controller.Actions
@@ -8,6 +9,7 @@ namespace CommandWheelOverlay.Controller.Actions
     {
         public string ProgramPath { get; set; }
         public string Arguments { get; set; }
+        public IWheel SubWheel { get => null; set => throw new NotSupportedException(); }
 
         public object Clone()
         {
@@ -22,9 +24,9 @@ namespace CommandWheelOverlay.Controller.Actions
             process.Start();
         }
 
-        public SimplifiedWheelAction Simplify()
+        public SimplifiedWheelAction Simplify(IList<IWheel> wheels)
         {
-            return new SimplifiedWheelAction(WheelActionType.Other);
+            return new SimplifiedWheelAction(WheelActionType.Other, -1);
         }
     }
 }

@@ -7,8 +7,10 @@ namespace CommandWheelOverlay.Controller
 {
     public interface IWheelAction : ICloneable
     {
+        IWheel SubWheel { get; set; }
+
         void Perform();
 
-        SimplifiedWheelAction Simplify();
+        SimplifiedWheelAction Simplify(IList<IWheel> wheels);
     }
 }
