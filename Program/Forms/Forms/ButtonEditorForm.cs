@@ -41,6 +41,7 @@ namespace CommandWheelForms.Forms
                 if (index > -1)
                 {
                     comboboxChangedByUser = false;
+                    editActionButton.Enabled = true;
                     actionComboBox.SelectedIndex = index + 1;
                 }
             }
@@ -63,12 +64,16 @@ namespace CommandWheelForms.Forms
             if (!comboboxChangedByUser)
             {
                 comboboxChangedByUser = true;
-                return;
             }
-            if (actionComboBox.SelectedIndex == 0) Action = null;
+            else if (actionComboBox.SelectedIndex == 0)
+            {
+                Action = null;
+                editActionButton.Enabled = false;
+            }
             else
             {
                 Action = elements.Editor.ActionEditors[actionComboBox.SelectedIndex - 1].CreateAction(elements);
+                editActionButton.Enabled = true;
                 if (Action is null) actionComboBox.SelectedIndex = 0;
             }
         }
