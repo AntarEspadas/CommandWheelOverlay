@@ -35,6 +35,7 @@ namespace CommandWheelForms.Editors
                 item.label1.Text = $"Wheel {i + 1}";
                 item.deleteButton.Click += DeleteWheel_Click;
                 item.editButton.Click += EditWheel_Click;
+                item.BackColor = Color.LightGray;
                 wheelsLayoutPanel.Controls.Add(item);
                 AdjustWidth(item);
             }
@@ -49,11 +50,11 @@ namespace CommandWheelForms.Editors
                 item.label1.Text = elements.Buttons[i].Label;
                 item.deleteButton.Click += DeleteButton_Click;
                 item.editButton.Click += EditButton_Click;
+                item.BackColor = Color.LightGray;
                 buttonsLayoutPanel.Controls.Add(item);
                 AdjustWidth(item);
             }
         }
-
 
         private void ActOnElement<T>(object child, Func<T, IWheelElements, bool> action)
         {
