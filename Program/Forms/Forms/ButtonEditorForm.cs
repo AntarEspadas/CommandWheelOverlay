@@ -41,7 +41,7 @@ namespace CommandWheelForms.Forms
                 if (index > -1)
                 {
                     comboboxChangedByUser = false;
-                    actionComboBox.SelectedIndex = index;
+                    actionComboBox.SelectedIndex = index + 1;
                 }
             }
 
