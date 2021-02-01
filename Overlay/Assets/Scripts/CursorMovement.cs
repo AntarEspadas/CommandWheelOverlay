@@ -74,7 +74,7 @@ public class CursorMovement : MonoBehaviour
             movement.y -= input.LastY * sensitivity;
         }
 
-        public void UpdateElements(ISimplifiedWheelElements elements)
+        public void UpdateElements(SimplifiedWheelElements elements)
         {
             throw new System.NotImplementedException();
         }
