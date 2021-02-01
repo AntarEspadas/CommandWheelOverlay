@@ -32,7 +32,7 @@ namespace CommandWheelForms.Forms
             for (int i = 0; i < elements.Wheels.Count; i++)
             {
                 var item = new ElementListItem(elements.Wheels[i]);
-                item.label1.Text = $"Wheel {i + 1}";
+                item.label1.Text = elements.Wheels[i].Label;
                 item.deleteButton.Click += DeleteWheel_Click;
                 item.editButton.Click += EditWheel_Click;
                 item.BackColor = Color.LightGray;
