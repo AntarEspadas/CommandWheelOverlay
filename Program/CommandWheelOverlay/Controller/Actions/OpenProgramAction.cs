@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace CommandWheelOverlay.Controller.Actions
 {
-    class OpenProgramAction : IWheelAction
+    public class OpenProgramAction : IWheelAction
     {
         public string ProgramPath { get; set; }
         public string Arguments { get; set; }
