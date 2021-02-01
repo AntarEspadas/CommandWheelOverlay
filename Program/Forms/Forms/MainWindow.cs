@@ -5,13 +5,14 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommandWheelForms.Editors;
 using CommandWheelOverlay.Connection;
 using CommandWheelOverlay.Controller;
+using CommandWheelOverlay.Controller.Actions;
 using CommandWheelOverlay.Input;
 using CommandWheelOverlay.View;
+using CommandWheelOverlay.View.Editors;
 using Linearstar.Windows.RawInput;
 
 namespace CommandWheelForms.Forms
@@ -29,7 +30,8 @@ namespace CommandWheelForms.Forms
                 Editor = new ElementsEditor()
                 {
                     WheelEditor = new WheelEditor<Wheel>(),
-                    ButtonEditor = new ButtonEditor<WheelButton>()
+                    ButtonEditor = new ButtonEditor<WheelButton>(),
+                    ActionEditors = new List<IActionEditor>() { }
                 }
             };
             controller = new OverlayController(elements, null);
