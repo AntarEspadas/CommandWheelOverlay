@@ -15,13 +15,15 @@ namespace CommandWheelOverlay.Controller
         public object Clone()
         {
             var clone = (WheelButton)MemberwiseClone();
-            clone.Action = (IWheelAction)Action.Clone();
+            clone.Action = Action is null ? default : (IWheelAction)Action.Clone();
             return clone;
         }
 
         public SimplifiedWheelButton Simplify(IList<IWheel> wheels)
         {
-            return new SimplifiedWheelButton(Label, ImgPath, wheels.IndexOf(SubWheel), Action.Simplify());
+            int wheelIndex = SubWheel is null ? -1 : wheels.IndexOf(SubWheel);
+            SimplifiedWheelAction action = Action is null ? default : Action.Simplify();
+            return new SimplifiedWheelButton(Label, ImgPath, wheelIndex, action);
         }
     }
 }
