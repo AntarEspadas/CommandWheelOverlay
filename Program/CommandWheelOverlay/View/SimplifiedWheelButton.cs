@@ -10,7 +10,7 @@ namespace CommandWheelOverlay.View
         public string Label { get; }
         public string ImgPath { get; }
         public int SubWheelIndex { get; }
-        public SimplifiedWheelAction Action { get; }
+        public SimplifiedWheelAction? Action { get; }
 
         public SimplifiedWheelButton(string label, string imgPath, int subWheelIndex, SimplifiedWheelAction action)
         {
