@@ -32,7 +32,7 @@ namespace CommandWheelForms.Forms.Actions
             this.subWheelLabel = new System.Windows.Forms.Label();
             this.subWheelComboBox = new System.Windows.Forms.ComboBox();
             this.subWheelEditButton = new System.Windows.Forms.Button();
-            this.basicLayout1 = new CommandWheelForms.Controls.BasicLayout();
+            this.basicLayout1 = new CommandWheelForms.Controls.ButtonLayout();
             this.SuspendLayout();
             // 
             // subWheelLabel
@@ -66,11 +66,11 @@ namespace CommandWheelForms.Forms.Actions
             // 
             // basicLayout1
             // 
-            this.basicLayout1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.basicLayout1.Location = new System.Drawing.Point(0, 0);
+            this.basicLayout1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.basicLayout1.Location = new System.Drawing.Point(0, 89);
             this.basicLayout1.Margin = new System.Windows.Forms.Padding(0);
             this.basicLayout1.Name = "basicLayout1";
-            this.basicLayout1.Size = new System.Drawing.Size(336, 129);
+            this.basicLayout1.Size = new System.Drawing.Size(336, 40);
             this.basicLayout1.TabIndex = 0;
             // 
             // ShowSubwheelActionEditorForm
@@ -92,7 +92,7 @@ namespace CommandWheelForms.Forms.Actions
 
         #endregion
 
-        private Controls.BasicLayout basicLayout1;
+        private Controls.ButtonLayout basicLayout1;
         private System.Windows.Forms.Label subWheelLabel;
         private System.Windows.Forms.ComboBox subWheelComboBox;
         private System.Windows.Forms.Button subWheelEditButton;
