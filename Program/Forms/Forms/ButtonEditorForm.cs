@@ -76,9 +76,7 @@ namespace CommandWheelForms.Forms
         private void editActionButton_Click(object sender, EventArgs e)
         {
             if (actionComboBox.SelectedIndex == 0) return;
-            Hide();
             elements.Editor.ActionEditors[actionComboBox.SelectedIndex - 1].EditAction(Action, elements);
-            Show();
         }
     }
 }
