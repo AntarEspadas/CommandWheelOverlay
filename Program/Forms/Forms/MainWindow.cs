@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CommandWheelForms.Editors;
+using CommandWheelForms.Editors.Actions;
 using CommandWheelOverlay.Connection;
 using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.Controller.Actions;
@@ -31,7 +32,7 @@ namespace CommandWheelForms.Forms
                 {
                     WheelEditor = new WheelEditor<Wheel>(),
                     ButtonEditor = new ButtonEditor<WheelButton>(),
-                    ActionEditors = new List<IActionEditor>() { }
+                    ActionEditors = new List<IActionEditor>() {new ShowSubwheelActionEditor() }
                 }
             };
             controller = new OverlayController(elements, null);
