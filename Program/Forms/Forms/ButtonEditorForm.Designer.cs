@@ -43,6 +43,7 @@ namespace CommandWheelForms.Forms
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.imageOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.actionTriggerButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -107,6 +108,7 @@ namespace CommandWheelForms.Forms
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.actionTriggerButton);
             this.mainPanel.Controls.Add(this.editActionButton);
             this.mainPanel.Controls.Add(this.actionLabel);
             this.mainPanel.Controls.Add(this.actionComboBox);
@@ -196,6 +198,16 @@ namespace CommandWheelForms.Forms
             // 
             this.imageOpenFileDialog.Filter = "Image files|*.png;*.jpg;*jpeg|All files|*.*";
             // 
+            // actionTriggerButton
+            // 
+            this.actionTriggerButton.Location = new System.Drawing.Point(389, 114);
+            this.actionTriggerButton.Name = "actionTriggerButton";
+            this.actionTriggerButton.Size = new System.Drawing.Size(75, 26);
+            this.actionTriggerButton.TabIndex = 8;
+            this.actionTriggerButton.Text = "Trigger";
+            this.actionTriggerButton.UseVisualStyleBackColor = true;
+            this.actionTriggerButton.Click += new System.EventHandler(this.ActionTriggerButton_Click);
+            // 
             // ButtonEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,5 +242,6 @@ namespace CommandWheelForms.Forms
         private System.Windows.Forms.Label actionLabel;
         private System.Windows.Forms.ComboBox actionComboBox;
         private System.Windows.Forms.Button editActionButton;
+        private System.Windows.Forms.Button actionTriggerButton;
     }
 }

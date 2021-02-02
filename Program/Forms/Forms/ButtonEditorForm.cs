@@ -41,6 +41,7 @@ namespace CommandWheelForms.Forms
                 if (index > -1)
                 {
                     comboboxChangedByUser = false;
+                    actionTriggerButton.Enabled =
                     editActionButton.Enabled = true;
                     actionComboBox.SelectedIndex = index + 1;
                 }
@@ -68,11 +69,13 @@ namespace CommandWheelForms.Forms
             else if (actionComboBox.SelectedIndex == 0)
             {
                 Action = null;
+                actionTriggerButton.Enabled =
                 editActionButton.Enabled = false;
             }
             else
             {
                 Action = elements.Editor.ActionEditors[actionComboBox.SelectedIndex - 1].CreateAction(elements);
+                actionTriggerButton.Enabled =
                 editActionButton.Enabled = true;
                 if (Action is null) actionComboBox.SelectedIndex = 0;
             }
@@ -82,6 +85,17 @@ namespace CommandWheelForms.Forms
         {
             if (actionComboBox.SelectedIndex == 0) return;
             elements.Editor.ActionEditors[actionComboBox.SelectedIndex - 1].EditAction(Action, elements);
+        }
+
+        private void ActionTriggerButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Action.Perform();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }
