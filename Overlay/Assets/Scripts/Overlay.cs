@@ -47,18 +47,22 @@ public class Overlay : MonoBehaviour
 	{   
 		hwnd = GetActiveWindow();
 		Margins margins = new Margins() { cxLeftWidth = -1 };
+#if !UNITY_EDITOR
 		DwmExtendFrameIntoClientArea(hwnd, ref margins);
 		SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
 		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE | WS_EX_APPWINDOW);
+#endif
 	}
-    private void Update()
+	private void Update()
     {
 		Rect rect = new Rect();
 		GetWindowRect(hwnd, ref rect);
 
         if (lastWindowLeft != rect.left | lastWindowTop != rect.top)
 		{
+#if !UNITY_EDITOR
 			SetWindowPos(hwnd, HWND_TOPMOST, (int)rect.left, (int)rect.right, 0, 0, 0);
+#endif
 		}
 		lastWindowLeft = rect.left;
 		lastWindowTop = rect.top;
