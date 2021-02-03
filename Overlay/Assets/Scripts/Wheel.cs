@@ -8,7 +8,8 @@ public class Wheel : MonoBehaviour
     public int buttons;
     public float radious;
     public float innerRadious;
-    public RectTransform obj;
+    public RectTransform separator;
+    public WheelSegment segment;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +19,22 @@ public class Wheel : MonoBehaviour
         float offset = angleDiff / 2;
         for (int i = 0; i < buttons; i++)
         {
-            float angle = angleDiff * i + offset;
-            var t = Instantiate(obj, transform.position, Quaternion.Euler(0, 0, angle), mask);
-            var separatorSize = t.sizeDelta;
+            float angle = angleDiff * i - offset;
+            var seg = Instantiate(segment, transform.position, Quaternion.Euler(0, 0, angle), mask);
+            seg.degrees = angleDiff;
+            seg.index = i;
+            seg.radious = radious;
+        }
+        for (int i = 0; i < buttons; i++)
+        {
+            float angle = angleDiff * i - offset;
+            var sep = Instantiate(separator, transform.position, Quaternion.Euler(0, 0, angle), mask);
+            var separatorSize = sep.sizeDelta;
             separatorSize.x /= transform.localScale.x;
-            separatorSize.y /= transform.localScale.y * radious;
-            t.sizeDelta = separatorSize;
-            t.transform.localPosition += t.up * (t.rect.height / 2);
+            separatorSize.y /= transform.localScale.y;
+            separatorSize.y *= radious;
+            sep.sizeDelta = separatorSize;
+            sep.transform.localPosition += sep.up * (sep.rect.height / 2);
         }
     }
 
