@@ -32,25 +32,19 @@ public class CursorMovement : MonoBehaviour
     {
         var rect = constraint.rect;
 
-        Vector3 pos = transform.position;
+        Vector3 pos = transform.localPosition;
 
 #if UNITY_EDITOR
         movement.x += Input.GetAxis("Mouse X") * sensitivity * 10;
         movement.y += Input.GetAxis("Mouse Y") * sensitivity * 10;
 #endif
 
-        float xMin = rect.x + rect.width / 2;
-        float xMax = rect.x - rect.width / 2;
-        xMax *= -1;
-        float yMin = rect.y + rect.height / 2;
-        float yMax = rect.y - rect.height / 2;
-        yMax *= -1;
         float x = pos.x + movement.x;
         float y = pos.y + movement.y;
-        pos.x = Mathf.Clamp(x, xMin, xMax);
-        pos.y = Mathf.Clamp(y, yMin, yMax);
+        pos.x = Mathf.Clamp(x, rect.width / -2, rect.width / 2);
+        pos.y = Mathf.Clamp(y, rect.height / -2, rect.height / 2);
 
-        transform.position = pos;
+        transform.localPosition = pos;
         movement.x = 0;
         movement.y = 0;
 
@@ -70,8 +64,8 @@ public class CursorMovement : MonoBehaviour
 
         public void SendInput(MouseInput input)
         {
-            movement.x += input.LastX * sensitivity;
-            movement.y -= input.LastY * sensitivity;
+            movement.x += input.LastX * sensitivity / 4;
+            movement.y -= input.LastY * sensitivity / 4;
         }
 
         public void UpdateElements(SimplifiedWheelElements elements)
