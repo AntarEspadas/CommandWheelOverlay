@@ -58,13 +58,13 @@ namespace CommandWheelOverlay.Input
                 Record(input);
                 return;
             }
-            if ((input.Flags & KeyboardFlags.Down) > 0)
+            if ((input.Flags & KeyboardFlags.Up) > 0)
             {
-                pressedKeys.Add(input.ScanCode);
+                pressedKeys.Remove(input.Key);
             }
             else
             {
-                pressedKeys.Remove(input.ScanCode);
+                pressedKeys.Add(input.Key);
             }
             UpdatePressed();
         }
@@ -168,30 +168,30 @@ namespace CommandWheelOverlay.Input
         }
         private void Record(KeyboardInput input)
         {
-            if ((input.Flags & KeyboardFlags.Down) > 0)
+            if ((input.Flags & KeyboardFlags.Up) > 0)
             {
-                recorded[input.ScanCode] = recorded.Count;
-                keyRecorded(input.ScanCode);
-            }
-            else if ((input.Flags & KeyboardFlags.Up) > 0)
-            {
-                if (recorded.ContainsKey(input.ScanCode))
+                if (recorded.ContainsKey(input.Key))
                 {
                     StopRecording();
                 }
             }
+            else
+            {
+                recorded[input.Key] = recorded.Count;
+                keyRecorded(input.Key);
+            }
         }
         private void Record(MouseInput input)
         {
-            Check(input.Buttons, downs, scanCode =>
+            Check(input.Buttons, downs, key =>
             {
-                recorded[scanCode] = recorded.Count;
-                keyRecorded(scanCode);
+                recorded[key] = recorded.Count;
+                keyRecorded(key);
                 return true;
             });
-            Check(input.Buttons, ups, scanCode =>
+            Check(input.Buttons, ups, key =>
             {
-                if (recorded.ContainsKey(scanCode))
+                if (recorded.ContainsKey(key))
                 {
                     StopRecording();
                     return true;
