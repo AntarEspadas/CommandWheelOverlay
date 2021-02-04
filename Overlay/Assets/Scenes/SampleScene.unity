@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constraint: {fileID: 1638942484}
-  sensitivity: 3.5
+  sensitivity: 1
 --- !u!1 &346552422
 GameObject:
   m_ObjectHideFlags: 0

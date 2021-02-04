@@ -41,6 +41,6 @@ public class CursorMovement : MonoBehaviour
 
     public void AddMovement(Vector2 movement)
     {
-        this.movement += movement * sensitivity * 4;
+        this.movement += movement * sensitivity * 0.75f;
     }
 }
