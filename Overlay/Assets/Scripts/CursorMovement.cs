@@ -57,15 +57,35 @@ public class CursorMovement : MonoBehaviour
         {
             this.sensitivity = sensitivity;
         }
-        public void SendInput(KeyboardInput input)
+
+        public void Hide()
         {
-            return;
+            throw new System.NotImplementedException();
+        }
+
+        public void MoveLeft()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void MoveRight()
+        {
+            throw new System.NotImplementedException();
         }
 
         public void SendInput(MouseInput input)
         {
-            movement.x += input.LastX * sensitivity / 4;
-            movement.y -= input.LastY * sensitivity / 4;
+        }
+
+        public void SendMouseMovement(int[] deltas)
+        {
+            movement.x += deltas[0] * sensitivity / 4;
+            movement.y -= deltas[1] * sensitivity / 4;
+        }
+
+        public void Show()
+        {
+            throw new System.NotImplementedException();
         }
 
         public void UpdateElements(SimplifiedWheelElements elements)

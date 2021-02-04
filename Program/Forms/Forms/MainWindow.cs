@@ -60,18 +60,14 @@ namespace CommandWheelForms.Forms
             if (m.Msg == WM_INPUT)
             {
                 var data = RawInputData.FromHandle(m.LParam);
-                try
+                if (data is RawInputMouseData mouseData)
                 {
-                    if (data is RawInputMouseData mouseData)
-                    {
-                        view.SendInput(new MouseInput(data.Device.ProductId, mouseData.Mouse.LastX, mouseData.Mouse.LastY, mouseData.Mouse.ButtonData, (MouseFlags)mouseData.Mouse.Flags, (MouseButton)mouseData.Mouse.Buttons));
-                    }
-                    else if (data is RawInputKeyboardData keyboardData)
-                    {
-                        view.SendInput(new KeyboardInput(data.Device.ProductId, keyboardData.Keyboard.VirutalKey, keyboardData.Keyboard.ScanCode, (KeyboardFlags)keyboardData.Keyboard.Flags));
-                    }
+                    view.SendMouseMovement(new[] { mouseData.Mouse.LastX, mouseData.Mouse.LastY });
                 }
-                catch (NullReferenceException) { }
+                else if (data is RawInputKeyboardData keyboardData)
+                {
+                    //TODO
+                }
             }
 
             base.WndProc(ref m);

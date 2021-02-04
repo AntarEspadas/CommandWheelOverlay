@@ -34,22 +34,44 @@ namespace CommandWheelOverlay.Connection
             bridge = new Bridge(client.GetStream(), controller);
         }
 
-        public void SendInput(KeyboardInput input)
+        public void Hide()
         {
 #if NO_CONNECTION
             return;
 #endif
-            Validate();
-            bridge.Pass(parameters: input);
+            bridge.Pass();
         }
 
-        public void SendInput(MouseInput input)
+        public void MoveLeft()
         {
 #if NO_CONNECTION
             return;
 #endif
-            Validate();
-            bridge.Pass(parameters: input);
+            bridge.Pass();
+        }
+
+        public void MoveRight()
+        {
+#if NO_CONNECTION
+            return;
+#endif
+            bridge.Pass();
+        }
+
+        public void SendMouseMovement(int[] deltas)
+        {
+#if NO_CONNECTION
+            return;
+#endif
+            bridge.Pass(parameters: deltas);
+        }
+
+        public void Show()
+        {
+#if NO_CONNECTION
+            return;
+#endif
+            bridge.Pass();
         }
 
         public void UpdateElements(SimplifiedWheelElements elements)

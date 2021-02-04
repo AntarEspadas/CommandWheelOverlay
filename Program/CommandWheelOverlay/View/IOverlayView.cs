@@ -10,7 +10,10 @@ namespace CommandWheelOverlay.View
     {
         void UpdateElements(SimplifiedWheelElements elements);
         void UpdateSettings(IUserSettings settings);
-        void SendInput(KeyboardInput input);
-        void SendInput(MouseInput input);
+        void SendMouseMovement(int[] deltas);
+        void MoveLeft();
+        void MoveRight();
+        void Show();
+        void Hide();
     }
 }

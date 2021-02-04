@@ -31,14 +31,29 @@ namespace Testing
 
     class OverlayView : IOverlayView
     {
-        public void SendInput(KeyboardInput input)
+        public void Hide()
         {
-            Console.WriteLine(input.ToString());
+            throw new NotImplementedException();
         }
 
-        public void SendInput(MouseInput input)
+        public void MoveLeft()
         {
-            Console.WriteLine(input.ToString());
+            throw new NotImplementedException();
+        }
+
+        public void MoveRight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendMouseMovement(int[] deltas)
+        {
+            Console.WriteLine("({0}, {1})", deltas[0], deltas[1]);
+        }
+
+        public void Show()
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateElements(SimplifiedWheelElements elements)
