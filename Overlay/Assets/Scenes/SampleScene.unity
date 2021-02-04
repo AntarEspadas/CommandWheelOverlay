@@ -791,8 +791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: 6
-  radious: 1.25
-  innerRadious: 1
+  radious: 125
+  innerRadious: 25
   separator: {fileID: 1249683587391475479, guid: 703faead8a95de94782cb8ffab216036,
     type: 3}
   segment: {fileID: 1344631902}

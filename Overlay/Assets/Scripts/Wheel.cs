@@ -22,8 +22,11 @@ public class Wheel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var mask = transform.Find("Mask");
-        transform.localScale = new Vector2(innerRadious * 2, innerRadious * 2);
+        var mask = (RectTransform)transform.Find("Mask");
+        var innerSize = new Vector2(innerRadious * 2, innerRadious * 2);
+        ((RectTransform)transform).sizeDelta = innerSize;
+        mask.sizeDelta = innerSize;
+        //transform.localScale = new Vector2(innerRadious * 2, innerRadious * 2);
         float angleDiff = 360f / buttons;
         float offset = angleDiff / 2;
         childSegments = new WheelSegment[buttons];
@@ -35,21 +38,15 @@ public class Wheel : MonoBehaviour
             seg.degrees = angleDiff;
             seg.index = i;
             seg.radious = radious;
-            var segmentTransform = seg.transform as RectTransform;
-            var segmentSize = segmentTransform.sizeDelta;
-            segmentSize.x /= transform.localScale.x;
-            segmentSize.y /= transform.localScale.y;
-            segmentTransform.sizeDelta = segmentSize;
         }
         for (int i = 0; i < buttons; i++)
         {
             float angle = angleDiff * i - offset;
             var sep = Instantiate(separator, transform.position, Quaternion.Euler(0, 0, angle), mask);
-            var separatorSize = sep.sizeDelta;
-            separatorSize.x /= transform.localScale.x;
-            separatorSize.y /= transform.localScale.y;
-            separatorSize.y *= radious;
-            sep.sizeDelta = separatorSize;
+            var sepTransform = ((RectTransform)sep.transform);
+            var sepSize = sepTransform.sizeDelta;
+            sepSize.y = radious;
+            sepTransform.sizeDelta = sepSize;
             sep.transform.localPosition += sep.up * (sep.rect.height / 2);
         }
         StartVector = childSegments[buttons - 1].transform.up;

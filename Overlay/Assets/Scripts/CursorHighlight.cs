@@ -18,7 +18,7 @@ public class CursorHighlight : MonoBehaviour
     {
         var cursorPosition = transform.localPosition - wheel.transform.localPosition;
         float cursorDistance = cursorPosition.magnitude;
-        if (wheel.ActualRadious >= cursorDistance && cursorDistance >= wheel.ActualInnerRadious)
+        if (wheel.radious >= cursorDistance &&cursorDistance >= wheel.innerRadious)
         {
             float buttonAngle = 360f / wheel.buttons;
             float cursorAngle = Angle360(wheel.StartVector, cursorPosition);
