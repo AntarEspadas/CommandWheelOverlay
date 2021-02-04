@@ -7,14 +7,12 @@ namespace CommandWheelOverlay.Input
     [Serializable]
     public class KeyboardInput
     {
-        public int DeviceId { get; }
         public int Key { get; }
         public int ScanCode { get; }
         public KeyboardFlags Flags { get; }
 
-        public KeyboardInput(int deviceId, int key, int scanCode, KeyboardFlags flags)
+        public KeyboardInput(int key, int scanCode, KeyboardFlags flags)
         {
-            DeviceId = deviceId;
             Key = key;
             ScanCode = scanCode;
             Flags = flags;
@@ -22,7 +20,7 @@ namespace CommandWheelOverlay.Input
 
         public override string ToString()
         {
-            return string.Format("Id: {0}, Key: {1}, ScanCode: {2}, Flags: {3}", DeviceId, Key, ScanCode, Flags);
+            return $"Key: {Key}, ScanCode: {ScanCode}, Flags: {Flags}";
         }
     }
 }
