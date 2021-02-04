@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace CommandWheelOverlay.Input
 {
-    interface IInputHandler
+    public interface IInputHandler
     {
         IList<int> ShowHotkey { get; set; }
         IList<int> MoveLeftHotkey { get; set; }

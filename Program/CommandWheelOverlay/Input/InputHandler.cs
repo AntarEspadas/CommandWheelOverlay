@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace CommandWheelOverlay.Input
 {
-    class InputHandler : IInputHandler
+    public class InputHandler : IInputHandler
     {
         public IOverlayView View { get; set; }
         public IList<int> ShowHotkey { get; set; }
