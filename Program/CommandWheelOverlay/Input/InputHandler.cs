@@ -36,7 +36,7 @@ namespace CommandWheelOverlay.Input
                 Record(input);
                 return;
             }
-            if (input.LastX != 0 && input.LastY != 0)
+            if (input.LastX != 0 || input.LastY != 0)
                 View.SendMouseMovement(new[] {input.LastX, input.LastY });
             Check(input.Buttons, downs, pressedKeys.Add);
             Check(input.Buttons, ups, pressedKeys.Remove);
