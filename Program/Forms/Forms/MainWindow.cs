@@ -15,6 +15,7 @@ using CommandWheelOverlay.Input;
 using CommandWheelOverlay.View;
 using CommandWheelOverlay.View.Editors;
 using Linearstar.Windows.RawInput;
+using Linearstar.Windows.RawInput.Native;
 
 namespace CommandWheelForms.Forms
 {
@@ -24,6 +25,7 @@ namespace CommandWheelForms.Forms
         private bool closeForReal = false;
         private TcpOverlayView view;
         private OverlayController controller;
+        private IInputHandler inputHandler;
         public MainWindow()
         {
             IWheelElements elements = new WheelElements()
@@ -35,9 +37,15 @@ namespace CommandWheelForms.Forms
                     ActionEditors = new List<IActionEditor>() {new ShowSubwheelActionEditor() }
                 }
             };
+
+
+
             controller = new OverlayController(elements, null);
             InitializeComponent();
             view = new TcpOverlayView(controller, 7777);
+
+            inputHandler = new InputHandler { View = view};
+
             while (true)
             {
                 try
@@ -62,11 +70,13 @@ namespace CommandWheelForms.Forms
                 var data = RawInputData.FromHandle(m.LParam);
                 if (data is RawInputMouseData mouseData)
                 {
-                    view.SendMouseMovement(new[] { mouseData.Mouse.LastX, mouseData.Mouse.LastY });
+                    var mouse = mouseData.Mouse;
+                    inputHandler.Handle(new MouseInput(mouse.LastX, mouse.LastY, mouse.ButtonData, (MouseFlags)mouse.Flags, (MouseButton)mouse.Buttons));
                 }
                 else if (data is RawInputKeyboardData keyboardData)
                 {
-                    //TODO
+                    var keyboard = keyboardData.Keyboard;
+                    inputHandler.Handle(new KeyboardInput(keyboard.VirutalKey, keyboard.ScanCode, (KeyboardFlags)keyboard.Flags));
                 }
             }
 
