@@ -21,7 +21,8 @@ public class View : MonoBehaviour, IOverlayView
 
     public void Hide()
     {
-        throw new System.NotImplementedException();
+        Overlay.Hide();
+        Debug.Log("Hide");
     }
 
     public void MoveLeft()
@@ -41,7 +42,9 @@ public class View : MonoBehaviour, IOverlayView
 
     public void Show()
     {
-        throw new System.NotImplementedException();
+        cursorMovement.transform.localPosition = new Vector3();
+        Overlay.Show();
+        Debug.Log("Show");
     }
 
     public void UpdateElements(SimplifiedWheelElements elements)
