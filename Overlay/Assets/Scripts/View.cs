@@ -9,7 +9,7 @@ using UnityEngine;
 public class View : MonoBehaviour, IOverlayView
 {
     public CursorMovement cursorMovement;
-    private IOverlayController controller;
+    private TcpOverlayController controller;
 
     private void Start()
     {
