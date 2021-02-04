@@ -15,7 +15,7 @@ public class Wheel : MonoBehaviour
 
     public int Highlighted { get => highlighted; set => SetHighlighted(value); }
     public Vector2 StartVector { get; private set; }
-    public float InnerRadiousDelta { get; private set; }
+    public float ActualInnerRadious { get; private set; }
     public float ActualRadious { get; private set; }
     private int highlighted = -1;
 
@@ -35,6 +35,11 @@ public class Wheel : MonoBehaviour
             seg.degrees = angleDiff;
             seg.index = i;
             seg.radious = radious;
+            var segmentTransform = seg.transform as RectTransform;
+            var segmentSize = segmentTransform.sizeDelta;
+            segmentSize.x /= transform.localScale.x;
+            segmentSize.y /= transform.localScale.y;
+            segmentTransform.sizeDelta = segmentSize;
         }
         for (int i = 0; i < buttons; i++)
         {
@@ -48,7 +53,7 @@ public class Wheel : MonoBehaviour
             sep.transform.localPosition += sep.up * (sep.rect.height / 2);
         }
         StartVector = childSegments[buttons - 1].transform.up;
-        InnerRadiousDelta = ((RectTransform)mask).sizeDelta.x;
+        ActualInnerRadious = ((RectTransform)transform).sizeDelta.y * innerRadious;
         ActualRadious =  ((RectTransform)transform).sizeDelta.y * radious;
     }
 

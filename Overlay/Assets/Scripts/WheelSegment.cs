@@ -11,7 +11,7 @@ public class WheelSegment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale *= (radious * 2);
+        transform.localScale *= (radious);
         var highlight = transform.Find("Highlight");
         var highlightImage = highlight.GetComponent<Image>();
         highlightImage.fillAmount = degrees / 360;
