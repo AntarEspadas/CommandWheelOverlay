@@ -4,27 +4,16 @@ using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using Linearstar.Windows.RawInput;
 using UnityEngine;
-using CommandWheelOverlay.Connection;
-using CommandWheelOverlay.View;
-using CommandWheelOverlay.Input;
-using CommandWheelOverlay.Settings;
 
 public class CursorMovement : MonoBehaviour
 {
     public RectTransform constraint;
     public float sensitivity;
-    private static Vector2 movement = new Vector2(0, 0);
-    private TcpOverlayController controller;
+    private Vector2 movement = new Vector2(0, 0);
     // Start is called before the first frame update
 
     void Start()
     {
-        Cursor.visible = false;
-        OverlayView view = new OverlayView(sensitivity);
-        controller = new TcpOverlayController(view, 7777);
-#if !UNITY_EDITOR
-        controller.Connect();
-#endif
     }
 
     // Update is called once per frame
@@ -50,52 +39,8 @@ public class CursorMovement : MonoBehaviour
 
     }
 
-    class OverlayView : IOverlayView
+    public void AddMovement(Vector2 movement)
     {
-        private float sensitivity;
-        public OverlayView(float sensitivity)
-        {
-            this.sensitivity = sensitivity;
-        }
-
-        public void Hide()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void MoveLeft()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void MoveRight()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void SendInput(MouseInput input)
-        {
-        }
-
-        public void SendMouseMovement(int[] deltas)
-        {
-            movement.x += deltas[0] * sensitivity / 4;
-            movement.y -= deltas[1] * sensitivity / 4;
-        }
-
-        public void Show()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void UpdateElements(SimplifiedWheelElements elements)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void UpdateSettings(IUserSettings settings)
-        {
-            throw new System.NotImplementedException();
-        }
+        this.movement += movement * sensitivity * 4;
     }
 }
