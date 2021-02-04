@@ -92,51 +92,60 @@ namespace CommandWheelOverlay.Input
 
         private void UpdatePressed()
         {
-            if (showPressed)
+            if (ShowHotkey != null)
             {
-                if (!pressedKeys.IsSupersetOf(ShowHotkey))
+                if (showPressed)
                 {
-                    showPressed = false;
-                    View.Hide();
+                    if (!pressedKeys.IsSupersetOf(ShowHotkey))
+                    {
+                        showPressed = false;
+                        View.Hide();
+                    }
                 }
+                else
+                {
+                    if (pressedKeys.IsSupersetOf(ShowHotkey))
+                    {
+                        showPressed = true;
+                        View.Show();
+                    }
+                } 
             }
-            else
+            if (MoveLeftHotkey != null)
             {
-                if (pressedKeys.IsSupersetOf(ShowHotkey))
+                if (moveLeftPressed)
                 {
-                    showPressed = true;
-                    View.Show();
+                    if (!pressedKeys.IsSupersetOf(MoveLeftHotkey))
+                    {
+                        moveLeftPressed = false;
+                    }
                 }
+                else
+                {
+                    if (pressedKeys.IsSupersetOf(MoveLeftHotkey))
+                    {
+                        moveLeftPressed = true;
+                        View.MoveLeft();
+                    }
+                } 
             }
-            if (moveLeftPressed)
+            if (MoveRightHotkey != null)
             {
-                if (!pressedKeys.IsSupersetOf(MoveLeftHotkey))
+                if (moveRightPressed)
                 {
-                    moveLeftPressed = false;
+                    if (!pressedKeys.IsSupersetOf(MoveRightHotkey))
+                    {
+                        moveRightPressed = false;
+                    }
                 }
-            }
-            else
-            {
-                if (pressedKeys.IsSupersetOf(MoveLeftHotkey))
+                else
                 {
-                    moveLeftPressed = true;
-                    View.MoveLeft();
-                }
-            }
-            if (moveRightPressed)
-            {
-                if (!pressedKeys.IsSupersetOf(MoveRightHotkey))
-                {
-                    moveRightPressed = false;
-                }
-            }
-            else
-            {
-                if (pressedKeys.IsSupersetOf(MoveRightHotkey))
-                {
-                    moveRightPressed = true;
-                    View.MoveRight();
-                }
+                    if (pressedKeys.IsSupersetOf(MoveRightHotkey))
+                    {
+                        moveRightPressed = true;
+                        View.MoveRight();
+                    }
+                } 
             }
         }
 
