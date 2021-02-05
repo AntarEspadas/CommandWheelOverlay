@@ -29,6 +29,23 @@ namespace CommandWheelForms.Editors
             WheelEditorForm form = new WheelEditorForm(wheel, elements);
             if (form.ShowDialog() == DialogResult.OK)
             {
+                wheel.Label = form.Label;
+                wheel.AccentColor = form.AccentColor;
+                wheel.BgColor = form.BgColor;
+
+                if (wheel.Buttons != null)
+                {
+                    foreach (IWheelButton button in form.Buttons)
+                    {
+                        if (!wheel.Buttons.Remove(button)) elements.Buttons.Add(button);
+                    }
+                    foreach (IWheelButton button in wheel.Buttons)
+                    {
+                        elements.Buttons.Remove(button);
+                    } 
+                }
+
+                wheel.Buttons = form.Buttons;
                 return true;
             }
             return false;

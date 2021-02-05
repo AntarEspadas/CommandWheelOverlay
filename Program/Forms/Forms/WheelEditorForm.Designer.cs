@@ -29,47 +29,163 @@ namespace CommandWheelForms.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.okButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.accentColorLabel = new System.Windows.Forms.Label();
+            this.bgColorLabel = new System.Windows.Forms.Label();
+            this.accentColorPanel = new System.Windows.Forms.Panel();
+            this.bgColorPanel = new System.Windows.Forms.Panel();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.colorPicker = new System.Windows.Forms.ColorDialog();
+            this.basicLayout1 = new CommandWheelForms.Controls.ButtonLayout();
+            this.addButtonButton = new System.Windows.Forms.Button();
+            this.buttonsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // okButton
+            // tableLayoutPanel1
             // 
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(12, 249);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 0;
-            this.okButton.Text = "Ok";
-            this.okButton.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonsLayoutPanel, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(468, 413);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // cancelButton
+            // panel1
             // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(381, 249);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 0;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.panel1.Controls.Add(this.addButtonButton);
+            this.panel1.Controls.Add(this.accentColorLabel);
+            this.panel1.Controls.Add(this.bgColorLabel);
+            this.panel1.Controls.Add(this.accentColorPanel);
+            this.panel1.Controls.Add(this.bgColorPanel);
+            this.panel1.Controls.Add(this.nameTextBox);
+            this.panel1.Controls.Add(this.nameLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(462, 154);
+            this.panel1.TabIndex = 0;
+            // 
+            // accentColorLabel
+            // 
+            this.accentColorLabel.AutoSize = true;
+            this.accentColorLabel.Location = new System.Drawing.Point(244, 51);
+            this.accentColorLabel.Name = "accentColorLabel";
+            this.accentColorLabel.Size = new System.Drawing.Size(88, 17);
+            this.accentColorLabel.TabIndex = 4;
+            this.accentColorLabel.Text = "Accent Color";
+            // 
+            // bgColorLabel
+            // 
+            this.bgColorLabel.AutoSize = true;
+            this.bgColorLabel.Location = new System.Drawing.Point(9, 51);
+            this.bgColorLabel.Name = "bgColorLabel";
+            this.bgColorLabel.Size = new System.Drawing.Size(121, 17);
+            this.bgColorLabel.TabIndex = 3;
+            this.bgColorLabel.Text = "Background Color";
+            // 
+            // accentColorPanel
+            // 
+            this.accentColorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.accentColorPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.accentColorPanel.Location = new System.Drawing.Point(247, 71);
+            this.accentColorPanel.Name = "accentColorPanel";
+            this.accentColorPanel.Size = new System.Drawing.Size(42, 22);
+            this.accentColorPanel.TabIndex = 2;
+            this.accentColorPanel.Click += new System.EventHandler(this.PickColor);
+            // 
+            // bgColorPanel
+            // 
+            this.bgColorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bgColorPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bgColorPanel.Location = new System.Drawing.Point(12, 71);
+            this.bgColorPanel.Name = "bgColorPanel";
+            this.bgColorPanel.Size = new System.Drawing.Size(42, 22);
+            this.bgColorPanel.TabIndex = 2;
+            this.bgColorPanel.Click += new System.EventHandler(this.PickColor);
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(12, 26);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(224, 22);
+            this.nameTextBox.TabIndex = 1;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(9, 6);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(45, 17);
+            this.nameLabel.TabIndex = 0;
+            this.nameLabel.Text = "Name";
+            // 
+            // basicLayout1
+            // 
+            this.basicLayout1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.basicLayout1.Location = new System.Drawing.Point(0, 413);
+            this.basicLayout1.Margin = new System.Windows.Forms.Padding(0);
+            this.basicLayout1.Name = "basicLayout1";
+            this.basicLayout1.Size = new System.Drawing.Size(468, 40);
+            this.basicLayout1.TabIndex = 0;
+            // 
+            // addButtonButton
+            // 
+            this.addButtonButton.Location = new System.Drawing.Point(9, 112);
+            this.addButtonButton.Name = "addButtonButton";
+            this.addButtonButton.Size = new System.Drawing.Size(75, 29);
+            this.addButtonButton.TabIndex = 5;
+            this.addButtonButton.Text = "Add Button";
+            this.addButtonButton.UseVisualStyleBackColor = true;
+            this.addButtonButton.Click += new System.EventHandler(this.addButtonButton_Click);
+            // 
+            // buttonsLayoutPanel
+            // 
+            this.buttonsLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonsLayoutPanel.Location = new System.Drawing.Point(3, 163);
+            this.buttonsLayoutPanel.Name = "buttonsLayoutPanel";
+            this.buttonsLayoutPanel.Size = new System.Drawing.Size(462, 247);
+            this.buttonsLayoutPanel.TabIndex = 1;
             // 
             // WheelEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 284);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.okButton);
+            this.ClientSize = new System.Drawing.Size(468, 453);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.basicLayout1);
             this.Name = "WheelEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "WheelEditorForm";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button okButton;
-        private System.Windows.Forms.Button cancelButton;
+        private Controls.ButtonLayout basicLayout1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label accentColorLabel;
+        private System.Windows.Forms.Label bgColorLabel;
+        private System.Windows.Forms.Panel bgColorPanel;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.ColorDialog colorPicker;
+        private System.Windows.Forms.Panel accentColorPanel;
+        private System.Windows.Forms.Button addButtonButton;
+        private System.Windows.Forms.FlowLayoutPanel buttonsLayoutPanel;
     }
 }
