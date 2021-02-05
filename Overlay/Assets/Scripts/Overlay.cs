@@ -10,6 +10,8 @@ public class Overlay : MonoBehaviour
 	private long lastWindowTop = 0;
 	private static IntPtr hwnd;
 
+	public View view;
+
 [DllImport("user32.dll")]
 	static extern IntPtr GetActiveWindow();
 
@@ -56,7 +58,7 @@ public class Overlay : MonoBehaviour
 		SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
 		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE | WS_EX_APPWINDOW);
 #endif
-		Hide();
+		view.Hide();
 	}
 	private void Update()
     {

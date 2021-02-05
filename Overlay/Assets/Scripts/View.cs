@@ -4,12 +4,17 @@ using CommandWheelOverlay.Settings;
 using CommandWheelOverlay.View;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class View : MonoBehaviour, IOverlayView
 {
     public CursorMovement cursorMovement;
     private TcpOverlayController controller;
+    private ManualResetEvent resetEvent = new ManualResetEvent(true);
+    private bool shown;
+    private bool startShowing;
+    private bool startHiding;
 
     private void Start()
     {
@@ -19,10 +24,28 @@ public class View : MonoBehaviour, IOverlayView
 #endif
     }
 
+    void Update()
+    {
+        if (startHiding)
+        {
+            shown = false;
+            Overlay.Hide();
+            startHiding = false;
+        }
+        resetEvent.WaitOne();
+        if (startShowing)
+        {
+            shown = true;
+            cursorMovement.transform.localPosition = new Vector3();
+            Overlay.Show();
+            startShowing = false;
+        }
+    }
+
     public void Hide()
     {
-        Overlay.Hide();
-        Debug.Log("Hide");
+        startHiding = true;
+        resetEvent.Reset();
     }
 
     public void MoveLeft()
@@ -37,14 +60,13 @@ public class View : MonoBehaviour, IOverlayView
 
     public void SendMouseMovement(int[] deltas)
     {
-        cursorMovement.AddMovement(new Vector2(deltas[0], -deltas[1]));
+        if (shown) cursorMovement.AddMovement(new Vector2(deltas[0], -deltas[1]));
     }
 
     public void Show()
     {
-        cursorMovement.transform.localPosition = new Vector3();
-        Overlay.Show();
-        Debug.Log("Show");
+        startShowing = true;
+        resetEvent.Set();
     }
 
     public void UpdateElements(SimplifiedWheelElements elements)
