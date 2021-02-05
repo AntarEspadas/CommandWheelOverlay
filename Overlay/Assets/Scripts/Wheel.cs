@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using CommandWheelOverlay.View;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,9 @@ public class Wheel : MonoBehaviour
     public WheelSegment segment;
     private WheelSegment[] childSegments;
 
+    public SimplifiedWheel? Template { get; set; } = null;
+    public SimplifiedWheelButton[] ButtonTemplates { get; set; } = null;
+
     public int Highlighted { get => highlighted; set => SetHighlighted(value); }
     public Vector2 StartVector { get; private set; }
     public float ActualInnerRadious { get; private set; }
@@ -22,6 +26,13 @@ public class Wheel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bool fromTemplate = false;
+        if (Template.HasValue && ButtonTemplates != null)
+        {
+            fromTemplate = true;
+            buttons = Template.Value.ButtonIndices.Length;
+        }
+
         var mask = (RectTransform)transform.Find("Mask");
         var innerSize = new Vector2(innerRadious * 2, innerRadious * 2);
         ((RectTransform)transform).sizeDelta = innerSize;
@@ -38,6 +49,13 @@ public class Wheel : MonoBehaviour
             seg.degrees = angleDiff;
             seg.index = i;
             seg.radious = radious;
+            if (fromTemplate)
+            {
+                int buttonIndex = Template.Value.ButtonIndices[i];
+                seg.ButtonTemplate = ButtonTemplates[buttonIndex];
+                seg.ButtonIndex = buttonIndex;
+                gameObject.SetActive(false);
+            }
         }
         for (int i = 0; i < buttons; i++)
         {
@@ -75,5 +93,10 @@ public class Wheel : MonoBehaviour
             highlight.GetComponent<Image>().enabled = true;
         }
         highlighted = value;
+    }
+
+    public int GetHighlightedButton()
+    {
+        return childSegments[highlighted].ButtonIndex;
     }
 }

@@ -30,7 +30,13 @@ namespace CommandWheelOverlay.Controller
 
         public void PerformAction(int actionIndex)
         {
-            Elements.Buttons[actionIndex].Action.Perform();
+            try
+            {
+                Elements.Buttons[actionIndex].Action.Perform();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public void UpdateElements()

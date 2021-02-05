@@ -9,42 +9,85 @@ using UnityEngine;
 
 public class View : MonoBehaviour, IOverlayView
 {
+    public Canvas canvas;
     public CursorMovement cursorMovement;
+    public CursorHighlight cursorHighlight;
+    public Wheel wheelPrefab;
+
+
     private TcpOverlayController controller;
     private ManualResetEvent resetEvent = new ManualResetEvent(true);
     private bool shown;
     private bool startShowing;
     private bool startHiding;
 
-    public CursorMovement cursor;
-    public Wheel wheelPrefab;
+    private SimplifiedWheelElements? pendingElements;
+
     private Wheel[] wheels;
     private int startupWheel;
+    private int currentWheel;
 
     private void Start()
     {
         controller = new TcpOverlayController(this, 7777);
-#if !UNITY_EDITOR
+//#if !UNITY_EDITOR
         controller.Connect();
-#endif
+//#endif
     }
 
     void Update()
     {
         if (startHiding)
         {
+            if (wheels != null && startupWheel >= 0)
+            {
+                wheels[currentWheel].gameObject.SetActive(false);
+                int highlightedButton = cursorHighlight.GetHighlightedButton();
+                if (highlightedButton >= 0)
+                {
+                    Debug.Log("Action");
+                    controller.PerformAction(highlightedButton);
+                }
+            }
             shown = false;
             Overlay.Hide();
             startHiding = false;
+            resetEvent.WaitOne();
         }
-        resetEvent.WaitOne();
+
+        if (pendingElements.HasValue)
+        {
+            CreateWheels(pendingElements.Value);
+            pendingElements = null;
+            return;
+        }
+
         if (startShowing)
         {
+            if (wheels != null && startupWheel >= 0)
+            {
+                currentWheel = startupWheel;
+                wheels[startupWheel].gameObject.SetActive(true);
+            }
             shown = true;
             cursorMovement.transform.localPosition = new Vector3();
             Overlay.Show();
             startShowing = false;
         }
+    }
+
+    private void CreateWheels(SimplifiedWheelElements elements)
+    {
+        wheels = new Wheel[elements.Wheels.Length];
+        startupWheel = elements.StartupWheel;
+        for (int i = 0; i < wheels.Length; i++)
+        {
+            var wheel = Instantiate(wheelPrefab, canvas.transform);
+            wheels[i] = wheel;
+            wheel.Template = elements.Wheels[i];
+            wheel.ButtonTemplates = elements.Buttons;
+        }
+        cursorHighlight.wheel = wheels[startupWheel];
     }
 
     public void Hide()
@@ -76,17 +119,7 @@ public class View : MonoBehaviour, IOverlayView
 
     public void UpdateElements(SimplifiedWheelElements elements)
     {
-        lock (wheels)
-        {
-            var canvas = transform.parent.Find("Canvas");
-            wheels = new Wheel[elements.Wheels.Length];
-            startupWheel = elements.StartupWheel;
-            for (int i = 0; i < wheels.Length; i++)
-            {
-                var wheel = Instantiate(wheelPrefab, canvas);
-                wheels[i] = wheel;
-            }
-        }
+        pendingElements = elements;
     }
 
     public void UpdateSettings(IUserSettings settings)

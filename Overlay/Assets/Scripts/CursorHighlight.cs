@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using CommandWheelOverlay.View;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,6 @@ using UnityEngine.UI;
 public class CursorHighlight : MonoBehaviour
 {
     public Wheel wheel;
-    public RectTransform test;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,7 @@ public class CursorHighlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (wheel is null) return;
         var cursorPosition = transform.localPosition - wheel.transform.localPosition;
         float cursorDistance = cursorPosition.magnitude;
         if (wheel.radious >= cursorDistance &&cursorDistance >= wheel.innerRadious)
@@ -34,5 +35,17 @@ public class CursorHighlight : MonoBehaviour
     {
         float angle = Vector2.SignedAngle(start, point);
         return angle + (angle < 0 ? 360 : 0);
+    }
+
+    public int GetHighlightedButton()
+    {
+        if (wheel.Highlighted >= 0)
+        {
+            return wheel.GetHighlightedButton();
+        }
+        else
+        {
+            return -1;
+        }
     }
 }

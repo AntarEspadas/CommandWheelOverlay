@@ -45,6 +45,7 @@ namespace CommandWheelForms.Forms
             view = new TcpOverlayView(controller, 7777);
 
             inputHandler = new InputHandler { View = view};
+            inputHandler.ShowHotkey = new[] { 18 };
 
             while (true)
             {
