@@ -194,8 +194,15 @@
     <Compile Include="Controls\ButtonLayout.Designer.cs">
       <DependentUpon>ButtonLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\Actions\OpenProgramEditor.cs" />
     <Compile Include="Editors\Actions\ShowSubwheelActionEditor.cs" />
     <Compile Include="Editors\ButtonEditor.cs" />
+    <Compile Include="Forms\Actions\OpenProgramActionEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Actions\OpenProgramActionEditorForm.Designer.cs">
+      <DependentUpon>OpenProgramActionEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Actions\ShowSubwheelActionEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ButtonLayout.resx">
       <DependentUpon>ButtonLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Actions\OpenProgramActionEditorForm.resx">
+      <DependentUpon>OpenProgramActionEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Actions\ShowSubwheelActionEditorForm.resx">
       <DependentUpon>ShowSubwheelActionEditorForm.cs</DependentUpon>
