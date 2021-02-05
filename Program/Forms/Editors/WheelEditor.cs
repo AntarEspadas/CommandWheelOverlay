@@ -39,8 +39,20 @@ namespace CommandWheelForms.Editors
             Form dialog = new ComfirmationDialog($"Are you sure you wish to delete wheel '{wheel.Label}'?", "Comfirm deletion");
             if (dialog.ShowDialog() == DialogResult.OK)
             {
+                int index = elements.Wheels.IndexOf(wheel);
+                elements.Wheels.Remove(wheel);
+                if (index <= elements.StartupWheel)
+                {
+                    int newIndex = index - 1;
+                    if (index < 0 && elements.Wheels.Count > 0)
+                    {
+                        newIndex = 1;
+                    }
+                    elements.StartupWheel = newIndex;
+                }
+                return true;
             }
-            throw new NotImplementedException();
+            return false;
         }
 
         IWheel IWheelEditor.AddWheel(IWheelElements elements) => AddWheel(elements);
