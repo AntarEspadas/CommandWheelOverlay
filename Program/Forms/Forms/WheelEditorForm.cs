@@ -53,6 +53,8 @@ namespace CommandWheelForms.Forms
                 control.editButton.Click += EditButton_Click;
 
                 buttonsLayoutPanel.Controls.Add(control);
+
+                control.Width = control.Parent.Width - 20;
             }
         }
 

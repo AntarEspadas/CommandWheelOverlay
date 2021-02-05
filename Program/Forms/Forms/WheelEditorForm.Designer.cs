@@ -38,9 +38,9 @@ namespace CommandWheelForms.Forms
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.colorPicker = new System.Windows.Forms.ColorDialog();
-            this.basicLayout1 = new CommandWheelForms.Controls.ButtonLayout();
             this.addButtonButton = new System.Windows.Forms.Button();
             this.buttonsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.basicLayout1 = new CommandWheelForms.Controls.ButtonLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -129,15 +129,6 @@ namespace CommandWheelForms.Forms
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Name";
             // 
-            // basicLayout1
-            // 
-            this.basicLayout1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.basicLayout1.Location = new System.Drawing.Point(0, 413);
-            this.basicLayout1.Margin = new System.Windows.Forms.Padding(0);
-            this.basicLayout1.Name = "basicLayout1";
-            this.basicLayout1.Size = new System.Drawing.Size(468, 40);
-            this.basicLayout1.TabIndex = 0;
-            // 
             // addButtonButton
             // 
             this.addButtonButton.Location = new System.Drawing.Point(9, 112);
@@ -150,11 +141,22 @@ namespace CommandWheelForms.Forms
             // 
             // buttonsLayoutPanel
             // 
+            this.buttonsLayoutPanel.AutoScroll = true;
+            this.buttonsLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonsLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonsLayoutPanel.Location = new System.Drawing.Point(3, 163);
             this.buttonsLayoutPanel.Name = "buttonsLayoutPanel";
             this.buttonsLayoutPanel.Size = new System.Drawing.Size(462, 247);
             this.buttonsLayoutPanel.TabIndex = 1;
+            // 
+            // basicLayout1
+            // 
+            this.basicLayout1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.basicLayout1.Location = new System.Drawing.Point(0, 413);
+            this.basicLayout1.Margin = new System.Windows.Forms.Padding(0);
+            this.basicLayout1.Name = "basicLayout1";
+            this.basicLayout1.Size = new System.Drawing.Size(468, 40);
+            this.basicLayout1.TabIndex = 0;
             // 
             // WheelEditorForm
             // 
