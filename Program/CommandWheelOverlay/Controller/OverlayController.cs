@@ -39,7 +39,7 @@ namespace CommandWheelOverlay.Controller
             IWheelElements newElements = Elements.Editor.Edit(copy);
             if (newElements != null)
             {
-                View.UpdateElements(newElements.Simplify());
+                View.UpdateElements(new SimplifiedWheelElements(newElements));
                 elements = newElements;
             }
         }

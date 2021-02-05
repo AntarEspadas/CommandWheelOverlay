@@ -10,7 +10,7 @@ namespace CommandWheelOverlay.Controller
         IElementsEditor Editor { get; set; }
         IList<IWheel> Wheels { get; set; }
         IList<IWheelButton> Buttons { get; set; }
-        SimplifiedWheelElements Simplify();
+        int StartupWheel { get; set; }
 
     }
 }

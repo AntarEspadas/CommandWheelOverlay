@@ -12,6 +12,7 @@ namespace CommandWheelOverlay.Controller
         public IElementsEditor Editor { get; set; }
         public IList<IWheel> Wheels { get; set; } = new List<IWheel>();
         public IList<IWheelButton> Buttons { get; set; } = new List<IWheelButton>();
+        public int StartupWheel { get; set; }
 
         public object Clone()
         {
@@ -47,13 +48,6 @@ namespace CommandWheelOverlay.Controller
                 button.Action.SubWheel = clone.Wheels[wheelIndex];
             }
             return clone;
-        }
-
-        public SimplifiedWheelElements Simplify()
-        {
-            var simplifiedWheels = Wheels.Select(element => element.Simplify(Buttons)).ToArray();
-            var simplifiedButtons = Buttons.Select(element => element.Simplify(Wheels)).ToArray();
-            return new SimplifiedWheelElements(simplifiedWheels, simplifiedButtons);
         }
     }
 }

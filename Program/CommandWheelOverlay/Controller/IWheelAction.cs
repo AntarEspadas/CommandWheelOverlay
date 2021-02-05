@@ -10,7 +10,5 @@ namespace CommandWheelOverlay.Controller
         IWheel SubWheel { get; set; }
 
         void Perform();
-
-        SimplifiedWheelAction Simplify(IList<IWheel> wheels);
     }
 }

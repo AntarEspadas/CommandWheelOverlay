@@ -18,11 +18,5 @@ namespace CommandWheelOverlay.Controller.Actions
         {
             throw new NotSupportedException();
         }
-
-        public SimplifiedWheelAction Simplify(IList<IWheel> wheels)
-        {
-            int wheelIndex = SubWheel is null ? -1 : wheels.IndexOf(SubWheel);
-            return new SimplifiedWheelAction(WheelActionType.DisplaySubwheel, wheelIndex);
-        }
     }
 }

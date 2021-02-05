@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CommandWheelOverlay.Controller;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CommandWheelOverlay.View
@@ -10,10 +12,10 @@ namespace CommandWheelOverlay.View
         public SimplifiedWheel[] Wheels { get; }
         public SimplifiedWheelButton[] Buttons { get; }
 
-        public SimplifiedWheelElements(SimplifiedWheel[] wheels, SimplifiedWheelButton[] buttons)
+        public SimplifiedWheelElements(IWheelElements elements)
         {
-            Wheels = wheels;
-            Buttons = buttons;
+            Wheels = elements.Wheels.Select(wheel => new SimplifiedWheel(wheel, elements)).ToArray();
+            Buttons = elements.Buttons.Select(button => new SimplifiedWheelButton(button, elements)).ToArray();
         }
     }
 }

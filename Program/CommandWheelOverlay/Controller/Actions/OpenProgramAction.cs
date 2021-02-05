@@ -23,10 +23,5 @@ namespace CommandWheelOverlay.Controller.Actions
             process.StartInfo.Arguments = Arguments;
             process.Start();
         }
-
-        public SimplifiedWheelAction Simplify(IList<IWheel> wheels)
-        {
-            return new SimplifiedWheelAction(WheelActionType.Other, -1);
-        }
     }
 }

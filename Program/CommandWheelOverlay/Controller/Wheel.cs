@@ -19,17 +19,5 @@ namespace CommandWheelOverlay.Controller
             clone.Buttons = new List<IWheelButton>(Buttons);
             return clone;
         }
-
-        public SimplifiedWheel Simplify(IList<IWheelButton> buttons)
-        {
-            var buttonsDict = new Dictionary<IWheelButton, int>();
-            for (int i = 0; i < buttons.Count; i++)
-            {
-                buttonsDict.Add(buttons[i], i);
-            }
-            var buttonIndices = Buttons.Select(button => buttonsDict[button]).ToArray();
-
-            return new SimplifiedWheel(buttonIndices, AccentColor, BgColor);
-        }
     }
 }
