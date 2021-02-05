@@ -16,6 +16,11 @@ public class View : MonoBehaviour, IOverlayView
     private bool startShowing;
     private bool startHiding;
 
+    public CursorMovement cursor;
+    public Wheel wheelPrefab;
+    private Wheel[] wheels;
+    private int startupWheel;
+
     private void Start()
     {
         controller = new TcpOverlayController(this, 7777);
@@ -71,7 +76,17 @@ public class View : MonoBehaviour, IOverlayView
 
     public void UpdateElements(SimplifiedWheelElements elements)
     {
-        throw new System.NotImplementedException();
+        lock (wheels)
+        {
+            var canvas = transform.parent.Find("Canvas");
+            wheels = new Wheel[elements.Wheels.Length];
+            startupWheel = elements.StartupWheel;
+            for (int i = 0; i < wheels.Length; i++)
+            {
+                var wheel = Instantiate(wheelPrefab, canvas);
+                wheels[i] = wheel;
+            }
+        }
     }
 
     public void UpdateSettings(IUserSettings settings)
