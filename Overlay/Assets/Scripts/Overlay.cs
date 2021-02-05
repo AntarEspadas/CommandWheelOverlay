@@ -57,8 +57,8 @@ public class Overlay : MonoBehaviour
 		DwmExtendFrameIntoClientArea(hwnd, ref margins);
 		SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
 		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE | WS_EX_APPWINDOW);
-#endif
 		view.Hide();
+#endif
 	}
 	private void Update()
     {
