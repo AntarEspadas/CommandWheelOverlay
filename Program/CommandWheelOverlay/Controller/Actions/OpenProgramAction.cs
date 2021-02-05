@@ -9,9 +9,8 @@ namespace CommandWheelOverlay.Controller.Actions
     {
         public string ProgramPath { get; set; }
         public string Arguments { get; set; }
-        public IWheel SubWheel { get => null; set => throw new NotSupportedException(); }
 
-        public object Clone()
+        public IWheelAction Clone(IWheelElements elements)
         {
             return (OpenProgramAction)MemberwiseClone();
         }

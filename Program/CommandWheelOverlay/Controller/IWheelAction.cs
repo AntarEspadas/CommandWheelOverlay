@@ -5,10 +5,9 @@ using CommandWheelOverlay.View;
 
 namespace CommandWheelOverlay.Controller
 {
-    public interface IWheelAction : ICloneable
+    public interface IWheelAction
     {
-        IWheel SubWheel { get; set; }
-
         void Perform();
+        IWheelAction Clone(IWheelElements elements);
     }
 }

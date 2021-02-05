@@ -14,13 +14,17 @@ namespace CommandWheelOverlay.View
 
         public SimplifiedWheelAction(IWheelAction action, IWheelElements elements)
         {
-            Type = action is ShowSubwheelAction ? WheelActionType.DisplaySubwheel : WheelActionType.Other;
-            if (Type == WheelActionType.DisplaySubwheel && action.SubWheel != null)
+            if (action is ShowSubwheelAction showSubwheelAction)
             {
-                SubWheel = new SimplifiedWheel(action.SubWheel, elements);
+                Type = WheelActionType.DisplaySubwheel;
+                if (showSubwheelAction.SubWheel != null)
+                    SubWheel = new SimplifiedWheel(showSubwheelAction.SubWheel, elements);
+                else
+                    SubWheel = null;
             }
             else
             {
+                Type = WheelActionType.Other;
                 SubWheel = null;
             }
         }

@@ -5,10 +5,11 @@ using CommandWheelOverlay.View;
 
 namespace CommandWheelOverlay.Controller
 {
-    public interface IWheelButton : ICloneable
+    public interface IWheelButton
     {
         string Label { get; set; }
         string ImgPath { get; set; }
         IWheelAction Action { get; set; }
+        IWheelButton Clone(IWheelElements elements);
     }
 }

@@ -13,10 +13,10 @@ namespace CommandWheelOverlay.Controller
         public Color BgColor { get; set; } = Color.Black;
         public string Label { get; set; } = "Wheel";
 
-        public object Clone()
+        public IWheel Clone(IWheelElements elements)
         {
             var clone = (Wheel)MemberwiseClone();
-            clone.Buttons = new List<IWheelButton>(Buttons);
+            clone.Buttons = Buttons.Select(button => button.Clone(elements)).ToList();
             return clone;
         }
     }

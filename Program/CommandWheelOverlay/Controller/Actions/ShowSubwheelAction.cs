@@ -9,9 +9,13 @@ namespace CommandWheelOverlay.Controller.Actions
     {
         public IWheel SubWheel { get; set; }
 
-        public object Clone()
+        public IWheelAction Clone(IWheelElements elements)
         {
-            return MemberwiseClone();
+            var result = new ShowSubwheelAction
+            {
+                SubWheel = SubWheel?.Clone(elements)
+            };
+            return result;
         }
 
         public void Perform()

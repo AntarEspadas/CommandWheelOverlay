@@ -11,10 +11,11 @@ namespace CommandWheelOverlay.Controller
         public string ImgPath { get; set; } = null;
         public IWheelAction Action { get; set; } = null;
 
-        public object Clone()
+        public IWheelButton Clone(IWheelElements elements)
         {
             var clone = (WheelButton)MemberwiseClone();
-            clone.Action = Action is null ? default : (IWheelAction)Action.Clone();
+            clone.Action = Action?.Clone(elements);
+            elements.Buttons.Add(clone);
             return clone;
         }
     }
