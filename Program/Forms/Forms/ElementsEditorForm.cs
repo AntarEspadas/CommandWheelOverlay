@@ -22,7 +22,6 @@ namespace CommandWheelForms.Forms
         {
             InitializeComponent();
             this.elements = elements;
-            UpdateButtonsList();
             UpdateWheelsList();
         }
 
@@ -41,21 +40,6 @@ namespace CommandWheelForms.Forms
             }
         }
 
-        private void UpdateButtonsList()
-        {
-            buttonsLayoutPanel.Controls.Clear();
-            for (int i = 0; i < elements.Buttons.Count; i++)
-            {
-                var item = new ElementListItem(elements.Buttons[i]);
-                item.label1.Text = elements.Buttons[i].Label;
-                item.deleteButton.Click += DeleteButton_Click;
-                item.editButton.Click += EditButton_Click;
-                item.BackColor = Color.LightGray;
-                buttonsLayoutPanel.Controls.Add(item);
-                AdjustWidth(item);
-            }
-        }
-
         private void ActOnElement<T>(object child, Func<T, IWheelElements, bool> action)
         {
             ElementListItem item = (ElementListItem)((Button)child).Parent.Parent;
@@ -63,7 +47,6 @@ namespace CommandWheelForms.Forms
             if (reload)
             {
                 UpdateWheelsList();
-                UpdateButtonsList();
             }
         }
 
@@ -77,23 +60,9 @@ namespace CommandWheelForms.Forms
             ActOnElement<IWheel>(sender, elements.Editor.WheelEditor.RemoveWheel);
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            ActOnElement<IWheelButton>(sender, elements.Editor.ButtonEditor.EditButton);
-        }
-
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-            ActOnElement<IWheelButton>(sender, elements.Editor.ButtonEditor.RemoveButton);
-        }
-
         private void ElementsEditorForm_Resize(object sender, EventArgs e)
         {
             foreach (Control control in wheelsLayoutPanel.Controls)
-            {
-                AdjustWidth(control);
-            }
-            foreach (Control control in buttonsLayoutPanel.Controls)
             {
                 AdjustWidth(control);
             }
@@ -102,7 +71,7 @@ namespace CommandWheelForms.Forms
         private void AdjustWidth(Control control)
         {
             Control parent = control.Parent;
-            control.Width = parent.Width - control.Margin.Left - control.Margin.Right;
+            control.Width = parent.Width - control.Margin.Left - control.Margin.Right - parent.Padding.Right - parent.Padding.Left;
         }
 
         private void AddWheelClick(object sender, EventArgs e)
@@ -111,17 +80,6 @@ namespace CommandWheelForms.Forms
             if (wheel != null)
             {
                 UpdateWheelsList();
-                UpdateButtonsList();
-            }
-        }
-
-        private void AddButtonClick(object sender, EventArgs e)
-        {
-            var button = elements.Editor.ButtonEditor.AddButton(elements);
-            if (button != null)
-            {
-                UpdateWheelsList();
-                UpdateButtonsList();
             }
         }
     }
