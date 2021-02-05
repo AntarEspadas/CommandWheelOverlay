@@ -79,6 +79,7 @@ namespace CommandWheelForms.Forms
             var wheel = elements.Editor.WheelEditor.AddWheel(elements);
             if (wheel != null)
             {
+                elements.Wheels.Add(wheel);
                 UpdateWheelsList();
             }
         }

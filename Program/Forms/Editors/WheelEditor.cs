@@ -16,12 +16,7 @@ namespace CommandWheelForms.Editors
         {
             CreationT wheel = new CreationT();
             bool accepted =  EditWheel(wheel, elements);
-            if (accepted)
-            {
-                elements.Wheels.Add(wheel);
-                return wheel;
-            }
-            return null;
+            return accepted ? wheel : null;
         }
 
         public bool EditWheel(IWheel wheel, IWheelElements elements)

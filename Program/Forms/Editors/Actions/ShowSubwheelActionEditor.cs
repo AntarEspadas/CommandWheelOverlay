@@ -24,12 +24,21 @@ namespace CommandWheelForms.Editors.Actions
 
         public override bool EditAction(ShowSubwheelAction action, IWheelElements elements)
         {
-            ShowSubwheelActionEditorForm form = new ShowSubwheelActionEditorForm(action, elements);
-            if (form.ShowDialog() == DialogResult.OK)
+            IWheel subwheel;
+            if (action.SubWheel == null)
             {
-                return true;
+                subwheel = elements.Editor.WheelEditor.AddWheel(elements);
+                if (subwheel != null)
+                {
+                    action.SubWheel = subwheel;
+                    return true;
+                }
+                else return false;
             }
-            return false;
+            else
+            {
+                return elements.Editor.WheelEditor.EditWheel(action.SubWheel, elements);
+            }
         }
     }
 }
