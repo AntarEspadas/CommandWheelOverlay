@@ -18,10 +18,10 @@ namespace CommandWheelOverlay.Controller
         {
             WheelElements clone = new WheelElements
             {
-                Editor = Editor,
-                StartupWheel = StartupWheel
+                Editor = Editor
             };
             clone.Wheels = Wheels.Select(wheel => wheel.Clone(clone)).ToList();
+            clone.StartupWheel = StartupWheel is null ? null : clone.Wheels[Wheels.IndexOf(StartupWheel)];
             return clone;
         }
     }

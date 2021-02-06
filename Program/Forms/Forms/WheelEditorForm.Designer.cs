@@ -31,16 +31,17 @@ namespace CommandWheelForms.Forms
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.addButtonButton = new System.Windows.Forms.Button();
             this.accentColorLabel = new System.Windows.Forms.Label();
             this.bgColorLabel = new System.Windows.Forms.Label();
             this.accentColorPanel = new System.Windows.Forms.Panel();
             this.bgColorPanel = new System.Windows.Forms.Panel();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.colorPicker = new System.Windows.Forms.ColorDialog();
-            this.addButtonButton = new System.Windows.Forms.Button();
             this.buttonsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.colorPicker = new System.Windows.Forms.ColorDialog();
             this.basicLayout1 = new CommandWheelForms.Controls.ButtonLayout();
+            this.startupWheelCheckbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +63,7 @@ namespace CommandWheelForms.Forms
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.startupWheelCheckbox);
             this.panel1.Controls.Add(this.addButtonButton);
             this.panel1.Controls.Add(this.accentColorLabel);
             this.panel1.Controls.Add(this.bgColorLabel);
@@ -74,6 +76,16 @@ namespace CommandWheelForms.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(462, 154);
             this.panel1.TabIndex = 0;
+            // 
+            // addButtonButton
+            // 
+            this.addButtonButton.Location = new System.Drawing.Point(9, 112);
+            this.addButtonButton.Name = "addButtonButton";
+            this.addButtonButton.Size = new System.Drawing.Size(75, 29);
+            this.addButtonButton.TabIndex = 5;
+            this.addButtonButton.Text = "Add Button";
+            this.addButtonButton.UseVisualStyleBackColor = true;
+            this.addButtonButton.Click += new System.EventHandler(this.addButtonButton_Click);
             // 
             // accentColorLabel
             // 
@@ -129,16 +141,6 @@ namespace CommandWheelForms.Forms
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Name";
             // 
-            // addButtonButton
-            // 
-            this.addButtonButton.Location = new System.Drawing.Point(9, 112);
-            this.addButtonButton.Name = "addButtonButton";
-            this.addButtonButton.Size = new System.Drawing.Size(75, 29);
-            this.addButtonButton.TabIndex = 5;
-            this.addButtonButton.Text = "Add Button";
-            this.addButtonButton.UseVisualStyleBackColor = true;
-            this.addButtonButton.Click += new System.EventHandler(this.addButtonButton_Click);
-            // 
             // buttonsLayoutPanel
             // 
             this.buttonsLayoutPanel.AutoScroll = true;
@@ -157,6 +159,16 @@ namespace CommandWheelForms.Forms
             this.basicLayout1.Name = "basicLayout1";
             this.basicLayout1.Size = new System.Drawing.Size(468, 40);
             this.basicLayout1.TabIndex = 0;
+            // 
+            // startupWheelCheckbox
+            // 
+            this.startupWheelCheckbox.AutoSize = true;
+            this.startupWheelCheckbox.Location = new System.Drawing.Point(247, 112);
+            this.startupWheelCheckbox.Name = "startupWheelCheckbox";
+            this.startupWheelCheckbox.Size = new System.Drawing.Size(141, 21);
+            this.startupWheelCheckbox.TabIndex = 6;
+            this.startupWheelCheckbox.Text = "Use as first wheel";
+            this.startupWheelCheckbox.UseVisualStyleBackColor = true;
             // 
             // WheelEditorForm
             // 
@@ -189,5 +201,6 @@ namespace CommandWheelForms.Forms
         private System.Windows.Forms.Panel accentColorPanel;
         private System.Windows.Forms.Button addButtonButton;
         private System.Windows.Forms.FlowLayoutPanel buttonsLayoutPanel;
+        private System.Windows.Forms.CheckBox startupWheelCheckbox;
     }
 }

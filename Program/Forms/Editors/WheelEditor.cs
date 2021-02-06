@@ -28,6 +28,11 @@ namespace CommandWheelForms.Editors
                 wheel.AccentColor = form.AccentColor;
                 wheel.BgColor = form.BgColor;
 
+                if (form.IsStartup)
+                {
+                    elements.StartupWheel = wheel;
+                }
+
                 if (wheel.Buttons != null)
                 {
                     foreach (IWheelButton button in form.Buttons)

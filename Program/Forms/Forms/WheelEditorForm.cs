@@ -19,6 +19,7 @@ namespace CommandWheelForms.Forms
         public Color BgColor => bgColorPanel.BackColor;
         public Color AccentColor => accentColorPanel.BackColor;
         public string Label => nameTextBox.Text;
+        public bool IsStartup => startupWheelCheckbox.Checked;
         public List<IWheelButton> Buttons { get; private set; }
         public WheelEditorForm(IWheel wheel, IWheelElements elements)
         {
@@ -29,6 +30,7 @@ namespace CommandWheelForms.Forms
             bgColorPanel.BackColor = wheel.BgColor;
             accentColorPanel.BackColor = wheel.AccentColor;
             nameTextBox.Text = wheel.Label;
+            startupWheelCheckbox.Checked = wheel == elements.StartupWheel;
 
             if (wheel.Buttons != null)
             {
