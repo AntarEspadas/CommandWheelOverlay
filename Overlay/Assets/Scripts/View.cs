@@ -61,6 +61,13 @@ public class View : MonoBehaviour, IOverlayView
 
     private void CreateWheels(SimplifiedWheelElements elements)
     {
+        if (wheels != null)
+        {
+            foreach (Wheel wheel in wheels)
+            {
+                Destroy(wheel.gameObject);
+            }
+        }
         wheels = new Wheel[elements.Wheels.Length];
         startupWheel = elements.StartupWheel;
         for (int i = 0; i < wheels.Length; i++)
