@@ -32,7 +32,8 @@ namespace CommandWheelForms.Forms
             for (int i = 0; i < elements.Wheels.Count; i++)
             {
                 var item = new ElementListItem(elements.Wheels[i]);
-                item.label1.Text = elements.Wheels[i].Label;
+                string prefix = elements.Wheels[i] == elements.StartupWheel ? "[Main] " : "";
+                item.label1.Text = prefix + elements.Wheels[i].Label;
                 item.deleteButton.Click += DeleteWheel_Click;
                 item.editButton.Click += EditWheel_Click;
                 item.BackColor = Color.LightGray;
