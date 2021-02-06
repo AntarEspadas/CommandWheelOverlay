@@ -21,7 +21,6 @@ namespace CommandWheelForms.Editors
             ElementsEditorForm editor = new ElementsEditorForm(wheelElementsCopy);
             if (editor.ShowDialog() == DialogResult.OK)
             {
-                wheelElementsCopy.StartupWheel = editor.StartupWheel;
                 return wheelElementsCopy;
             }
             return null;

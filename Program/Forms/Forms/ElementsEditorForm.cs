@@ -18,13 +18,10 @@ namespace CommandWheelForms.Forms
     {
         private IWheelElements elements;
 
-        public IWheel StartupWheel { get; private set; }
-
         public ElementsEditorForm(IWheelElements elements)
         {
             InitializeComponent();
             this.elements = elements;
-            StartupWheel = elements.StartupWheel;
             UpdateWheelsList();
         }
 
@@ -38,9 +35,34 @@ namespace CommandWheelForms.Forms
                 item.deleteButton.Click += DeleteWheel_Click;
                 item.editButton.Click += EditWheel_Click;
                 item.BackColor = Color.LightGray;
+                item.UpClick += Item_UpClick;
+                item.DownClick += Item_DownClick;
                 wheelsLayoutPanel.Controls.Add(item);
                 AdjustWidth(item);
             }
+        }
+
+        private void Item_DownClick(object sender, EventArgs e)
+        {
+            IWheel movedWheel = (IWheel)((ElementListItem)sender).Element;
+            if (elements.Wheels[elements.Wheels.Count - 1] == movedWheel) return;
+            MoveElement(elements.Wheels, movedWheel, 1);
+            UpdateWheelsList();
+        }
+
+        private void MoveElement<T>(IList<T> list, T element, int positions)
+        {
+            int index = list.IndexOf(element);
+            list.RemoveAt(index);
+            list.Insert(index + positions, element);
+        }
+
+        private void Item_UpClick(object sender, EventArgs e)
+        {
+            IWheel movedWheel = (IWheel)((ElementListItem)sender).Element;
+            if (elements.Wheels[0] == movedWheel) return;
+            MoveElement(elements.Wheels, movedWheel, -1);
+            UpdateWheelsList();
         }
 
         private void ActOnElement<T>(object child, Func<T, IWheelElements, bool> action)
@@ -82,6 +104,7 @@ namespace CommandWheelForms.Forms
             var wheel = elements.Editor.WheelEditor.AddWheel(elements);
             if (wheel != null)
             {
+                if (elements.StartupWheel is null) elements.StartupWheel = wheel;
                 elements.Wheels.Add(wheel);
                 UpdateWheelsList();
             }
