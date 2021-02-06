@@ -22,7 +22,7 @@ namespace CommandWheelOverlay.View
             {
                 allButtons[elements.Buttons[i]] = i;
             }
-            ButtonIndices = new int[elements.Buttons.Count];
+            ButtonIndices = new int[wheel.Buttons.Count];
             for (int i = 0; i < ButtonIndices.Length; i++)
             {
                 ButtonIndices[i] = allButtons[wheel.Buttons[i]];
