@@ -18,9 +18,10 @@ namespace CommandWheelForms.Editors
 
         public IWheelElements Edit(IWheelElements wheelElementsCopy)
         {
-            Form editor = new ElementsEditorForm(wheelElementsCopy);
+            ElementsEditorForm editor = new ElementsEditorForm(wheelElementsCopy);
             if (editor.ShowDialog() == DialogResult.OK)
             {
+                wheelElementsCopy.StartupWheel = editor.StartupWheel;
                 return wheelElementsCopy;
             }
             return null;

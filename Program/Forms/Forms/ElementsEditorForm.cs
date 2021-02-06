@@ -18,10 +18,13 @@ namespace CommandWheelForms.Forms
     {
         private IWheelElements elements;
 
+        public int StartupWheel { get; private set; }
+
         public ElementsEditorForm(IWheelElements elements)
         {
             InitializeComponent();
             this.elements = elements;
+            StartupWheel = elements.StartupWheel;
             UpdateWheelsList();
         }
 
