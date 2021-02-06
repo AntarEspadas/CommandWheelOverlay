@@ -68,6 +68,7 @@ public class View : MonoBehaviour, IOverlayView
                 Destroy(wheel.gameObject);
             }
         }
+        if (elements.StartupWheel < 0) return;
         wheels = new Wheel[elements.Wheels.Length];
         startupWheel = elements.StartupWheel;
         for (int i = 0; i < wheels.Length; i++)
