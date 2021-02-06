@@ -12,6 +12,8 @@ namespace CommandWheelForms.Controlls
 {
     public partial class ElementListItem : UserControl
     {
+        public event EventHandler UpClick;
+        public event EventHandler DownClick;
         public object Element { get; set; }
         public ElementListItem()
         {
@@ -20,6 +22,16 @@ namespace CommandWheelForms.Controlls
         public ElementListItem(object element) : this()
         {
             Element = element;
+        }
+
+        private void UpButton_Click(object sender, EventArgs e)
+        {
+            UpClick?.Invoke(this, e);
+        }
+
+        private void DownButton_Click(object sender, EventArgs e)
+        {
+            DownClick?.Invoke(this, e);
         }
     }
 }
