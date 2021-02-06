@@ -229,6 +229,7 @@
       <DependentUpon>ElementsEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\WheelEditor.cs" />
+    <Compile Include="Controls\Extensions.cs" />
     <Compile Include="Forms\WheelEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>

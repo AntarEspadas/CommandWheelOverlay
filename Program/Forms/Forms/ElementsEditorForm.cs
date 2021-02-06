@@ -27,6 +27,7 @@ namespace CommandWheelForms.Forms
 
         private void UpdateWheelsList()
         {
+            wheelsLayoutPanel.SuspendDrawing();
             wheelsLayoutPanel.Controls.Clear();
             for (int i = 0; i < elements.Wheels.Count; i++)
             {
@@ -40,6 +41,7 @@ namespace CommandWheelForms.Forms
                 wheelsLayoutPanel.Controls.Add(item);
                 AdjustWidth(item);
             }
+            wheelsLayoutPanel.ResumeDrawing();
         }
 
         private void Item_DownClick(object sender, EventArgs e)

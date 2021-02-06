@@ -43,6 +43,8 @@ namespace CommandWheelForms.Forms
 
         private void UpdateButtonList()
         {
+            buttonsLayoutPanel.SuspendDrawing();
+
             buttonsLayoutPanel.Controls.Clear();
 
             foreach (IWheelButton button in Buttons)
@@ -56,6 +58,8 @@ namespace CommandWheelForms.Forms
 
                 control.Width = control.Parent.Width - 20;
             }
+
+            buttonsLayoutPanel.ResumeDrawing();
         }
 
         private void EditButton_Click(object sender, EventArgs e)
