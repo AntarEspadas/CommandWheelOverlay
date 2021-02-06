@@ -12,7 +12,7 @@ namespace CommandWheelOverlay.Controller
         public IElementsEditor Editor { get; set; }
         public IList<IWheel> Wheels { get; set; } = new List<IWheel>();
         public IList<IWheelButton> Buttons { get; set; } = new List<IWheelButton>();
-        public int StartupWheel { get; set; }
+        public IWheel StartupWheel { get; set; }
 
         public object Clone()
         {

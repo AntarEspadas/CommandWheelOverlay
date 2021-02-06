@@ -53,14 +53,17 @@ namespace CommandWheelForms.Editors
             {
                 int index = elements.Wheels.IndexOf(wheel);
                 elements.Wheels.Remove(wheel);
-                if (index <= elements.StartupWheel)
+                if (wheel == elements.StartupWheel)
                 {
-                    int newIndex = index - 1;
-                    if (index < 0 && elements.Wheels.Count > 0)
+                    if (elements.Wheels.Count == 0)
                     {
-                        newIndex = 1;
+                        elements.StartupWheel = null;
                     }
-                    elements.StartupWheel = newIndex;
+                    else
+                    {
+                        index = Math.Min(index, elements.Wheels.Count - 1);
+                        elements.StartupWheel = elements.Wheels[index]; ;
+                    }
                 }
                 return true;
             }

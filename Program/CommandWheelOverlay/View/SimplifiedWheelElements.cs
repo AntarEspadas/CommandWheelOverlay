@@ -17,7 +17,7 @@ namespace CommandWheelOverlay.View
         {
             Wheels = elements.Wheels.Select(wheel => new SimplifiedWheel(wheel, elements)).ToArray();
             Buttons = elements.Buttons.Select(button => new SimplifiedWheelButton(button, elements)).ToArray();
-            StartupWheel = elements.StartupWheel;
+            StartupWheel = elements.Wheels.IndexOf(elements.StartupWheel);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace CommandWheelForms.Forms
     {
         private IWheelElements elements;
 
-        public int StartupWheel { get; private set; }
+        public IWheel StartupWheel { get; private set; }
 
         public ElementsEditorForm(IWheelElements elements)
         {
