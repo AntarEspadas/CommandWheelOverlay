@@ -39,20 +39,9 @@ public class View : MonoBehaviour, IOverlayView
     {
         if (startHiding)
         {
-            if (wheels != null && startupWheel >= 0)
-            {
-                wheels[currentWheel].gameObject.SetActive(false);
-                int highlightedButton = cursorHighlight.GetHighlightedButton();
-                if (highlightedButton >= 0)
-                {
-                    Debug.Log("Action");
-                    controller.PerformAction(highlightedButton);
-                }
-            }
-            shown = false;
-            Overlay.Hide();
+            HideOverlay();
             startHiding = false;
-            resetEvent.WaitOne();
+            return;
         }
 
         if (pendingElements.HasValue)
@@ -64,15 +53,9 @@ public class View : MonoBehaviour, IOverlayView
 
         if (startShowing)
         {
-            if (wheels != null && startupWheel >= 0)
-            {
-                currentWheel = startupWheel;
-                wheels[startupWheel].gameObject.SetActive(true);
-            }
-            shown = true;
-            cursorMovement.transform.localPosition = new Vector3();
-            Overlay.Show();
+            ShowOverlay();
             startShowing = false;
+            return;
         }
     }
 
@@ -90,10 +73,39 @@ public class View : MonoBehaviour, IOverlayView
         cursorHighlight.wheel = wheels[startupWheel];
     }
 
+    private void HideOverlay()
+    {
+        if (wheels != null && startupWheel >= 0)
+        {
+            wheels[currentWheel].gameObject.SetActive(false);
+            int highlightedButton = cursorHighlight.GetHighlightedButton();
+            if (highlightedButton >= 0)
+            {
+                Debug.Log("Action");
+                controller.PerformAction(highlightedButton);
+            }
+        }
+        shown = false;
+        Overlay.Hide();
+        resetEvent.Reset();
+        resetEvent.WaitOne();
+    }
+
+    private void ShowOverlay()
+    {
+        if (wheels != null && startupWheel >= 0)
+        {
+            currentWheel = startupWheel;
+            wheels[startupWheel].gameObject.SetActive(true);
+        }
+        shown = true;
+        cursorMovement.transform.localPosition = new Vector3();
+        Overlay.Show();
+    }
+
     public void Hide()
     {
         startHiding = true;
-        resetEvent.Reset();
     }
 
     public void MoveLeft()
