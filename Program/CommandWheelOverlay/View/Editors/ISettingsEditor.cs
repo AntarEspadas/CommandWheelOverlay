@@ -7,6 +7,6 @@ namespace CommandWheelOverlay.View.Editors
 {
     public interface ISettingsEditor
     {
-        IUserSettings EditSettings(IUserSettings userSettingsCopy);
+        bool EditSettings(IUserSettings userSettings);
     }
 }
