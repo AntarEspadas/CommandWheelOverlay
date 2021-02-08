@@ -60,6 +60,7 @@ namespace CommandWheelOverlay.Controller
             if (accepted)
             {
                 View.UpdateSettings(settings);
+                Model.SaveSettings(settings);
             }
         }
     }
