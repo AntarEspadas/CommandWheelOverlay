@@ -1,4 +1,5 @@
-﻿using CommandWheelOverlay.Settings;
+﻿using CommandWheelOverlay.Model;
+using CommandWheelOverlay.Settings;
 using CommandWheelOverlay.View;
 using CommandWheelOverlay.View.Editors;
 using System;
@@ -10,6 +11,8 @@ namespace CommandWheelOverlay.Controller
     public class OverlayController : IOverlayController
     {
         public IOverlayView View { get; set; }
+
+        public IOverlayModel Model { get; set; }
 
         public IWheelElements Elements => elements;
         private IWheelElements elements;
@@ -47,6 +50,7 @@ namespace CommandWheelOverlay.Controller
             {
                 View.UpdateElements(new SimplifiedWheelElements(newElements));
                 elements = newElements;
+                Model.SaveElements(elements);
             }
         }
 
