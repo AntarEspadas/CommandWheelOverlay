@@ -17,6 +17,9 @@ namespace CommandWheelForms.Settings
         public IList<int> MoveLeftHotkey { get => settings.MoveLeftHotkey.ToList(); set => settings.MoveLeftHotkey = value.ToArray(); }
         public IList<int> MoveRightHotkey { get => settings.MoveRightHotkey.ToList(); set => settings.MoveRightHotkey = value.ToArray(); }
 
+        public void Save()
+            => settings.Save();
+
         public object Clone()
         {
             throw new NotImplementedException();
