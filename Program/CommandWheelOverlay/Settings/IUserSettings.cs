@@ -8,5 +8,8 @@ namespace CommandWheelOverlay.Settings
     public interface IUserSettings : ICloneable
     {
         ISettingsEditor Editor { get; set; }
+        IList<int> ShowHotkey { get; set; }
+        IList<int> MoveLeftHotkey { get; set; }
+        IList<int> MoveRightHotkey { get; set; }
     }
 }

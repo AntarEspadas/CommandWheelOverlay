@@ -52,12 +52,10 @@ namespace CommandWheelOverlay.Controller
 
         public void UpdateSettings()
         {
-            IUserSettings copy = (IUserSettings)Settings.Clone();
-            IUserSettings newSettings = Settings.Editor.EditSettings(copy);
-            if (newSettings != null)
+            bool accepted = Settings.Editor.EditSettings(settings);
+            if (accepted)
             {
-                View.UpdateSettings(Settings);
-                settings = newSettings;
+                View.UpdateSettings(settings);
             }
         }
     }
