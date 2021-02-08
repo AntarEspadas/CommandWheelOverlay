@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CommandWheelOverlay.Model
 {
-    interface IOverlayModel
+    public interface IOverlayModel
     {
         IWheelElements GetElements();
         bool SaveElements(IWheelElements elements);
