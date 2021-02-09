@@ -185,6 +185,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\WheelElements.cs" />
     <Compile Include="Controls\ElementListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
