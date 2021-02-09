@@ -65,6 +65,7 @@ namespace CommandWheelForms.Forms
                 }
             }
             controller.View = view;
+            view.UpdateElements(new SimplifiedWheelElements(controller.Elements));
             
         }
 
