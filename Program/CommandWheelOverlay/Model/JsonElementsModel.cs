@@ -21,13 +21,20 @@ namespace CommandWheelOverlay.Model
 
         public IWheelElements GetElements()
         {
-            string json;
-            lock (this)
+            try
             {
-                json = File.ReadAllText(ElementsPath);
+                string json;
+                lock (this)
+                {
+                    json = File.ReadAllText(ElementsPath);
+                }
+                IWheelElements elements = JsonConvert.DeserializeObject<IWheelElements>(json, jsonSettings);
+                return elements;
             }
-            IWheelElements elements = JsonConvert.DeserializeObject<IWheelElements>(json, jsonSettings);
-            return elements;
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public bool SaveElements(IWheelElements elements)
