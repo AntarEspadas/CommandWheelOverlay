@@ -56,7 +56,7 @@ public class Overlay : MonoBehaviour
 #if !UNITY_EDITOR
 		DwmExtendFrameIntoClientArea(hwnd, ref margins);
 		SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
-		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE | WS_EX_APPWINDOW);
+		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE);
 		view.Hide();
 #endif
 	}
