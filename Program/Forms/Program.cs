@@ -13,6 +13,7 @@ namespace CommandWheelForms
 {
     public class Program
     {
+        public static readonly string programPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         [STAThread]
         public static void Main(string[] args)
         {
