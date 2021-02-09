@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using CommandWheelForms.Editors;
 using CommandWheelForms.Editors.Actions;
+using CommandWheelForms.Model;
 using CommandWheelOverlay.Connection;
 using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.Controller.Actions;
@@ -28,19 +29,23 @@ namespace CommandWheelForms.Forms
         private IInputHandler inputHandler;
         public MainWindow()
         {
-            IWheelElements elements = new WheelElements()
+            var model = new OverlayModel { ElementsPath = System.IO.Path.Combine(Program.programPath, "Elements.json") };
+
+            IWheelElements elements = model.GetElements();
+            elements = elements ?? new WheelElements();
+            elements.Editor = new ElementsEditor()
             {
-                Editor = new ElementsEditor()
-                {
-                    WheelEditor = new WheelEditor<Wheel>(),
-                    ButtonEditor = new ButtonEditor<WheelButton>(),
-                    ActionEditors = new List<IActionEditor>() { new ShowSubwheelActionEditor(), new OpenProgramEditor() },
-                }
+                WheelEditor = new WheelEditor<Wheel>(),
+                ButtonEditor = new ButtonEditor<WheelButton>(),
+                ActionEditors = new List<IActionEditor>() { new ShowSubwheelActionEditor(), new OpenProgramEditor() },
             };
 
 
 
-            controller = new OverlayController(elements, null);
+            controller = new OverlayController(elements, null)
+            {
+                Model = model
+            };
             InitializeComponent();
             view = new TcpOverlayView(controller, 7777);
 
