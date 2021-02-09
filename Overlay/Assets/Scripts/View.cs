@@ -19,7 +19,7 @@ public class View : MonoBehaviour, IOverlayView
     private ManualResetEvent resetEvent = new ManualResetEvent(true);
     private bool shown;
     private bool startShowing;
-    private bool startHiding;
+    private bool startHiding = true;
 
     private SimplifiedWheelElements? pendingElements;
 
