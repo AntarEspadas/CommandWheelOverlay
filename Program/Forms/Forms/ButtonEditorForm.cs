@@ -20,6 +20,7 @@ namespace CommandWheelForms.Forms
         public string Label => nameTextBox.Text;
         public string ImgPath => imageTextBox.Text;
         private bool comboboxChangedByUser = true;
+        private int lastIndex = -1;
 
         public ButtonEditorForm(IWheelButton button, IWheelElements elements)
         {
@@ -62,6 +63,8 @@ namespace CommandWheelForms.Forms
 
         private void actionComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (actionComboBox.SelectedIndex == lastIndex) return;
+            lastIndex = actionComboBox.SelectedIndex;
             if (!comboboxChangedByUser)
             {
                 comboboxChangedByUser = true;
