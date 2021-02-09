@@ -79,6 +79,7 @@ public class View : MonoBehaviour, IOverlayView
             wheel.ButtonTemplates = elements.Buttons;
         }
         cursorHighlight.wheel = wheels[startupWheel];
+        cursorMovement.transform.SetAsLastSibling();
     }
 
     private void HideOverlay()
