@@ -24,9 +24,9 @@ public class WheelSegment : MonoBehaviour
         ((RectTransform)highlight.transform).sizeDelta = size;
 
         var info = transform.Find("Info");
-        info.rotation = Quaternion.Euler(0, 0, (degrees * index));
-        info.position += info.up * radious / 2;
+        info.localPosition += Quaternion.Euler(0,0,degrees / -2) * new Vector3(0, radious / 2);
         info.rotation = Quaternion.Euler(0,0,0);
+        info.SetAsLastSibling();
     }
 
     // Update is called once per frame
