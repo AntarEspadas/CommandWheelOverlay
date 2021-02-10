@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ using CommandWheelOverlay.Controller.Actions;
 using CommandWheelOverlay.Input;
 using CommandWheelOverlay.View;
 using CommandWheelOverlay.View.Editors;
+using JobManagement;
 using Linearstar.Windows.RawInput;
 using Linearstar.Windows.RawInput.Native;
 
@@ -27,6 +29,15 @@ namespace CommandWheelForms.Forms
         private TcpOverlayView view;
         private OverlayController controller;
         private IInputHandler inputHandler;
+
+#if DEBUG
+        private readonly string overlayPath = System.IO.Path.Combine(Program.programPath, "..", "..", "..", "..", "Overlay", "Build", "CommandWheelOverlay.exe");
+#else
+        private readonly string overlayPath = "";
+#endif
+
+
+
         public MainWindow()
         {
             var model = new OverlayModel { ElementsPath = System.IO.Path.Combine(Program.programPath, "Elements.json") };
@@ -51,6 +62,12 @@ namespace CommandWheelForms.Forms
 
             inputHandler = new InputHandler { View = view};
             inputHandler.ShowHotkey = new[] { 18 };
+
+            Job job = new Job();
+            Process process = new Process();
+            process.StartInfo.FileName = overlayPath;
+            process.Start();
+            job.AddProcess(process.Handle);
 
             while (true)
             {
