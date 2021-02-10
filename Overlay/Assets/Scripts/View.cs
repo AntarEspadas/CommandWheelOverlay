@@ -97,7 +97,9 @@ public class View : MonoBehaviour, IOverlayView
         shown = false;
         Overlay.Hide();
         resetEvent.Reset();
-        resetEvent.WaitOne();
+#if !UNITY_EDITOR
+        resetEvent.WaitOne(); 
+#endif
     }
 
     private void ShowOverlay()
