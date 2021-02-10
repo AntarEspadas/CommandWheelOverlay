@@ -22,6 +22,11 @@ public class WheelSegment : MonoBehaviour
         var highlightImage = highlight.GetComponent<Image>();
         highlightImage.fillAmount = degrees / 360;
         ((RectTransform)highlight.transform).sizeDelta = size;
+
+        var info = transform.Find("Info");
+        info.rotation = Quaternion.Euler(0, 0, (degrees * index));
+        info.position += info.up * radious / 2;
+        info.rotation = Quaternion.Euler(0,0,0);
     }
 
     // Update is called once per frame
