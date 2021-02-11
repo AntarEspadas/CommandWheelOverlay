@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class WheelSegment : MonoBehaviour
 {
     public float radious;
+    public float innerRadious;
     public float degrees;
     public int index;
 
@@ -25,7 +26,7 @@ public class WheelSegment : MonoBehaviour
 
         var info = transform.Find("Info");
         info.GetComponent<ButtonInfo>().SetInfo(ButtonTemplate.Label, ButtonTemplate.ImgPath);
-        info.localPosition += Quaternion.Euler(0,0,degrees / -2) * new Vector3(0, radious / 2);
+        info.localPosition += Quaternion.Euler(0,0,degrees / -2) * new Vector3(0, (radious + innerRadious) / 2);
         info.rotation = Quaternion.Euler(0,0,0);
         info.SetAsLastSibling();
     }

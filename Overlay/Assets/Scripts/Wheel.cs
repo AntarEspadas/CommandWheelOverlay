@@ -49,6 +49,7 @@ public class Wheel : MonoBehaviour
             seg.degrees = angleDiff;
             seg.index = i;
             seg.radious = radious;
+            seg.innerRadious = innerRadious;
             if (fromTemplate)
             {
                 int buttonIndex = Template.Value.ButtonIndices[i];
