@@ -83,15 +83,6 @@ namespace CommandWheelOverlay.Connection
             bridge.Pass(parameters: elements);
         }
 
-        public void UpdateSettings(IUserSettings settings)
-        {
-#if NO_CONNECTION
-            return;
-#endif
-            Validate();
-            bridge.Pass(parameters: settings);
-        }
-
         private void Validate()
         {
             if (!client.Connected)

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CommandWheelForms.Editors;
 using CommandWheelForms.Editors.Actions;
 using CommandWheelForms.Model;
+using CommandWheelForms.Settings;
 using CommandWheelOverlay.Connection;
 using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.Controller.Actions;
@@ -52,16 +53,16 @@ namespace CommandWheelForms.Forms
             };
 
 
-
-            controller = new OverlayController(elements, null)
+            UserSettings.Instance.Editor = new SettingsEditor();
+            controller = new OverlayController(elements, UserSettings.Instance)
             {
-                Model = model
+                Model = model,
             };
             InitializeComponent();
             view = new TcpOverlayView(controller, 7777);
 
             inputHandler = new InputHandler { View = view};
-            inputHandler.ShowHotkey = new[] { 18 };
+            inputHandler.LoadHotkeys(UserSettings.Instance);
 
             Job job = new Job();
             Process process = new Process();
@@ -82,6 +83,7 @@ namespace CommandWheelForms.Forms
                 }
             }
             controller.View = view;
+            controller.InputHandler = inputHandler;
             view.UpdateElements(new SimplifiedWheelElements(controller.Elements));
             
         }

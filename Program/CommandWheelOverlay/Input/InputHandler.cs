@@ -1,4 +1,5 @@
-﻿using CommandWheelOverlay.View;
+﻿using CommandWheelOverlay.Settings;
+using CommandWheelOverlay.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CommandWheelOverlay.Input
         public IList<int> ShowHotkey { get; set; }
         public IList<int> MoveLeftHotkey { get; set; }
         public IList<int> MoveRightHotkey { get; set; }
+        public bool PauseOutput { get; set; }
 
         private bool showPressed = false;
         private bool moveLeftPressed = false;
@@ -36,6 +38,7 @@ namespace CommandWheelOverlay.Input
                 Record(input);
                 return;
             }
+            if (PauseOutput) return;
             if (input.LastX != 0 || input.LastY != 0)
                 View.SendMouseMovement(new[] {input.LastX, input.LastY });
             Check(input.Buttons, downs, pressedKeys.Add);
@@ -58,6 +61,7 @@ namespace CommandWheelOverlay.Input
                 Record(input);
                 return;
             }
+            if (PauseOutput) return;
             if ((input.Flags & KeyboardFlags.Up) > 0)
             {
                 pressedKeys.Remove(input.Key);
@@ -198,6 +202,13 @@ namespace CommandWheelOverlay.Input
                 }
                 return false;
             });
+        }
+
+        public void LoadHotkeys(IUserSettings userSettings)
+        {
+            ShowHotkey = userSettings.ShowHotkey;
+            MoveLeftHotkey = userSettings.MoveLeftHotkey;
+            MoveRightHotkey = userSettings.MoveRightHotkey;
         }
     }
 }

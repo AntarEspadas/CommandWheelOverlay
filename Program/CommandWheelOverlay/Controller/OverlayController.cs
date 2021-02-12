@@ -1,4 +1,5 @@
-﻿using CommandWheelOverlay.Model;
+﻿using CommandWheelOverlay.Input;
+using CommandWheelOverlay.Model;
 using CommandWheelOverlay.Settings;
 using CommandWheelOverlay.View;
 using CommandWheelOverlay.View.Editors;
@@ -13,6 +14,8 @@ namespace CommandWheelOverlay.Controller
         public IOverlayView View { get; set; }
 
         public IOverlayModel Model { get; set; }
+
+        public IInputHandler InputHandler { get; set; }
 
         public IWheelElements Elements => elements;
         private IWheelElements elements;
@@ -56,10 +59,9 @@ namespace CommandWheelOverlay.Controller
 
         public void UpdateSettings()
         {
-            bool accepted = Settings.Editor.EditSettings(settings);
+            bool accepted = Settings.Editor.EditSettings(settings, InputHandler);
             if (accepted)
             {
-                View.UpdateSettings(settings);
                 Model.SaveSettings(settings);
             }
         }

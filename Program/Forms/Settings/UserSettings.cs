@@ -15,10 +15,10 @@ namespace CommandWheelForms.Settings
 
         private readonly Properties.Settings settings = Properties.Settings.Default;
 
-        public ISettingsEditor Editor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IList<int> ShowHotkey { get => settings.ShowHotkey.ToList(); set => settings.ShowHotkey = value.ToArray(); }
-        public IList<int> MoveLeftHotkey { get => settings.MoveLeftHotkey.ToList(); set => settings.MoveLeftHotkey = value.ToArray(); }
-        public IList<int> MoveRightHotkey { get => settings.MoveRightHotkey.ToList(); set => settings.MoveRightHotkey = value.ToArray(); }
+        public ISettingsEditor Editor { get; set; }
+        public IList<int> ShowHotkey { get => settings.ShowHotkey?.ToList(); set => settings.ShowHotkey = value?.ToArray(); }
+        public IList<int> MoveLeftHotkey { get => settings.MoveLeftHotkey?.ToList(); set => settings.MoveLeftHotkey = value?.ToArray(); }
+        public IList<int> MoveRightHotkey { get => settings.MoveRightHotkey?.ToList(); set => settings.MoveRightHotkey = value?.ToArray(); }
 
         private UserSettings()
         {

@@ -201,6 +201,7 @@
     <Compile Include="Editors\Actions\OpenProgramEditor.cs" />
     <Compile Include="Editors\Actions\ShowSubwheelActionEditor.cs" />
     <Compile Include="Editors\ButtonEditor.cs" />
+    <Compile Include="Editors\SettingsEditor.cs" />
     <Compile Include="Forms\Actions\OpenProgramActionEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +235,12 @@
     </Compile>
     <Compile Include="Editors\WheelEditor.cs" />
     <Compile Include="Controls\Extensions.cs" />
+    <Compile Include="Forms\SettingsEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsEditorForm.Designer.cs">
+      <DependentUpon>SettingsEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WheelEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ElementsEditorForm.resx">
       <DependentUpon>ElementsEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsEditorForm.resx">
+      <DependentUpon>SettingsEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WheelEditorForm.resx">
       <DependentUpon>WheelEditorForm.cs</DependentUpon>

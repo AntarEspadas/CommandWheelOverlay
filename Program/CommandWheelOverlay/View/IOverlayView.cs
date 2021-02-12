@@ -9,7 +9,6 @@ namespace CommandWheelOverlay.View
     public interface IOverlayView
     {
         void UpdateElements(SimplifiedWheelElements elements);
-        void UpdateSettings(IUserSettings settings);
         void SendMouseMovement(int[] deltas);
         void MoveLeft();
         void MoveRight();
