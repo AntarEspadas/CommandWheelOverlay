@@ -30,12 +30,12 @@ namespace CommandWheelForms.Forms
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.wheelsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.addWheel = new System.Windows.Forms.Button();
-            this.wheelsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -58,6 +58,16 @@ namespace CommandWheelForms.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(638, 541);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // wheelsLayoutPanel
+            // 
+            this.wheelsLayoutPanel.AutoScroll = true;
+            this.wheelsLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.wheelsLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wheelsLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.wheelsLayoutPanel.Name = "wheelsLayoutPanel";
+            this.wheelsLayoutPanel.Size = new System.Drawing.Size(632, 455);
+            this.wheelsLayoutPanel.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -84,7 +94,7 @@ namespace CommandWheelForms.Forms
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(94, 28);
             this.okButton.TabIndex = 1;
-            this.okButton.Text = "Ok";
+            this.okButton.Text = "Save";
             this.okButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
@@ -125,16 +135,6 @@ namespace CommandWheelForms.Forms
             this.addWheel.Text = "Add Wheel";
             this.addWheel.UseVisualStyleBackColor = true;
             this.addWheel.Click += new System.EventHandler(this.AddWheelClick);
-            // 
-            // wheelsLayoutPanel
-            // 
-            this.wheelsLayoutPanel.AutoScroll = true;
-            this.wheelsLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.wheelsLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wheelsLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.wheelsLayoutPanel.Name = "wheelsLayoutPanel";
-            this.wheelsLayoutPanel.Size = new System.Drawing.Size(632, 455);
-            this.wheelsLayoutPanel.TabIndex = 0;
             // 
             // ElementsEditorForm
             // 

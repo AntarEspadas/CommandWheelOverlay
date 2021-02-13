@@ -42,6 +42,8 @@ namespace CommandWheelForms.Forms
             textBoxes = new[] { showHotkeyTextbox, leftHotkeyTextbox, rightHotkeyTextbox };
             buttons = new[] { ShowHotkeyButton, leftHotkeyButton, rightHotkeyButton };
 
+            buttonLayout1.OkButton.Text = "Save";
+
             UpdateTextBoxes();
         }
 
