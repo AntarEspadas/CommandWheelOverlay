@@ -15,6 +15,9 @@ namespace CommandWheelForms.Controls
         public event EventHandler ClickOkButton;
         public event EventHandler ClickCancelButton;
 
+        public Button OkButton => okButton;
+        public Button CancelButton => cancelButton;
+
         public ButtonLayout()
         {
             InitializeComponent();
