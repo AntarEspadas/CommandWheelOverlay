@@ -50,7 +50,14 @@ namespace CommandWheelOverlay.Input
         {
             foreach (MouseButton item in expected)
             {
-                if ((input & item) > 0) function(-(int)input);
+                if ((input & item) > 0)
+                {
+                    if (expected == ups)
+                    {
+                        input = (MouseButton)((int)input / 2);
+                    }
+                    function(-(int)input);
+                }
             }
         }
 
@@ -158,7 +165,7 @@ namespace CommandWheelOverlay.Input
             recording = false;
             registration.Dispose();
 
-            List<int> result = new List<int>(recorded.Count);
+            List<int> result = new List<int>(new int[recorded.Count]);
             foreach (var pair in recorded)
             {
                 result[pair.Value] = pair.Key;
@@ -179,7 +186,7 @@ namespace CommandWheelOverlay.Input
                     StopRecording();
                 }
             }
-            else
+            else if (!recorded.ContainsKey(input.Key))
             {
                 recorded[input.Key] = recorded.Count;
                 keyRecorded(input.Key);
@@ -189,6 +196,7 @@ namespace CommandWheelOverlay.Input
         {
             Check(input.Buttons, downs, key =>
             {
+                if (recorded.ContainsKey(key)) return false;
                 recorded[key] = recorded.Count;
                 keyRecorded(key);
                 return true;
