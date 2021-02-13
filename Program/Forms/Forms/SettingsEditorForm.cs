@@ -39,13 +39,13 @@ namespace CommandWheelForms.Forms
             MoveLeftHotkey = userSettings.MoveLeftHotkey;
             MoveRightHotkey = userSettings.MoveRightHotkey;
 
-            textBoxes = new[] { showHotkeyTextbox };
-            buttons = new[] { ShowHotkeyButton };
+            textBoxes = new[] { showHotkeyTextbox, leftHotkeyTextbox, rightHotkeyTextbox };
+            buttons = new[] { ShowHotkeyButton, leftHotkeyButton, rightHotkeyButton };
 
             UpdateTextBoxes();
         }
 
-        private void ShowKeybindButton_Click(object sender, EventArgs e)
+        private void ShowHotkeyButton_Click(object sender, EventArgs e)
         {
             RecordHotkey
             (
@@ -53,6 +53,28 @@ namespace CommandWheelForms.Forms
                 value => showHotkeyTextbox.Text = value,
                 () => ShowHotkey,
                 value => ShowHotkey = value
+            );
+        }
+
+        private void LeftHotkeyButton_Click(object sender, EventArgs e)
+        {
+            RecordHotkey
+            (
+                () => leftHotkeyTextbox.Text,
+                value => leftHotkeyTextbox.Text = value,
+                () => MoveLeftHotkey,
+                value => MoveLeftHotkey = value
+            );
+        }
+
+        private void RightHotkeyButton_Click(object sender, EventArgs e)
+        {
+            RecordHotkey
+            (
+                () => rightHotkeyTextbox.Text,
+                value => rightHotkeyTextbox.Text = value,
+                () => MoveRightHotkey,
+                value => MoveRightHotkey = value
             );
         }
 
@@ -85,7 +107,7 @@ namespace CommandWheelForms.Forms
                 }
                 else
                 {
-                    string hotkeyText = string.Join(" + ", getHotkey());
+                    string hotkeyText = string.Join(" + ", getHotkey().Select(key => converter.GetName(key)));
                     setTextboxText(hotkeyText);
                 }
                 SetRecordButtonsEnabled(true);
@@ -105,6 +127,7 @@ namespace CommandWheelForms.Forms
             var hotkeys = new[] { ShowHotkey, MoveLeftHotkey, MoveRightHotkey };
             for (int i = 0; i < textBoxes.Length; i++)
             {
+                if (hotkeys[i] is null) continue;
                 textBoxes[i].Text = string.Join(" + ", hotkeys[i].Select(key => converter.GetName(key)));
             }
         }
