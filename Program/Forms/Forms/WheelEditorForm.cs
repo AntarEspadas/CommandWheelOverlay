@@ -56,6 +56,8 @@ namespace CommandWheelForms.Forms
                 control.label1.Text = button.Label;
                 control.deleteButton.Click += DeleteButton_Click;
                 control.editButton.Click += EditButton_Click;
+                control.UpClick += Control_UpClick;
+                control.DownClick += Control_DownClick;
 
                 buttonsLayoutPanel.Controls.Add(control);
 
@@ -63,6 +65,22 @@ namespace CommandWheelForms.Forms
             }
 
             buttonsLayoutPanel.ResumeDrawing();
+        }
+
+        private void Control_DownClick(object sender, EventArgs e)
+        {
+            IWheelButton movedButton = (IWheelButton)((ElementListItem)sender).Element;
+            if (Buttons[Buttons.Count - 1] == movedButton) return;
+            Buttons.MoveElement(movedButton, 1);
+            UpdateButtonList();
+        }
+
+        private void Control_UpClick(object sender, EventArgs e)
+        {
+            IWheelButton movedButton = (IWheelButton)((ElementListItem)sender).Element;
+            if (Buttons[0] == movedButton) return;
+            Buttons.MoveElement(movedButton, -1);
+            UpdateButtonList();
         }
 
         private void EditButton_Click(object sender, EventArgs e)
