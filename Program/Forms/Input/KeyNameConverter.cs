@@ -20,7 +20,7 @@ namespace CommandWheelForms.Input
         [DllImport("user32.dll")]
         private static extern int GetKeyNameText(uint lParam, [Out] StringBuilder lpString, int nSize);
 
-        private IntPtr _dwhkl;
+        private readonly IntPtr _dwhkl;
         private const int size = 260;
 
         public KeyNameConverter()
