@@ -1,4 +1,5 @@
-﻿using CommandWheelOverlay.Input;
+﻿using CommandWheelForms.Input;
+using CommandWheelOverlay.Input;
 using CommandWheelOverlay.Settings;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace CommandWheelForms.Forms
         public IList<int> ShowHotkey { get; private set; }
         public IList<int> MoveLeftHotkey { get; private set; }
         public IList<int> MoveRightHotkey { get; private set; }
+
+        private KeyNameConverter converter = new KeyNameConverter();
 
         TextBox[] textBoxes;
         Button[] buttons;
@@ -69,7 +72,7 @@ namespace CommandWheelForms.Forms
                 {
                     separator += " + ";
                 }
-                setTextboxText(currentValue + separator + key);
+                setTextboxText(currentValue + separator + converter.GetName(key));
             }
 
             void SetHotkey(IList<int> newHotkey)
@@ -102,13 +105,8 @@ namespace CommandWheelForms.Forms
             var hotkeys = new[] { ShowHotkey, MoveLeftHotkey, MoveRightHotkey };
             for (int i = 0; i < textBoxes.Length; i++)
             {
-                textBoxes[i].Text = string.Join(" + ", hotkeys[i]);
+                textBoxes[i].Text = string.Join(" + ", hotkeys[i].Select(key => converter.GetName(key)));
             }
-        }
-
-        protected override bool ProcessKeyPreview(ref Message m)
-        {
-            return base.ProcessKeyPreview(ref m);
         }
     }
 }

@@ -253,6 +253,7 @@
     <Compile Include="Forms\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Input\KeyNameConverter.cs" />
     <Compile Include="JobManagement\Job.cs" />
     <Compile Include="Model\OverlayModel.cs" />
     <Compile Include="Program.cs" />
