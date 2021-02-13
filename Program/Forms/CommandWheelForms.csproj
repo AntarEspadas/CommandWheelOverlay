@@ -202,6 +202,7 @@
     <Compile Include="Editors\Actions\ShowSubwheelActionEditor.cs" />
     <Compile Include="Editors\ButtonEditor.cs" />
     <Compile Include="Editors\SettingsEditor.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Forms\Actions\OpenProgramActionEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -50,22 +50,15 @@ namespace CommandWheelForms.Forms
         {
             IWheel movedWheel = (IWheel)((ElementListItem)sender).Element;
             if (elements.Wheels[elements.Wheels.Count - 1] == movedWheel) return;
-            MoveElement(elements.Wheels, movedWheel, 1);
+            elements.Wheels.MoveElement(movedWheel, 1);
             UpdateWheelsList();
-        }
-
-        private void MoveElement<T>(IList<T> list, T element, int positions)
-        {
-            int index = list.IndexOf(element);
-            list.RemoveAt(index);
-            list.Insert(index + positions, element);
         }
 
         private void Item_UpClick(object sender, EventArgs e)
         {
             IWheel movedWheel = (IWheel)((ElementListItem)sender).Element;
             if (elements.Wheels[0] == movedWheel) return;
-            MoveElement(elements.Wheels, movedWheel, -1);
+            elements.Wheels.MoveElement(movedWheel, -1);
             UpdateWheelsList();
         }
 
