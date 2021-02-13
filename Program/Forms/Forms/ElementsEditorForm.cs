@@ -1,4 +1,5 @@
 ﻿using CommandWheelForms.Controlls;
+using CommandWheelForms.Extensions;
 using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.View.Editors;
 using System;

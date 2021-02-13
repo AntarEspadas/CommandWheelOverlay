@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CommandWheelForms.Forms
+namespace CommandWheelForms.Extensions
 {
     public static class Extensions
     {
