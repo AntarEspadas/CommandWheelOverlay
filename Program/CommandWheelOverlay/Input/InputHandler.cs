@@ -39,7 +39,7 @@ namespace CommandWheelOverlay.Input
                 return;
             }
             if (PauseOutput) return;
-            if (input.LastX != 0 || input.LastY != 0)
+            if ((input.LastX != 0 || input.LastY != 0) && showPressed)
                 View.SendMouseMovement(new[] {input.LastX, input.LastY });
             Check(input.Buttons, downs, pressedKeys.Add);
             Check(input.Buttons, ups, pressedKeys.Remove);
@@ -122,6 +122,7 @@ namespace CommandWheelOverlay.Input
                     }
                 } 
             }
+            if (!showPressed) return;
             if (MoveLeftHotkey != null)
             {
                 if (moveLeftPressed)
