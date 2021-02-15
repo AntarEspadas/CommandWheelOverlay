@@ -46,22 +46,23 @@ public class WheelSegment : MonoBehaviour
     {
         if (highlighted == _highlighted) return;
         _highlighted = highlighted;
-        RectTransform highlight = (RectTransform)this.highlight;
-        LeanTween.cancel(highlight);
+        var group = highlight.GetComponent<CanvasGroup>();
+        highlight.gameObject.LeanCancel();
         if (_highlighted)
         {
             highlight.gameObject.SetActive(true);
-            LeanTween.alpha(highlight, 0.5f, 0.2f);
+            group.LeanAlpha(1, 0.2f);
             return;
         }
-        LeanTween.alpha(highlight, 0, 0.5f).setOnComplete(() => highlight.gameObject.SetActive(false));
+        group.LeanAlpha(0, 0.5f).setOnComplete(() => highlight.gameObject.SetActive(false));
     }
 
     public void ForceUnhighlight()
     {
-        RectTransform highlight = (RectTransform)this.highlight;
-        highlight.LeanCancel();
-        highlight.LeanAlpha(0, 0);
+        var group = highlight.GetComponent<CanvasGroup>();
+
+        highlight.gameObject.LeanCancel();
+        group.LeanAlpha(0, 0);
         highlight.gameObject.SetActive(false);
         _highlighted = false;
     }

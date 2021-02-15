@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8400658589752210484}
   - component: {fileID: 8400658589752210485}
   - component: {fileID: 8400658589752210487}
+  - component: {fileID: 6731388232031089455}
   m_Layer: 5
   m_Name: Wheel
   m_TagString: Untagged
@@ -94,6 +95,18 @@ MonoBehaviour:
   separator: {fileID: 1249683587391475479, guid: 703faead8a95de94782cb8ffab216036,
     type: 3}
   segment: {fileID: 4718172344902581706, guid: 4d48c18c2daeb8147a95e7ecca34b90b, type: 3}
+--- !u!225 &6731388232031089455
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400658589752210491}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8400658591329215611
 GameObject:
   m_ObjectHideFlags: 0

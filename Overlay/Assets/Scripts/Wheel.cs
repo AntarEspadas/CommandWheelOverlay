@@ -111,19 +111,19 @@ public class Wheel : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        RectTransform transform = (RectTransform)this.transform;
-        transform.LeanCancel();
-        transform.LeanMoveLocalX(0, 0.2f);
-        transform.LeanAlpha(1, 0.2f);
+        var group = GetComponent<CanvasGroup>();
+        gameObject.LeanCancel();
+        gameObject.LeanMoveLocalX(0, 0.2f);
+        group.LeanAlpha(1, 0.2f);
     }
 
     public void FadeOut(int direction)
     {
         direction = Mathf.Clamp(direction, -1, 1);
 
-        RectTransform transform = (RectTransform)this.transform;
-        transform.LeanCancel();
-        transform.LeanMoveLocalX(50 * direction, 0.2f);
-        transform.LeanAlpha(0, 0.2f).setOnComplete(() => gameObject.SetActive(false));
+        var group = GetComponent<CanvasGroup>();
+        gameObject.LeanCancel();
+        gameObject.LeanMoveLocalX(50 * direction, 0.2f);
+        group.LeanAlpha(0, 0.2f).setOnComplete(() => gameObject.SetActive(false));
     }
 }
