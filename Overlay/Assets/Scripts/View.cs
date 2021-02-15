@@ -108,8 +108,30 @@ public class View : MonoBehaviour, IOverlayView
             wheel.Template = elements.Wheels[i];
             wheel.ButtonTemplates = elements.Buttons;
         }
+        ResetWheelPositions();
         cursorHighlight.wheel = wheels[startupWheel];
         cursorMovement.transform.SetAsLastSibling();
+    }
+
+    private void ResetWheelPositions()
+    {
+        for (int i = 0; i < wheels.Length; i++)
+        {
+            var wheel = wheels[i];
+            var position = new Vector3(50, 0);
+            if (i < startupWheel)
+            {
+                wheel.transform.localPosition = -position;
+            }
+            else if (i > startupWheel)
+            {
+                wheel.transform.localPosition = position;
+            }
+            else
+            {
+                wheel.transform.localPosition = new Vector3(0, 0);
+            }
+        }
     }
 
     private void HideOverlay()
@@ -123,7 +145,7 @@ public class View : MonoBehaviour, IOverlayView
                 controller.PerformAction(highlightedButton);
             }
             wheels[currentWheel].ForceUnhighlightAll();
-            wheels[currentWheel].gameObject.SetActive(false);
+            wheels[currentWheel].FadeOut(0);
         }
         shown = false;
         Overlay.Hide();
@@ -137,8 +159,9 @@ public class View : MonoBehaviour, IOverlayView
     {
         if (wheels != null && startupWheel >= 0)
         {
+            ResetWheelPositions();
             currentWheel = startupWheel;
-            wheels[startupWheel].gameObject.SetActive(true);
+            wheels[startupWheel].FadeIn();
             cursorHighlight.wheel = wheels[startupWheel];
         }
         shown = true;
