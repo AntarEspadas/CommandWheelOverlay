@@ -106,4 +106,24 @@ public class Wheel : MonoBehaviour
             segment.ForceUnhighlight();
         }
     }
+
+    public void FadeIn()
+    {
+        gameObject.SetActive(true);
+
+        RectTransform transform = (RectTransform)this.transform;
+        transform.LeanCancel();
+        transform.LeanMoveLocalX(0, 0.2f);
+        transform.LeanAlpha(1, 0.2f);
+    }
+
+    public void FadeOut(int direction)
+    {
+        direction = Mathf.Clamp(direction, -1, 1);
+
+        RectTransform transform = (RectTransform)this.transform;
+        transform.LeanCancel();
+        transform.LeanMoveLocalX(50 * direction, 0.2f);
+        transform.LeanAlpha(0, 0.2f).setOnComplete(() => gameObject.SetActive(false));
+    }
 }

@@ -64,37 +64,29 @@ public class View : MonoBehaviour, IOverlayView
 
         if (moveLeft)
         {
-            _MoveLeft();
+            Move(0, -1);
             moveLeft = false;
             return;
         }
 
         if (moveRight)
         {
-            _MoveRight();
+            Move(wheels.Length - 1, 1);
             moveRight = false;
             return;
         }
     }
 
-    private void _MoveLeft()
+    private void Move(int cap, int direction)
     {
-        if (currentWheel == 0) return;
-        wheels[currentWheel].ForceUnhighlightAll();
-        wheels[currentWheel].gameObject.SetActive(false);
-        currentWheel--;
-        wheels[currentWheel].gameObject.SetActive(true);
-        cursorHighlight.wheel = wheels[currentWheel];
-    }
-
-    private void _MoveRight()
-    {
-        if (currentWheel == wheels.Length - 1) return;
-        wheels[currentWheel].ForceUnhighlightAll();
-        wheels[currentWheel].gameObject.SetActive(false);
-        currentWheel++;
-        wheels[currentWheel].gameObject.SetActive(true);
-        cursorHighlight.wheel = wheels[currentWheel];
+        if (currentWheel == cap) return;
+        var oldWheel = wheels[currentWheel];
+        oldWheel.ForceUnhighlightAll();
+        oldWheel.FadeOut(-direction);
+        currentWheel += Mathf.Clamp(direction, -1, 1);
+        var newWheel = wheels[currentWheel];
+        newWheel.FadeIn();
+        cursorHighlight.wheel = newWheel;
     }
 
     private void CreateWheels(SimplifiedWheelElements elements)
