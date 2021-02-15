@@ -82,16 +82,13 @@ public class Wheel : MonoBehaviour
     private void SetHighlighted(int value)
     {
         if (value == highlighted) return;
-        Transform highlight;
         if (highlighted >= 0)
         {
-            highlight = childSegments[highlighted].transform.Find("Highlight");
-            highlight.GetComponent<Image>().enabled = false;
+            childSegments[highlighted].Highlighted = false;
         }
         if (value >= 0)
         {
-            highlight = childSegments[value].transform.Find("Highlight");
-            highlight.GetComponent<Image>().enabled = true;
+            childSegments[value].Highlighted = true; ;
         }
         highlighted = value;
     }

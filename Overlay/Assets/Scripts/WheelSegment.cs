@@ -14,6 +14,9 @@ public class WheelSegment : MonoBehaviour
     public SimplifiedWheelButton ButtonTemplate { get; set; }
     public int ButtonIndex { get; set; }
 
+    public bool Highlighted { get => _highlighted; set => SetHighlighted(value); }
+    private bool _highlighted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +38,20 @@ public class WheelSegment : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetHighlighted(bool highlighted)
+    {
+        if (highlighted == _highlighted) return;
+        _highlighted = highlighted;
+        RectTransform highlight = (RectTransform)transform.Find("Highlight");
+        LeanTween.cancel(highlight);
+        if (_highlighted)
+        {
+            highlight.gameObject.SetActive(true);
+            LeanTween.alpha(highlight, 0.5f, 0.2f);
+            return;
+        }
+        LeanTween.alpha(highlight, 0, 0.5f).setOnComplete(() => highlight.gameObject.SetActive(false));
     }
 }
