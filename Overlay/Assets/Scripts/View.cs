@@ -80,6 +80,7 @@ public class View : MonoBehaviour, IOverlayView
     private void _MoveLeft()
     {
         if (currentWheel == 0) return;
+        wheels[currentWheel].ForceUnhighlightAll();
         wheels[currentWheel].gameObject.SetActive(false);
         currentWheel--;
         wheels[currentWheel].gameObject.SetActive(true);
@@ -89,6 +90,7 @@ public class View : MonoBehaviour, IOverlayView
     private void _MoveRight()
     {
         if (currentWheel == wheels.Length - 1) return;
+        wheels[currentWheel].ForceUnhighlightAll();
         wheels[currentWheel].gameObject.SetActive(false);
         currentWheel++;
         wheels[currentWheel].gameObject.SetActive(true);
@@ -122,13 +124,14 @@ public class View : MonoBehaviour, IOverlayView
     {
         if (wheels != null && startupWheel >= 0)
         {
-            wheels[currentWheel].gameObject.SetActive(false);
             int highlightedButton = cursorHighlight.GetHighlightedButton();
             if (highlightedButton >= 0)
             {
                 Debug.Log("Action");
                 controller.PerformAction(highlightedButton);
             }
+            wheels[currentWheel].ForceUnhighlightAll();
+            wheels[currentWheel].gameObject.SetActive(false);
         }
         shown = false;
         Overlay.Hide();

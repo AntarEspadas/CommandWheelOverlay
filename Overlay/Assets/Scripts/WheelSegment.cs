@@ -17,12 +17,14 @@ public class WheelSegment : MonoBehaviour
     public bool Highlighted { get => _highlighted; set => SetHighlighted(value); }
     private bool _highlighted = false;
 
+    private Transform highlight;
+
     // Start is called before the first frame update
     void Start()
     {
         var size = new Vector2(radious * 2, radious * 2);
         ((RectTransform)transform).sizeDelta = size;
-        var highlight = transform.Find("Highlight");
+        highlight = transform.Find("Highlight");
         var highlightImage = highlight.GetComponent<Image>();
         highlightImage.fillAmount = degrees / 360;
         ((RectTransform)highlight.transform).sizeDelta = size;
@@ -44,7 +46,7 @@ public class WheelSegment : MonoBehaviour
     {
         if (highlighted == _highlighted) return;
         _highlighted = highlighted;
-        RectTransform highlight = (RectTransform)transform.Find("Highlight");
+        RectTransform highlight = (RectTransform)this.highlight;
         LeanTween.cancel(highlight);
         if (_highlighted)
         {
@@ -53,5 +55,14 @@ public class WheelSegment : MonoBehaviour
             return;
         }
         LeanTween.alpha(highlight, 0, 0.5f).setOnComplete(() => highlight.gameObject.SetActive(false));
+    }
+
+    public void ForceUnhighlight()
+    {
+        RectTransform highlight = (RectTransform)this.highlight;
+        highlight.LeanCancel();
+        highlight.LeanAlpha(0, 0);
+        highlight.gameObject.SetActive(false);
+        _highlighted = false;
     }
 }

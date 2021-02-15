@@ -97,4 +97,13 @@ public class Wheel : MonoBehaviour
     {
         return childSegments[highlighted].ButtonIndex;
     }
+
+    public void ForceUnhighlightAll()
+    {
+        highlighted = -1;
+        foreach (WheelSegment segment in childSegments)
+        {
+            segment.ForceUnhighlight();
+        }
+    }
 }
