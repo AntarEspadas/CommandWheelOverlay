@@ -17,9 +17,13 @@ public class View : MonoBehaviour, IOverlayView
 
     private TcpOverlayController controller;
     private ManualResetEvent resetEvent = new ManualResetEvent(true);
+
+
     private bool shown;
     private bool startShowing;
     private bool startHiding = true;
+    private bool moveLeft;
+    private bool moveRight;
 
     private SimplifiedWheelElements? pendingElements;
 
@@ -57,6 +61,38 @@ public class View : MonoBehaviour, IOverlayView
             startShowing = false;
             return;
         }
+
+        if (moveLeft)
+        {
+            _MoveLeft();
+            moveLeft = false;
+            return;
+        }
+
+        if (moveRight)
+        {
+            _MoveRight();
+            moveRight = false;
+            return;
+        }
+    }
+
+    private void _MoveLeft()
+    {
+        if (currentWheel == 0) return;
+        wheels[currentWheel].gameObject.SetActive(false);
+        currentWheel--;
+        wheels[currentWheel].gameObject.SetActive(true);
+        cursorHighlight.wheel = wheels[currentWheel];
+    }
+
+    private void _MoveRight()
+    {
+        if (currentWheel == wheels.Length - 1) return;
+        wheels[currentWheel].gameObject.SetActive(false);
+        currentWheel++;
+        wheels[currentWheel].gameObject.SetActive(true);
+        cursorHighlight.wheel = wheels[currentWheel];
     }
 
     private void CreateWheels(SimplifiedWheelElements elements)
@@ -108,6 +144,7 @@ public class View : MonoBehaviour, IOverlayView
         {
             currentWheel = startupWheel;
             wheels[startupWheel].gameObject.SetActive(true);
+            cursorHighlight.wheel = wheels[startupWheel];
         }
         shown = true;
         cursorMovement.transform.localPosition = new Vector3();
@@ -121,12 +158,12 @@ public class View : MonoBehaviour, IOverlayView
 
     public void MoveLeft()
     {
-        throw new System.NotImplementedException();
+        moveLeft = true;
     }
 
     public void MoveRight()
     {
-        throw new System.NotImplementedException();
+        moveRight = true;
     }
 
     public void SendMouseMovement(int[] deltas)
