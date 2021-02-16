@@ -29,6 +29,7 @@ namespace CommandWheelForms.Forms
             this.elements = elements;
 
             bgColorPanel.BackColor = wheel.BgColor;
+            bgColorAlphaNumericUpDown.Value = wheel.BgColor.A / 255M * 100;
             accentColorPanel.BackColor = wheel.AccentColor;
             nameTextBox.Text = wheel.Label;
             startupWheelCheckbox.Checked = wheel == elements.StartupWheel;
@@ -123,6 +124,13 @@ namespace CommandWheelForms.Forms
                 Buttons.Add(button);
                 UpdateButtonList();
             }
+        }
+
+        private void BgColorAlphaNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            var color = bgColorPanel.BackColor;
+            int alpha = (int)(bgColorAlphaNumericUpDown.Value / 100 * 255);
+            bgColorPanel.BackColor = Color.FromArgb(alpha, color);
         }
     }
 }

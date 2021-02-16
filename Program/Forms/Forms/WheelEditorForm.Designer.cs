@@ -41,9 +41,12 @@ namespace CommandWheelForms.Forms
             this.nameLabel = new System.Windows.Forms.Label();
             this.buttonsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.colorPicker = new System.Windows.Forms.ColorDialog();
+            this.bgColorAlphaNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.bgColorAlphaLabel = new System.Windows.Forms.Label();
             this.basicLayout1 = new CommandWheelForms.Controls.ButtonLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bgColorAlphaNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -63,6 +66,8 @@ namespace CommandWheelForms.Forms
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.bgColorAlphaLabel);
+            this.panel1.Controls.Add(this.bgColorAlphaNumericUpDown);
             this.panel1.Controls.Add(this.startupWheelCheckbox);
             this.panel1.Controls.Add(this.addButtonButton);
             this.panel1.Controls.Add(this.accentColorLabel);
@@ -161,6 +166,23 @@ namespace CommandWheelForms.Forms
             this.buttonsLayoutPanel.Size = new System.Drawing.Size(462, 247);
             this.buttonsLayoutPanel.TabIndex = 1;
             // 
+            // bgColorAlphaNumericUpDown
+            // 
+            this.bgColorAlphaNumericUpDown.Location = new System.Drawing.Point(76, 71);
+            this.bgColorAlphaNumericUpDown.Name = "bgColorAlphaNumericUpDown";
+            this.bgColorAlphaNumericUpDown.Size = new System.Drawing.Size(57, 22);
+            this.bgColorAlphaNumericUpDown.TabIndex = 7;
+            this.bgColorAlphaNumericUpDown.ValueChanged += new System.EventHandler(this.BgColorAlphaNumericUpDown_ValueChanged);
+            // 
+            // bgColorAlphaLabel
+            // 
+            this.bgColorAlphaLabel.AutoSize = true;
+            this.bgColorAlphaLabel.Location = new System.Drawing.Point(139, 73);
+            this.bgColorAlphaLabel.Name = "bgColorAlphaLabel";
+            this.bgColorAlphaLabel.Size = new System.Drawing.Size(56, 17);
+            this.bgColorAlphaLabel.TabIndex = 8;
+            this.bgColorAlphaLabel.Text = "Opacity";
+            // 
             // basicLayout1
             // 
             this.basicLayout1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -183,6 +205,7 @@ namespace CommandWheelForms.Forms
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bgColorAlphaNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +225,7 @@ namespace CommandWheelForms.Forms
         private System.Windows.Forms.Button addButtonButton;
         private System.Windows.Forms.FlowLayoutPanel buttonsLayoutPanel;
         private System.Windows.Forms.CheckBox startupWheelCheckbox;
+        private System.Windows.Forms.Label bgColorAlphaLabel;
+        private System.Windows.Forms.NumericUpDown bgColorAlphaNumericUpDown;
     }
 }
