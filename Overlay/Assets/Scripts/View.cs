@@ -82,11 +82,10 @@ public class View : MonoBehaviour, IOverlayView
         if (currentWheel == cap) return;
         var oldWheel = wheels[currentWheel];
         oldWheel.ForceUnhighlightAll();
-        oldWheel.FadeOut(-direction);
+        oldWheel.FadeOut(-direction, cursorHighlight);
         currentWheel += Mathf.Clamp(direction, -1, 1);
         var newWheel = wheels[currentWheel];
-        newWheel.FadeIn();
-        cursorHighlight.wheel = newWheel;
+        newWheel.FadeIn(cursorHighlight);
     }
 
     private void CreateWheels(SimplifiedWheelElements elements)

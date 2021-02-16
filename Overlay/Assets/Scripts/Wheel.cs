@@ -107,17 +107,17 @@ public class Wheel : MonoBehaviour
         }
     }
 
-    public void FadeIn()
+    public void FadeIn(CursorHighlight cursorHighlight)
     {
         gameObject.SetActive(true);
 
         var group = GetComponent<CanvasGroup>();
         gameObject.LeanCancel();
         gameObject.LeanMoveLocalX(0, 0.2f);
-        group.LeanAlpha(1, 0.2f);
+        group.LeanAlpha(1, 0.2f).setOnComplete(() => cursorHighlight.wheel = this);
     }
 
-    public void FadeOut(int direction)
+    public void FadeOut(int direction, CursorHighlight cursorHighlight)
     {
         direction = Mathf.Clamp(direction, -1, 1);
 
@@ -125,6 +125,8 @@ public class Wheel : MonoBehaviour
         gameObject.LeanCancel();
         gameObject.LeanMoveLocalX(50 * direction, 0.2f);
         group.LeanAlpha(0, 0.2f).setOnComplete(() => gameObject.SetActive(false));
+
+        cursorHighlight.wheel = null;
     }
 
     public void Show()
