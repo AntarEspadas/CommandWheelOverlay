@@ -52,22 +52,23 @@ namespace CommandWheelForms.Forms
                 ActionEditors = new List<IActionEditor>() { new OpenProgramEditor() },
             };
 
+            var settings = UserSettings.Instance;
 
-            UserSettings.Instance.Editor = new SettingsEditor();
-            controller = new OverlayController(elements, UserSettings.Instance)
+            settings.Editor = new SettingsEditor();
+            controller = new OverlayController(elements, settings)
             {
                 Model = model,
             };
             InitializeComponent();
-            view = new TcpOverlayView(controller, 25444);
+            view = new TcpOverlayView(controller, settings.Port);
 
             inputHandler = new InputHandler { View = view};
-            inputHandler.LoadHotkeys(UserSettings.Instance);
+            inputHandler.LoadHotkeys(settings);
 
             Job job = new Job();
             Process process = new Process();
             process.StartInfo.FileName = overlayPath;
-            process.StartInfo.Arguments = "--port 25444";
+            process.StartInfo.Arguments = $"--port {settings.Port}";
             process.Start();
             job.AddProcess(process.Handle);
 
