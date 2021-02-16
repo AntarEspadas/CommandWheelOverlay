@@ -106,9 +106,19 @@ namespace CommandWheelForms.Forms
             }
         }
 
-        private void PickColor(object sender, EventArgs e)
+        private void BgColorPanel_Click(object sender, EventArgs e)
         {
-            Panel panel = (Panel)sender;
+            PickColor((Panel)sender);
+            ApplyAlpha();
+        }
+
+        private void AccentColorPanel_Click(object sender, EventArgs e)
+        {
+            PickColor((Panel)sender);
+        }
+
+        private void PickColor(Panel panel)
+        {
             colorPicker.Color = panel.BackColor;
             if (colorPicker.ShowDialog() == DialogResult.OK)
             {
@@ -127,6 +137,11 @@ namespace CommandWheelForms.Forms
         }
 
         private void BgColorAlphaNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            ApplyAlpha();
+        }
+
+        private void ApplyAlpha()
         {
             var color = bgColorPanel.BackColor;
             int alpha = (int)(bgColorAlphaNumericUpDown.Value / 100 * 255);
