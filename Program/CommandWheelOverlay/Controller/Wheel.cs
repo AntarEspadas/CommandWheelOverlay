@@ -10,7 +10,7 @@ namespace CommandWheelOverlay.Controller
     {
         public IList<IWheelButton> Buttons { get; set; } = new List<IWheelButton>();
         public Color AccentColor { get; set; } = Color.White;
-        public Color BgColor { get; set; } = Color.Black;
+        public Color BgColor { get; set; } = Color.FromArgb(128, 25, 140, 210);
         public string Label { get; set; } = "Wheel";
 
         public IWheel Clone(IWheelElements elements)
