@@ -34,7 +34,7 @@ namespace CommandWheelForms.Forms
 #if DEBUG
         private readonly string overlayPath = System.IO.Path.Combine(Program.programPath, "..", "..", "..", "..", "Overlay", "Build", "CommandWheelOverlay.exe");
 #else
-        private readonly string overlayPath = "";
+        private readonly string overlayPath = System.IO.Path.Combine(Program.programPath, "Unity", "CommandWheelOverlay.exe");
 #endif
 
 
