@@ -19,6 +19,7 @@ namespace CommandWheelForms.Settings
         public IList<int> ShowHotkey { get => settings.ShowHotkey?.ToList(); set => settings.ShowHotkey = value?.ToArray(); }
         public IList<int> MoveLeftHotkey { get => settings.MoveLeftHotkey?.ToList(); set => settings.MoveLeftHotkey = value?.ToArray(); }
         public IList<int> MoveRightHotkey { get => settings.MoveRightHotkey?.ToList(); set => settings.MoveRightHotkey = value?.ToArray(); }
+        public int Port { get => settings.Port; set => settings.Port = value; }
 
         private UserSettings()
         {

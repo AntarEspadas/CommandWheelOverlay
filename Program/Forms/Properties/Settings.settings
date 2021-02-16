@@ -20,5 +20,8 @@
   &lt;int&gt;-4&lt;/int&gt;
 &lt;/ArrayOfInt&gt;</Value>
     </Setting>
+    <Setting Name="Port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25444</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

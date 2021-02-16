@@ -11,5 +11,7 @@ namespace CommandWheelOverlay.Settings
         IList<int> ShowHotkey { get; set; }
         IList<int> MoveLeftHotkey { get; set; }
         IList<int> MoveRightHotkey { get; set; }
+
+        int Port { get; set; }
     }
 }
