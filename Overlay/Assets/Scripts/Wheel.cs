@@ -126,4 +126,21 @@ public class Wheel : MonoBehaviour
         gameObject.LeanMoveLocalX(50 * direction, 0.2f);
         group.LeanAlpha(0, 0.2f).setOnComplete(() => gameObject.SetActive(false));
     }
+
+    public void Show()
+    {
+        SetAlpha(1);
+    }
+
+    public void Hide()
+    {
+        SetAlpha(0);
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        gameObject.LeanCancel();
+        GetComponent<CanvasGroup>().alpha = alpha;
+        gameObject.SetActive(alpha > 0);
+    }
 }
