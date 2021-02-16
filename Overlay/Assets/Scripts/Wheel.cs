@@ -7,6 +7,9 @@ using UnityEngine.UI;
 //[ExecuteInEditMode()]
 public class Wheel : MonoBehaviour
 {
+    public Color bgColor = new Color(25, 140, 210, 128);
+    public Color accentColor = Color.white;
+
     public int buttons;
     public float radious;
     public float innerRadious;
@@ -56,7 +59,12 @@ public class Wheel : MonoBehaviour
                 seg.ButtonTemplate = ButtonTemplates[buttonIndex];
                 seg.ButtonIndex = buttonIndex;
                 gameObject.SetActive(false);
+                var template = Template.Value;
+                bgColor = colorFromArray(template.BgColor);
+                accentColor = colorFromArray(template.AccentColor);
             }
+            seg.bgColor = bgColor;
+            seg.accentColor = accentColor;
         }
         for (int i = 0; i < buttons; i++)
         {
@@ -67,6 +75,8 @@ public class Wheel : MonoBehaviour
             sepSize.y = radious;
             sepTransform.sizeDelta = sepSize;
             sep.transform.localPosition += sep.up * (sep.rect.height / 2);
+
+            sep.GetComponent<Image>().color = accentColor;
         }
         StartVector = childSegments[buttons - 1].transform.up;
         ActualInnerRadious = ((RectTransform)transform).sizeDelta.y * innerRadious;
@@ -77,6 +87,11 @@ public class Wheel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private Color colorFromArray(int[] array)
+    {
+        return new Color(array[0] / 255f, array[1] / 255f, array[2] / 255f, array[3] / 255f);
     }
 
     private void SetHighlighted(int value)

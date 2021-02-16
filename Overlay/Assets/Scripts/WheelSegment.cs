@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class WheelSegment : MonoBehaviour
 {
+    public Color bgColor = new Color(25, 140, 210, 128);
+    public Color accentColor = Color.white;
+
     public float radious;
     public float innerRadious;
     public float degrees;
@@ -29,6 +32,7 @@ public class WheelSegment : MonoBehaviour
         highlight = transform.Find("Highlight");
         var highlightImage = highlight.GetComponent<Image>();
         highlightImage.fillAmount = degrees / 360;
+        highlightImage.color = bgColor;
         ((RectTransform)highlight.transform).sizeDelta = size;
 
         var info = transform.Find("Info");
@@ -36,6 +40,7 @@ public class WheelSegment : MonoBehaviour
         info.localPosition += Quaternion.Euler(0,0,degrees / -2) * new Vector3(0, (radious + innerRadious) / 2);
         info.rotation = Quaternion.Euler(0,0,0);
         info.SetAsLastSibling();
+        info.GetComponent<ButtonInfo>().Color = accentColor;
     }
 
     // Update is called once per frame

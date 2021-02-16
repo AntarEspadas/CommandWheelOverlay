@@ -6,6 +6,17 @@ using UnityEngine.UI;
 
 public class ButtonInfo : MonoBehaviour
 {
+    public Color Color
+    {
+        get => _color;
+        set
+        {
+            _color = value;
+            Text text = transform.Find("Text").GetComponent<Text>();
+            text.color = _color;
+        }
+    }
+    private Color _color;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +59,7 @@ public class ButtonInfo : MonoBehaviour
             image.texture = texture;
         }
         text.text = buttonLabel;
+        text.color = Color;
 
         if (!showLabel || !imageLoaded)
         {
