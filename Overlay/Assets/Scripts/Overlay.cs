@@ -12,7 +12,7 @@ public class Overlay : MonoBehaviour
 
 	public View view;
 
-[DllImport("user32.dll")]
+	[DllImport("user32.dll")]
 	static extern IntPtr GetActiveWindow();
 
 	[DllImport("Dwmapi.dll")]
@@ -25,6 +25,8 @@ public class Overlay : MonoBehaviour
 	static extern bool GetWindowRect(IntPtr hWnd, ref Rect lpRect);
 	[DllImport("user32.dll")]
 	static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+	[DllImport("user32.dll", SetLastError = true)]
+	static extern bool GetCursorPos(out Point lpPoint);
 
 	const int GWL_EXSTYLE = -20;
 
@@ -49,6 +51,12 @@ public class Overlay : MonoBehaviour
 		public long right;
 		public long bottom;
 	}
+	[StructLayout(LayoutKind.Sequential)]
+	public struct Point
+    {
+		public int x;
+		public int y;
+    }
 	void Awake()
 	{   
 		hwnd = GetActiveWindow();
@@ -85,6 +93,13 @@ public class Overlay : MonoBehaviour
     {
 #if !UNITY_EDITOR
         ShowWindow(hwnd, 5);
+		SwitchMonitor();
 #endif
 	}
+
+	public static void SwitchMonitor()
+    {
+		GetCursorPos(out Point point);
+		SetWindowPos(hwnd, HWND_TOPMOST, point.x, point.y, 0, 0, 0);
+    }
 }
