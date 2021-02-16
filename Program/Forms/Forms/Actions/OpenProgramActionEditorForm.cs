@@ -23,5 +23,13 @@ namespace CommandWheelForms.Forms.Actions
             pathTextBox.Text = action.ProgramPath;
             argsTextBox.Text = action.Arguments;
         }
+
+        private void PathBrowseButton_Click(object sender, EventArgs e)
+        {
+            if (pathOpenFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pathTextBox.Text = pathOpenFileDialog.FileName;
+            }
+        }
     }
 }

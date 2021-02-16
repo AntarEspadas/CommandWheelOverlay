@@ -34,6 +34,8 @@ namespace CommandWheelForms.Forms.Actions
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.argsLabel = new System.Windows.Forms.Label();
             this.argsTextBox = new System.Windows.Forms.TextBox();
+            this.pathBrowseButton = new System.Windows.Forms.Button();
+            this.pathOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // buttonLayout1
@@ -77,11 +79,26 @@ namespace CommandWheelForms.Forms.Actions
             this.argsTextBox.Size = new System.Drawing.Size(259, 22);
             this.argsTextBox.TabIndex = 4;
             // 
+            // pathBrowseButton
+            // 
+            this.pathBrowseButton.Location = new System.Drawing.Point(299, 27);
+            this.pathBrowseButton.Name = "pathBrowseButton";
+            this.pathBrowseButton.Size = new System.Drawing.Size(75, 26);
+            this.pathBrowseButton.TabIndex = 5;
+            this.pathBrowseButton.Text = "Browse";
+            this.pathBrowseButton.UseVisualStyleBackColor = true;
+            this.pathBrowseButton.Click += new System.EventHandler(this.PathBrowseButton_Click);
+            // 
+            // pathOpenFileDialog
+            // 
+            this.pathOpenFileDialog.Filter = "Executable files (*.exe;*.bat)|*.exe;*.bat|All files (*.*)|*.*";
+            // 
             // OpenProgramActionEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 163);
+            this.Controls.Add(this.pathBrowseButton);
             this.Controls.Add(this.argsTextBox);
             this.Controls.Add(this.argsLabel);
             this.Controls.Add(this.pathTextBox);
@@ -102,5 +119,7 @@ namespace CommandWheelForms.Forms.Actions
         private System.Windows.Forms.TextBox pathTextBox;
         private System.Windows.Forms.Label argsLabel;
         private System.Windows.Forms.TextBox argsTextBox;
+        private System.Windows.Forms.Button pathBrowseButton;
+        private System.Windows.Forms.OpenFileDialog pathOpenFileDialog;
     }
 }
