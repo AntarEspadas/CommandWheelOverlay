@@ -31,6 +31,7 @@ namespace CommandWheelForms.Forms
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.startupWheelCheckbox = new System.Windows.Forms.CheckBox();
             this.addButtonButton = new System.Windows.Forms.Button();
             this.accentColorLabel = new System.Windows.Forms.Label();
             this.bgColorLabel = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@ namespace CommandWheelForms.Forms
             this.buttonsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.colorPicker = new System.Windows.Forms.ColorDialog();
             this.basicLayout1 = new CommandWheelForms.Controls.ButtonLayout();
-            this.startupWheelCheckbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +77,16 @@ namespace CommandWheelForms.Forms
             this.panel1.Size = new System.Drawing.Size(462, 154);
             this.panel1.TabIndex = 0;
             // 
+            // startupWheelCheckbox
+            // 
+            this.startupWheelCheckbox.AutoSize = true;
+            this.startupWheelCheckbox.Location = new System.Drawing.Point(247, 112);
+            this.startupWheelCheckbox.Name = "startupWheelCheckbox";
+            this.startupWheelCheckbox.Size = new System.Drawing.Size(141, 21);
+            this.startupWheelCheckbox.TabIndex = 6;
+            this.startupWheelCheckbox.Text = "Use as first wheel";
+            this.startupWheelCheckbox.UseVisualStyleBackColor = true;
+            // 
             // addButtonButton
             // 
             this.addButtonButton.Location = new System.Drawing.Point(9, 112);
@@ -92,9 +102,9 @@ namespace CommandWheelForms.Forms
             this.accentColorLabel.AutoSize = true;
             this.accentColorLabel.Location = new System.Drawing.Point(244, 51);
             this.accentColorLabel.Name = "accentColorLabel";
-            this.accentColorLabel.Size = new System.Drawing.Size(88, 17);
+            this.accentColorLabel.Size = new System.Drawing.Size(75, 17);
             this.accentColorLabel.TabIndex = 4;
-            this.accentColorLabel.Text = "Accent Color";
+            this.accentColorLabel.Text = "Main Color";
             // 
             // bgColorLabel
             // 
@@ -159,16 +169,6 @@ namespace CommandWheelForms.Forms
             this.basicLayout1.Name = "basicLayout1";
             this.basicLayout1.Size = new System.Drawing.Size(468, 40);
             this.basicLayout1.TabIndex = 0;
-            // 
-            // startupWheelCheckbox
-            // 
-            this.startupWheelCheckbox.AutoSize = true;
-            this.startupWheelCheckbox.Location = new System.Drawing.Point(247, 112);
-            this.startupWheelCheckbox.Name = "startupWheelCheckbox";
-            this.startupWheelCheckbox.Size = new System.Drawing.Size(141, 21);
-            this.startupWheelCheckbox.TabIndex = 6;
-            this.startupWheelCheckbox.Text = "Use as first wheel";
-            this.startupWheelCheckbox.UseVisualStyleBackColor = true;
             // 
             // WheelEditorForm
             // 
