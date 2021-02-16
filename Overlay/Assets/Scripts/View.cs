@@ -147,6 +147,7 @@ public class View : MonoBehaviour, IOverlayView
             wheels[currentWheel].ForceUnhighlightAll();
             wheels[currentWheel].FadeOut(0);
         }
+        cursorMovement.transform.localPosition = new Vector3(0, 0);
         shown = false;
         Overlay.Hide();
         resetEvent.Reset();
@@ -164,8 +165,8 @@ public class View : MonoBehaviour, IOverlayView
             wheels[startupWheel].FadeIn();
             cursorHighlight.wheel = wheels[startupWheel];
         }
+        cursorMovement.transform.localPosition = new Vector3(0, 0);
         shown = true;
-        cursorMovement.transform.localPosition = new Vector3();
         Overlay.Show();
     }
 

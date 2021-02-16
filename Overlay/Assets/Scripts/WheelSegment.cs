@@ -17,6 +17,8 @@ public class WheelSegment : MonoBehaviour
     public bool Highlighted { get => _highlighted; set => SetHighlighted(value); }
     private bool _highlighted = false;
 
+    private int _tweenId;
+
     private Transform highlight;
 
     // Start is called before the first frame update
@@ -47,22 +49,22 @@ public class WheelSegment : MonoBehaviour
         if (highlighted == _highlighted) return;
         _highlighted = highlighted;
         var group = highlight.GetComponent<CanvasGroup>();
-        highlight.gameObject.LeanCancel();
+        LeanTween.cancel(_tweenId);
         if (_highlighted)
         {
             highlight.gameObject.SetActive(true);
-            group.LeanAlpha(1, 0.2f);
+            _tweenId = group.LeanAlpha(1, 0.2f).id;
             return;
         }
-        group.LeanAlpha(0, 0.5f).setOnComplete(() => highlight.gameObject.SetActive(false));
+        _tweenId = group.LeanAlpha(0, 0.5f).setOnComplete(() => highlight.gameObject.SetActive(false)).id;
     }
 
     public void ForceUnhighlight()
     {
         var group = highlight.GetComponent<CanvasGroup>();
 
-        highlight.gameObject.LeanCancel();
-        group.LeanAlpha(0, 0);
+        LeanTween.cancel(_tweenId);
+        group.alpha = 0;
         highlight.gameObject.SetActive(false);
         _highlighted = false;
     }
