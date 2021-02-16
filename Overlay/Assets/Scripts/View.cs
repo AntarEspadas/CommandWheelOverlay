@@ -2,6 +2,7 @@
 using CommandWheelOverlay.Controller;
 using CommandWheelOverlay.Settings;
 using CommandWheelOverlay.View;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -33,10 +34,28 @@ public class View : MonoBehaviour, IOverlayView
 
     private void Start()
     {
-        controller = new TcpOverlayController(this, 7777);
+        controller = new TcpOverlayController(this, GetPort());
 //#if !UNITY_EDITOR
         controller.Connect();
 //#endif
+    }
+
+    private int GetPort()
+    {
+        IList<string> args = Environment.GetCommandLineArgs();
+        int index = args.IndexOf("--port");
+        if (index < args.Count - 1)
+        {
+            string portStr = args[index + 1];
+            if (int.TryParse(portStr, out int port))
+            {
+                return port;
+            }
+        }
+#if !UNITY_EDITOR
+        Application.Quit(0);
+#endif
+        return 25444;
     }
 
     void Update()

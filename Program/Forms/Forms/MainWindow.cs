@@ -59,7 +59,7 @@ namespace CommandWheelForms.Forms
                 Model = model,
             };
             InitializeComponent();
-            view = new TcpOverlayView(controller, 7777);
+            view = new TcpOverlayView(controller, 25444);
 
             inputHandler = new InputHandler { View = view};
             inputHandler.LoadHotkeys(UserSettings.Instance);
@@ -67,6 +67,7 @@ namespace CommandWheelForms.Forms
             Job job = new Job();
             Process process = new Process();
             process.StartInfo.FileName = overlayPath;
+            process.StartInfo.Arguments = "--port 25444";
             process.Start();
             job.AddProcess(process.Handle);
 
