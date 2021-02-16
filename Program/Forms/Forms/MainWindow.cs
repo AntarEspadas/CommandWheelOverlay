@@ -49,7 +49,7 @@ namespace CommandWheelForms.Forms
             {
                 WheelEditor = new WheelEditor<Wheel>(),
                 ButtonEditor = new ButtonEditor<WheelButton>(),
-                ActionEditors = new List<IActionEditor>() { new ShowSubwheelActionEditor(), new OpenProgramEditor() },
+                ActionEditors = new List<IActionEditor>() { new OpenProgramEditor() },
             };
 
 
