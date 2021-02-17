@@ -11,10 +11,16 @@ namespace CommandWheelOverlay.AdditionalActions
     {
         private static readonly _AHK _ahk = new _AHK();
 
+        public IReadOnlyList<string> Keys => _keys;
+
+        private string[] _keys;
+
         private string _hotkey;
 
         public void SetHotkey(params string[] keys)
         {
+            _keys = keys;
+
             string downs = "";
             string ups = "";
             foreach (string input in keys)
