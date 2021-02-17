@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandWheelForms", "Forms\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandWheelOverlay", "CommandWheelOverlay\CommandWheelOverlay.csproj", "{3558F4DD-9EB5-4091-BAD3-F8646AF8C05A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalActions", "AdditionalActions\AdditionalActions.csproj", "{16EB92C0-5812-4411-9228-54CA96CDB4BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3558F4DD-9EB5-4091-BAD3-F8646AF8C05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3558F4DD-9EB5-4091-BAD3-F8646AF8C05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3558F4DD-9EB5-4091-BAD3-F8646AF8C05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16EB92C0-5812-4411-9228-54CA96CDB4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16EB92C0-5812-4411-9228-54CA96CDB4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16EB92C0-5812-4411-9228-54CA96CDB4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16EB92C0-5812-4411-9228-54CA96CDB4BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
