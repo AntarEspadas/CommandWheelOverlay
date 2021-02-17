@@ -203,6 +203,7 @@
     </Compile>
     <Compile Include="Editors\Actions\HotkeyActionEditor.cs" />
     <Compile Include="Editors\Actions\OpenProgramEditor.cs" />
+    <Compile Include="Editors\Actions\OpenWebsiteActionEditor.cs" />
     <Compile Include="Editors\Actions\ShowSubwheelActionEditor.cs" />
     <Compile Include="Editors\ButtonEditor.cs" />
     <Compile Include="Editors\SettingsEditor.cs" />
@@ -218,6 +219,12 @@
     </Compile>
     <Compile Include="Forms\Actions\OpenProgramActionEditorForm.Designer.cs">
       <DependentUpon>OpenProgramActionEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Actions\OpenWebsiteActionEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Actions\OpenWebsiteActionEditorForm.Designer.cs">
+      <DependentUpon>OpenWebsiteActionEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Actions\ShowSubwheelActionEditorForm.cs">
       <SubType>Form</SubType>
@@ -281,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Actions\OpenProgramActionEditorForm.resx">
       <DependentUpon>OpenProgramActionEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Actions\OpenWebsiteActionEditorForm.resx">
+      <DependentUpon>OpenWebsiteActionEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Actions\ShowSubwheelActionEditorForm.resx">
       <DependentUpon>ShowSubwheelActionEditorForm.cs</DependentUpon>
