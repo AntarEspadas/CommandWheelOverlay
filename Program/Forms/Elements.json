@@ -1,0 +1,255 @@
+{
+  "$id": "1",
+  "$type": "CommandWheelOverlay.Controller.WheelElements, CommandWheel",
+  "Wheels": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "$type": "CommandWheelOverlay.Controller.Wheel, CommandWheelOverlay",
+        "Buttons": {
+          "$id": "4",
+          "$values": [
+            {
+              "$id": "5",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Project Github",
+              "ImgPath": "",
+              "Action": {
+                "$id": "6",
+                "$type": "CommandWheelOverlay.Controller.Actions.OpenWebsiteAction, CommandWheelOverlay",
+                "Url": "https://github.com/Naratna/CommandWheelOverlay"
+              }
+            },
+            {
+              "$id": "7",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "random.cat",
+              "ImgPath": "",
+              "Action": {
+                "$id": "8",
+                "$type": "CommandWheelOverlay.Controller.Actions.OpenWebsiteAction, CommandWheelOverlay",
+                "Url": "http://random.cat"
+              }
+            },
+            {
+              "$id": "9",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "HTLHCDTWY.com",
+              "ImgPath": "",
+              "Action": {
+                "$id": "10",
+                "$type": "CommandWheelOverlay.Controller.Actions.OpenWebsiteAction, CommandWheelOverlay",
+                "Url": "http://hasthelargehadroncolliderdestroyedtheworldyet.com/"
+              }
+            },
+            {
+              "$id": "11",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "random.dog",
+              "ImgPath": "",
+              "Action": {
+                "$id": "12",
+                "$type": "CommandWheelOverlay.Controller.Actions.OpenWebsiteAction, CommandWheelOverlay",
+                "Url": "http://random.dog"
+              }
+            }
+          ]
+        },
+        "AccentColor": "White",
+        "BgColor": "128, 25, 140, 210",
+        "Label": "Links"
+      },
+      {
+        "$id": "13",
+        "$type": "CommandWheelOverlay.Controller.Wheel, CommandWheelOverlay",
+        "Buttons": {
+          "$id": "14",
+          "$values": [
+            {
+              "$id": "15",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Undo",
+              "ImgPath": "",
+              "Action": {
+                "$id": "16",
+                "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
+                "Keys": {
+                  "$id": "17",
+                  "$values": [
+                    "Ctrl",
+                    "z"
+                  ]
+                }
+              }
+            },
+            {
+              "$id": "18",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Toggle Desktop",
+              "ImgPath": "",
+              "Action": {
+                "$id": "19",
+                "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
+                "Keys": {
+                  "$id": "20",
+                  "$values": [
+                    "LWin",
+                    "d"
+                  ]
+                }
+              }
+            },
+            {
+              "$id": "21",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Task Manager",
+              "ImgPath": "",
+              "Action": {
+                "$id": "22",
+                "$type": "CommandWheelOverlay.Controller.Actions.OpenProgramAction, CommandWheelOverlay",
+                "ProgramPath": "taskmgr.exe",
+                "Arguments": ""
+              }
+            },
+            {
+              "$id": "23",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "File Explorer",
+              "ImgPath": "",
+              "Action": {
+                "$id": "24",
+                "$type": "CommandWheelOverlay.Controller.Actions.OpenProgramAction, CommandWheelOverlay",
+                "ProgramPath": "explorer.exe",
+                "Arguments": ""
+              }
+            }
+          ]
+        },
+        "AccentColor": "White",
+        "BgColor": "128, 25, 140, 210",
+        "Label": "Shortcuts"
+      },
+      {
+        "$id": "25",
+        "$type": "CommandWheelOverlay.Controller.Wheel, CommandWheelOverlay",
+        "Buttons": {
+          "$id": "26",
+          "$values": [
+            {
+              "$id": "27",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Play/Pause",
+              "ImgPath": "",
+              "Action": {
+                "$id": "28",
+                "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
+                "Keys": {
+                  "$id": "29",
+                  "$values": [
+                    "Media_Play_Pause"
+                  ]
+                }
+              }
+            },
+            {
+              "$id": "30",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Previous Track",
+              "ImgPath": "",
+              "Action": {
+                "$id": "31",
+                "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
+                "Keys": {
+                  "$id": "32",
+                  "$values": [
+                    "Media_Prev"
+                  ]
+                }
+              }
+            },
+            {
+              "$id": "33",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Stop",
+              "ImgPath": "",
+              "Action": {
+                "$id": "34",
+                "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
+                "Keys": {
+                  "$id": "35",
+                  "$values": [
+                    "Media_Stop"
+                  ]
+                }
+              }
+            },
+            {
+              "$id": "36",
+              "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
+              "Label": "Next Track",
+              "ImgPath": "",
+              "Action": {
+                "$id": "37",
+                "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
+                "Keys": {
+                  "$id": "38",
+                  "$values": [
+                    "Media_Next"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "AccentColor": "White",
+        "BgColor": "128, 25, 140, 210",
+        "Label": "Media Playback"
+      }
+    ]
+  },
+  "Buttons": {
+    "$id": "39",
+    "$values": [
+      {
+        "$ref": "5"
+      },
+      {
+        "$ref": "7"
+      },
+      {
+        "$ref": "9"
+      },
+      {
+        "$ref": "11"
+      },
+      {
+        "$ref": "15"
+      },
+      {
+        "$ref": "18"
+      },
+      {
+        "$ref": "21"
+      },
+      {
+        "$ref": "23"
+      },
+      {
+        "$ref": "27"
+      },
+      {
+        "$ref": "30"
+      },
+      {
+        "$ref": "33"
+      },
+      {
+        "$ref": "36"
+      }
+    ]
+  },
+  "StartupWheel": {
+    "$ref": "13"
+  }
+}
