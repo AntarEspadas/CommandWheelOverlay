@@ -15,7 +15,7 @@ namespace CommandWheelOverlay.AdditionalActions
         private static readonly _AHK _ahk = new _AHK();
 
         [JsonProperty]
-        public IReadOnlyList<string> Keys { get => _keys; private set => SetHotkey(value.ToArray()); }
+        public IList<string> Keys { get => _keys; private set => SetHotkey(value.ToArray()); }
 
         private string[] _keys;
 
