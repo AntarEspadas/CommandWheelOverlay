@@ -21,6 +21,12 @@ namespace CommandWheelForms.Editors
             ElementsEditorForm editor = new ElementsEditorForm(wheelElementsCopy);
             if (editor.ShowDialog() == DialogResult.OK)
             {
+                var buttons = new List<IWheelButton>();
+                foreach (IWheel wheel in wheelElementsCopy.Wheels)
+                {
+                    buttons.AddRange(wheel.Buttons);
+                }
+                wheelElementsCopy.Buttons = buttons;
                 return wheelElementsCopy;
             }
             return null;
