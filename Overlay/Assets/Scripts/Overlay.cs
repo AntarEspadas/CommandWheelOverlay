@@ -10,6 +10,9 @@ public class Overlay : MonoBehaviour
 	private long lastWindowTop = 0;
 	private static IntPtr hwnd;
 
+	private static bool _shown = false;
+	private static Point _cursorPos;
+
 	public View view;
 
 	[DllImport("user32.dll")]
@@ -27,6 +30,8 @@ public class Overlay : MonoBehaviour
 	static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 	[DllImport("user32.dll", SetLastError = true)]
 	static extern bool GetCursorPos(out Point lpPoint);
+	[DllImport("user32.dll")]
+	static extern bool SetCursorPos(int x, int y);
 
 	const int GWL_EXSTYLE = -20;
 
@@ -66,6 +71,7 @@ public class Overlay : MonoBehaviour
 		SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
 		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE);
 #endif
+
 	}
 	private void Update()
     {
@@ -80,7 +86,9 @@ public class Overlay : MonoBehaviour
 		}
 		lastWindowLeft = rect.left;
 		lastWindowTop = rect.top;
-
+		
+		if (_shown)
+			SetCursorPos(_cursorPos.x, _cursorPos.y);
     }
 
 	public static void Hide()
@@ -88,6 +96,7 @@ public class Overlay : MonoBehaviour
 #if !UNITY_EDITOR
         ShowWindow(hwnd, 0);
 #endif
+		_shown = false;
 	}
 	public static void Show()
     {
@@ -95,6 +104,8 @@ public class Overlay : MonoBehaviour
         ShowWindow(hwnd, 5);
 		SwitchMonitor();
 #endif
+		GetCursorPos(out _cursorPos);
+		_shown = true;
 	}
 
 	public static void SwitchMonitor()
