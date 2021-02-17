@@ -198,11 +198,18 @@
     <Compile Include="Controls\ButtonLayout.Designer.cs">
       <DependentUpon>ButtonLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\Actions\HotkeyActionEditor.cs" />
     <Compile Include="Editors\Actions\OpenProgramEditor.cs" />
     <Compile Include="Editors\Actions\ShowSubwheelActionEditor.cs" />
     <Compile Include="Editors\ButtonEditor.cs" />
     <Compile Include="Editors\SettingsEditor.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Forms\Actions\HotkeyActionEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Actions\HotkeyActionEditorForm.Designer.cs">
+      <DependentUpon>HotkeyActionEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Actions\OpenProgramActionEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +273,9 @@
     <EmbeddedResource Include="Controls\ButtonLayout.resx">
       <DependentUpon>ButtonLayout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Actions\HotkeyActionEditorForm.resx">
+      <DependentUpon>HotkeyActionEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Actions\OpenProgramActionEditorForm.resx">
       <DependentUpon>OpenProgramActionEditorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +325,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdditionalActions\AdditionalActions.csproj">
+      <Project>{16eb92c0-5812-4411-9228-54ca96cdb4bf}</Project>
+      <Name>AdditionalActions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommandWheelOverlay\CommandWheelOverlay.csproj">
       <Project>{3558f4dd-9eb5-4091-bad3-f8646af8c05a}</Project>
       <Name>CommandWheelOverlay</Name>
