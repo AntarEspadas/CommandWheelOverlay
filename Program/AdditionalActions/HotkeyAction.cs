@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace CommandWheelOverlay.AdditionalActions
 {
-    class HotkeyAction : IWheelAction
+    public class HotkeyAction : IWheelAction
     {
         private static readonly _AHK _ahk = new _AHK();
 
