@@ -63,7 +63,9 @@ public class Overlay : MonoBehaviour
 		public int y;
     }
 	void Awake()
-	{   
+	{
+		Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, true);
+
 		hwnd = GetActiveWindow();
 		Margins margins = new Margins() { cxLeftWidth = -1 };
 #if !UNITY_EDITOR
@@ -72,8 +74,8 @@ public class Overlay : MonoBehaviour
 		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE);
 #endif
 
-	}
-	private void Update()
+    }
+    private void Update()
     {
 		Rect rect = new Rect();
 		GetWindowRect(hwnd, ref rect);

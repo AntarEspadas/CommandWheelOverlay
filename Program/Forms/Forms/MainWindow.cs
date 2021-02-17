@@ -68,7 +68,7 @@ namespace CommandWheelForms.Forms
             Job job = new Job();
             Process process = new Process();
             process.StartInfo.FileName = overlayPath;
-            process.StartInfo.Arguments = $"--port {settings.Port} -window-mode borderless";
+            process.StartInfo.Arguments = $"--port {settings.Port} -window-mode borderless -screen-fullscreen 0 -screen-height 500 -screen-width 500";
             process.Start();
             job.AddProcess(process.Handle);
 
