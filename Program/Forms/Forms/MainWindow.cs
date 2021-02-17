@@ -49,7 +49,7 @@ namespace CommandWheelForms.Forms
             {
                 WheelEditor = new WheelEditor<Wheel>(),
                 ButtonEditor = new ButtonEditor<WheelButton>(),
-                ActionEditors = new List<IActionEditor>() { new OpenProgramEditor(), new HotkeyActionEditor(), new OpenWebsiteActionEditor() },
+                ActionEditors = new List<IActionEditor>() { new OpenProgramEditor(), new HotkeyActionEditor(), new OpenWebsiteActionEditor(), new OpenSteamAppActionEditor() },
             };
 
             var settings = UserSettings.Instance;
