@@ -29,35 +29,14 @@ namespace CommandWheelForms.Forms.Actions
         /// </summary>
         private void InitializeComponent()
         {
-            this.hotkeyLabel = new System.Windows.Forms.Label();
-            this.autohotkeyLinkLabel = new System.Windows.Forms.LinkLabel();
             this.hotkeyTextBox = new System.Windows.Forms.TextBox();
             this.buttonLayout1 = new CommandWheelForms.Controls.ButtonLayout();
+            this.hotkeyLinkLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
-            // 
-            // hotkeyLabel
-            // 
-            this.hotkeyLabel.AutoSize = true;
-            this.hotkeyLabel.Location = new System.Drawing.Point(12, 9);
-            this.hotkeyLabel.Name = "hotkeyLabel";
-            this.hotkeyLabel.Size = new System.Drawing.Size(306, 85);
-            this.hotkeyLabel.TabIndex = 0;
-            this.hotkeyLabel.Text = "Enter a space separated list of keys. Examples:\r\nCtrl Z\r\nAlt Tab\r\nCtrl Shift Esc\r" +
-    "\nFor a full list of keys, visit the Autohotkey docs";
-            // 
-            // autohotkeyLinkLabel
-            // 
-            this.autohotkeyLinkLabel.AutoSize = true;
-            this.autohotkeyLinkLabel.Location = new System.Drawing.Point(12, 94);
-            this.autohotkeyLinkLabel.Name = "autohotkeyLinkLabel";
-            this.autohotkeyLinkLabel.Size = new System.Drawing.Size(293, 17);
-            this.autohotkeyLinkLabel.TabIndex = 1;
-            this.autohotkeyLinkLabel.TabStop = true;
-            this.autohotkeyLinkLabel.Text = "https://www.autohotkey.com/docs/KeyList.htm";
             // 
             // hotkeyTextBox
             // 
-            this.hotkeyTextBox.Location = new System.Drawing.Point(15, 123);
+            this.hotkeyTextBox.Location = new System.Drawing.Point(15, 103);
             this.hotkeyTextBox.Name = "hotkeyTextBox";
             this.hotkeyTextBox.Size = new System.Drawing.Size(330, 22);
             this.hotkeyTextBox.TabIndex = 2;
@@ -65,21 +44,34 @@ namespace CommandWheelForms.Forms.Actions
             // buttonLayout1
             // 
             this.buttonLayout1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonLayout1.Location = new System.Drawing.Point(0, 159);
+            this.buttonLayout1.Location = new System.Drawing.Point(0, 143);
             this.buttonLayout1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLayout1.Name = "buttonLayout1";
             this.buttonLayout1.Size = new System.Drawing.Size(357, 40);
             this.buttonLayout1.TabIndex = 3;
             // 
+            // hotkeyLinkLabel
+            // 
+            this.hotkeyLinkLabel.AutoSize = true;
+            this.hotkeyLinkLabel.LinkArea = new System.Windows.Forms.LinkArea(117, 15);
+            this.hotkeyLinkLabel.Location = new System.Drawing.Point(12, 9);
+            this.hotkeyLinkLabel.Name = "hotkeyLinkLabel";
+            this.hotkeyLinkLabel.Size = new System.Drawing.Size(293, 79);
+            this.hotkeyLinkLabel.TabIndex = 4;
+            this.hotkeyLinkLabel.TabStop = true;
+            this.hotkeyLinkLabel.Text = "Enter a space separated list of keys. Examples:\r\nCtrl Z\r\nAlt Tab\r\nCtrl Shift Esc\r" +
+    "\nFor a full list of keys, visit the Autohotkey docs\r\n";
+            this.hotkeyLinkLabel.UseCompatibleTextRendering = true;
+            this.hotkeyLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HotkeyLinkLabel_LinkClicked);
+            // 
             // HotkeyActionEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 199);
+            this.ClientSize = new System.Drawing.Size(357, 183);
+            this.Controls.Add(this.hotkeyLinkLabel);
             this.Controls.Add(this.buttonLayout1);
             this.Controls.Add(this.hotkeyTextBox);
-            this.Controls.Add(this.autohotkeyLinkLabel);
-            this.Controls.Add(this.hotkeyLabel);
             this.Name = "HotkeyActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HotkeyActionEditorForm";
@@ -89,10 +81,8 @@ namespace CommandWheelForms.Forms.Actions
         }
 
         #endregion
-
-        private System.Windows.Forms.Label hotkeyLabel;
-        private System.Windows.Forms.LinkLabel autohotkeyLinkLabel;
         private System.Windows.Forms.TextBox hotkeyTextBox;
         private Controls.ButtonLayout buttonLayout1;
+        private System.Windows.Forms.LinkLabel hotkeyLinkLabel;
     }
 }
