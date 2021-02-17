@@ -32,6 +32,8 @@ public class Overlay : MonoBehaviour
 	static extern bool GetCursorPos(out Point lpPoint);
 	[DllImport("user32.dll")]
 	static extern bool SetCursorPos(int x, int y);
+	[DllImport("user32.dll")]
+	public static extern IntPtr FindWindow(string className, string windowName);
 
 	const int GWL_EXSTYLE = -20;
 
@@ -67,12 +69,15 @@ public class Overlay : MonoBehaviour
 		Screen.SetResolution(Display.main.systemWidth, Display.main.systemHeight, true);
 
 		hwnd = GetActiveWindow();
-		Margins margins = new Margins() { cxLeftWidth = -1 };
-#if !UNITY_EDITOR
-		DwmExtendFrameIntoClientArea(hwnd, ref margins);
-		SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
-		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE);
+
+#if UNITY_EDITOR
+		return;
 #endif
+        if (!MakeOverlay())
+        {
+			hwnd = FindWindow(null, Application.productName);
+			MakeOverlay();
+		}
 
     }
     private void Update()
@@ -92,6 +97,16 @@ public class Overlay : MonoBehaviour
 		if (_shown)
 			SetCursorPos(_cursorPos.x, _cursorPos.y);
     }
+
+	private bool MakeOverlay()
+	{
+		bool res;
+		Margins margins = new Margins() { cxLeftWidth = -1 };
+		DwmExtendFrameIntoClientArea(hwnd, ref margins);
+		res = SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
+		SetWindowLong(hwnd, GWL_EXSTYLE, NO_ACTIVATE);
+		return res;
+	}
 
 	public static void Hide()
     {
