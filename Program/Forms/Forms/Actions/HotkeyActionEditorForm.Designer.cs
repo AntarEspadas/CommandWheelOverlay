@@ -32,6 +32,7 @@ namespace CommandWheelForms.Forms.Actions
             this.hotkeyLabel = new System.Windows.Forms.Label();
             this.autohotkeyLinkLabel = new System.Windows.Forms.LinkLabel();
             this.hotkeyTextBox = new System.Windows.Forms.TextBox();
+            this.buttonLayout1 = new CommandWheelForms.Controls.ButtonLayout();
             this.SuspendLayout();
             // 
             // hotkeyLabel
@@ -56,16 +57,26 @@ namespace CommandWheelForms.Forms.Actions
             // 
             // hotkeyTextBox
             // 
-            this.hotkeyTextBox.Location = new System.Drawing.Point(15, 129);
+            this.hotkeyTextBox.Location = new System.Drawing.Point(15, 123);
             this.hotkeyTextBox.Name = "hotkeyTextBox";
             this.hotkeyTextBox.Size = new System.Drawing.Size(330, 22);
             this.hotkeyTextBox.TabIndex = 2;
+            // 
+            // buttonLayout1
+            // 
+            this.buttonLayout1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonLayout1.Location = new System.Drawing.Point(0, 159);
+            this.buttonLayout1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonLayout1.Name = "buttonLayout1";
+            this.buttonLayout1.Size = new System.Drawing.Size(357, 40);
+            this.buttonLayout1.TabIndex = 3;
             // 
             // HotkeyActionEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 173);
+            this.ClientSize = new System.Drawing.Size(357, 199);
+            this.Controls.Add(this.buttonLayout1);
             this.Controls.Add(this.hotkeyTextBox);
             this.Controls.Add(this.autohotkeyLinkLabel);
             this.Controls.Add(this.hotkeyLabel);
@@ -82,5 +93,6 @@ namespace CommandWheelForms.Forms.Actions
         private System.Windows.Forms.Label hotkeyLabel;
         private System.Windows.Forms.LinkLabel autohotkeyLinkLabel;
         private System.Windows.Forms.TextBox hotkeyTextBox;
+        private Controls.ButtonLayout buttonLayout1;
     }
 }
