@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using System.Text;
 using sharpAHK;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace CommandWheelOverlay.AdditionalActions
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class HotkeyAction : IWheelAction
     {
         private static readonly _AHK _ahk = new _AHK();
 
-        public IReadOnlyList<string> Keys => _keys;
+        [JsonProperty]
+        public IReadOnlyList<string> Keys { get => _keys; private set => SetHotkey(value.ToArray()); }
 
         private string[] _keys;
 
