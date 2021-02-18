@@ -29,6 +29,7 @@ namespace CommandWheelForms.Forms.Actions
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenSteamAppActionEditorForm));
             this.buttonLayout1 = new CommandWheelForms.Controls.ButtonLayout();
             this.idLabel = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
@@ -69,6 +70,7 @@ namespace CommandWheelForms.Forms.Actions
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.buttonLayout1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpenSteamAppActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "OpenSteamAppActionEditorForm";

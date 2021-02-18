@@ -29,6 +29,7 @@ namespace CommandWheelForms.Forms.Actions
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenWebsiteActionEditorForm));
             this.buttonLayout = new CommandWheelForms.Controls.ButtonLayout();
             this.urlTextBox = new System.Windows.Forms.TextBox();
             this.urlLabel = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@ namespace CommandWheelForms.Forms.Actions
             this.Controls.Add(this.urlLabel);
             this.Controls.Add(this.urlTextBox);
             this.Controls.Add(this.buttonLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpenWebsiteActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "OpenWebsiteActionEditorForm";

@@ -29,6 +29,7 @@ namespace CommandWheelForms.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsEditorForm));
             this.infoLabel = new System.Windows.Forms.Label();
             this.showHotkeyLabel = new System.Windows.Forms.Label();
             this.showHotkeyTextbox = new System.Windows.Forms.TextBox();
@@ -157,6 +158,7 @@ namespace CommandWheelForms.Forms
             this.Controls.Add(this.showHotkeyLabel);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.buttonLayout1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SettingsEditorForm";

@@ -29,6 +29,7 @@ namespace CommandWheelForms.Forms.Actions
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowSubwheelActionEditorForm));
             this.subWheelLabel = new System.Windows.Forms.Label();
             this.subWheelComboBox = new System.Windows.Forms.ComboBox();
             this.subWheelEditButton = new System.Windows.Forms.Button();
@@ -82,6 +83,7 @@ namespace CommandWheelForms.Forms.Actions
             this.Controls.Add(this.subWheelComboBox);
             this.Controls.Add(this.subWheelLabel);
             this.Controls.Add(this.basicLayout1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowSubwheelActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ShowSubwheelActionEditorForm";

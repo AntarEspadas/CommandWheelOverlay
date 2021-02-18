@@ -29,11 +29,13 @@ namespace CommandWheelForms.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ButtonEditorForm));
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.actionTriggerButton = new System.Windows.Forms.Button();
             this.editActionButton = new System.Windows.Forms.Button();
             this.actionLabel = new System.Windows.Forms.Label();
             this.actionComboBox = new System.Windows.Forms.ComboBox();
@@ -43,7 +45,6 @@ namespace CommandWheelForms.Forms
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.imageOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.actionTriggerButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -123,6 +124,16 @@ namespace CommandWheelForms.Forms
             this.mainPanel.Size = new System.Drawing.Size(490, 255);
             this.mainPanel.TabIndex = 1;
             // 
+            // actionTriggerButton
+            // 
+            this.actionTriggerButton.Location = new System.Drawing.Point(389, 114);
+            this.actionTriggerButton.Name = "actionTriggerButton";
+            this.actionTriggerButton.Size = new System.Drawing.Size(75, 26);
+            this.actionTriggerButton.TabIndex = 8;
+            this.actionTriggerButton.Text = "Trigger";
+            this.actionTriggerButton.UseVisualStyleBackColor = true;
+            this.actionTriggerButton.Click += new System.EventHandler(this.ActionTriggerButton_Click);
+            // 
             // editActionButton
             // 
             this.editActionButton.Location = new System.Drawing.Point(282, 114);
@@ -198,16 +209,6 @@ namespace CommandWheelForms.Forms
             // 
             this.imageOpenFileDialog.Filter = "Image files|*.png;*.jpg;*jpeg|All files|*.*";
             // 
-            // actionTriggerButton
-            // 
-            this.actionTriggerButton.Location = new System.Drawing.Point(389, 114);
-            this.actionTriggerButton.Name = "actionTriggerButton";
-            this.actionTriggerButton.Size = new System.Drawing.Size(75, 26);
-            this.actionTriggerButton.TabIndex = 8;
-            this.actionTriggerButton.Text = "Trigger";
-            this.actionTriggerButton.UseVisualStyleBackColor = true;
-            this.actionTriggerButton.Click += new System.EventHandler(this.ActionTriggerButton_Click);
-            // 
             // ButtonEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -215,6 +216,7 @@ namespace CommandWheelForms.Forms
             this.ClientSize = new System.Drawing.Size(496, 301);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ButtonEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ButtonEditorForm";

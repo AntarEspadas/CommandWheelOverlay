@@ -29,6 +29,7 @@ namespace CommandWheelForms.Forms.Actions
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HotkeyActionEditorForm));
             this.hotkeyTextBox = new System.Windows.Forms.TextBox();
             this.buttonLayout1 = new CommandWheelForms.Controls.ButtonLayout();
             this.hotkeyLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -72,6 +73,7 @@ namespace CommandWheelForms.Forms.Actions
             this.Controls.Add(this.hotkeyLinkLabel);
             this.Controls.Add(this.buttonLayout1);
             this.Controls.Add(this.hotkeyTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HotkeyActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HotkeyActionEditorForm";

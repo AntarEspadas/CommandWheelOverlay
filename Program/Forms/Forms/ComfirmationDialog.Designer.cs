@@ -29,11 +29,12 @@ namespace CommandWheelForms.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComfirmationDialog));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -71,17 +72,6 @@ namespace CommandWheelForms.Forms
             this.tableLayoutPanel2.Size = new System.Drawing.Size(371, 34);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label.Location = new System.Drawing.Point(3, 0);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(371, 133);
-            this.label.TabIndex = 1;
-            this.label.Text = "label";
-            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -104,6 +94,17 @@ namespace CommandWheelForms.Forms
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label.Location = new System.Drawing.Point(3, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(371, 133);
+            this.label.TabIndex = 1;
+            this.label.Text = "label";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ComfirmationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -111,6 +112,7 @@ namespace CommandWheelForms.Forms
             this.ClientSize = new System.Drawing.Size(377, 173);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ComfirmationDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dialog";

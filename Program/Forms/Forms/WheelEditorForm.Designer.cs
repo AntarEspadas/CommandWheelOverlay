@@ -29,6 +29,7 @@ namespace CommandWheelForms.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WheelEditorForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bgColorAlphaLabel = new System.Windows.Forms.Label();
@@ -199,6 +200,7 @@ namespace CommandWheelForms.Forms
             this.ClientSize = new System.Drawing.Size(468, 453);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.basicLayout1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WheelEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "WheelEditorForm";
