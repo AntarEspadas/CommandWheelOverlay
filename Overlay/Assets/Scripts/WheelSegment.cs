@@ -33,7 +33,8 @@ public class WheelSegment : MonoBehaviour
         var highlightImage = highlight.GetComponent<Image>();
         highlightImage.fillAmount = degrees / 360;
         highlightImage.color = bgColor;
-        ((RectTransform)highlight.transform).sizeDelta = size;
+        float r = Mathf.Sqrt(800 * 800 + 450 * 450);
+        ((RectTransform)highlight.transform).sizeDelta = new Vector2(r, r);
 
         var info = transform.Find("Info");
         info.GetComponent<ButtonInfo>().SetInfo(ButtonTemplate.Label, ButtonTemplate.ImgPath);
