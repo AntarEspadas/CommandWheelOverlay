@@ -82,6 +82,7 @@ namespace CommandWheelForms.Forms.Actions
             this.Controls.Add(this.urlLabel);
             this.Controls.Add(this.urlTextBox);
             this.Controls.Add(this.buttonLayout);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpenWebsiteActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

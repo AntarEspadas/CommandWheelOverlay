@@ -200,6 +200,7 @@ namespace CommandWheelForms.Forms
             this.ClientSize = new System.Drawing.Size(468, 453);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.basicLayout1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WheelEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

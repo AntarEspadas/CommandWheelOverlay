@@ -105,6 +105,7 @@ namespace CommandWheelForms.Forms
             this.ClientSize = new System.Drawing.Size(295, 485);
             this.Controls.Add(this.editSettingsButton);
             this.Controls.Add(this.editElementsButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

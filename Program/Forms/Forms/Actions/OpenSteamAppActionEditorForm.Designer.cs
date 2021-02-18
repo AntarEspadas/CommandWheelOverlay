@@ -70,6 +70,7 @@ namespace CommandWheelForms.Forms.Actions
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.buttonLayout1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpenSteamAppActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

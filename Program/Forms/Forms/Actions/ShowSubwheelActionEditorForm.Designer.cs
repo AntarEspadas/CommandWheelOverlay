@@ -83,6 +83,7 @@ namespace CommandWheelForms.Forms.Actions
             this.Controls.Add(this.subWheelComboBox);
             this.Controls.Add(this.subWheelLabel);
             this.Controls.Add(this.basicLayout1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowSubwheelActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
