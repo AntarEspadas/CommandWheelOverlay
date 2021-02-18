@@ -14,7 +14,7 @@
               "$id": "5",
               "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
               "Label": "Project Github",
-              "ImgPath": "",
+              "ImgPath": "icons\\github-logo.png",
               "Action": {
                 "$id": "6",
                 "$type": "CommandWheelOverlay.Controller.Actions.OpenWebsiteAction, CommandWheelOverlay",
@@ -140,7 +140,7 @@
               "$id": "27",
               "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
               "Label": "Play/Pause",
-              "ImgPath": "",
+              "ImgPath": "icons\\play-pause.png",
               "Action": {
                 "$id": "28",
                 "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
@@ -156,7 +156,7 @@
               "$id": "30",
               "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
               "Label": "Previous Track",
-              "ImgPath": "",
+              "ImgPath": "icons/previous.png",
               "Action": {
                 "$id": "31",
                 "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
@@ -172,7 +172,7 @@
               "$id": "33",
               "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
               "Label": "Stop",
-              "ImgPath": "",
+              "ImgPath": "icons/stop.png",
               "Action": {
                 "$id": "34",
                 "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
@@ -188,7 +188,7 @@
               "$id": "36",
               "$type": "CommandWheelOverlay.Controller.WheelButton, CommandWheelOverlay",
               "Label": "Next Track",
-              "ImgPath": "",
+              "ImgPath": "icons/next.png",
               "Action": {
                 "$id": "37",
                 "$type": "CommandWheelOverlay.AdditionalActions.HotkeyAction, AdditionalActions",
