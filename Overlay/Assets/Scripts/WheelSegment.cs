@@ -67,24 +67,19 @@ public class WheelSegment : MonoBehaviour
 
     public void ForceUnhighlight()
     {
-        CanvasGroup group = null;
 
         try
         {
-            group = highlight.GetComponent<CanvasGroup>();
+            CanvasGroup group = highlight.GetComponent<CanvasGroup>();
             LeanTween.cancel(_tweenId);
             group.alpha = 0;
             highlight.gameObject.SetActive(false);
             _highlighted = false;
         }
-        catch (System.Exception e)
+        catch (System.NullReferenceException)
         {
-            Debug.Log(e.StackTrace);
-            Debug.Log(highlight);
-            Debug.Log(group);
-            if (highlight != null)
-                Debug.Log(highlight.gameObject);
-            throw;
+            //Not sure why this throws an exceptin but none of the other methods do,
+            //I think this method is possibly called before the object is initialized, 
         }
     }
 }
