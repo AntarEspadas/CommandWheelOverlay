@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommandWheelForms.Editors;
 using CommandWheelForms.Editors.Actions;
@@ -71,6 +73,8 @@ namespace CommandWheelForms.Forms
             process.StartInfo.Arguments = $"--port {settings.Port} -window-mode borderless -screen-fullscreen 0 -screen-height 500 -screen-width 500";
             process.Start();
             job.AddProcess(process.Handle);
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
+            Task processTask = Task.Run(process.WaitForExit, tokenSource.Token);
 
             while (true)
             {
@@ -81,9 +85,13 @@ namespace CommandWheelForms.Forms
                 }
                 catch (System.Net.Sockets.SocketException)
                 {
+                    if (processTask.IsCompleted) throw new ConnectionClosedException();
                     continue;
                 }
             }
+            tokenSource.Cancel();
+            tokenSource.Dispose();
+
             controller.View = view;
             controller.InputHandler = inputHandler;
             view.UpdateElements(new SimplifiedWheelElements(controller.Elements));
