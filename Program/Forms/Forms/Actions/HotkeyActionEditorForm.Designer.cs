@@ -60,7 +60,7 @@ namespace CommandWheelForms.Forms.Actions
             this.hotkeyLinkLabel.Size = new System.Drawing.Size(293, 79);
             this.hotkeyLinkLabel.TabIndex = 4;
             this.hotkeyLinkLabel.TabStop = true;
-            this.hotkeyLinkLabel.Text = "Enter a space separated list of keys. Examples:\r\nCtrl Z\r\nAlt Tab\r\nCtrl Shift Esc\r" +
+            this.hotkeyLinkLabel.Text = "Enter a space separated list of keys. Examples:\r\nCtrl z\r\nAlt Tab\r\nCtrl Shift Esc\r" +
     "\nFor a full list of keys, visit the Autohotkey docs\r\n";
             this.hotkeyLinkLabel.UseCompatibleTextRendering = true;
             this.hotkeyLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HotkeyLinkLabel_LinkClicked);
