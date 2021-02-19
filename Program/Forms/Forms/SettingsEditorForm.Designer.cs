@@ -41,6 +41,9 @@ namespace CommandWheelForms.Forms
             this.rightHotkeyTextbox = new System.Windows.Forms.TextBox();
             this.rightHotkeyButton = new System.Windows.Forms.Button();
             this.buttonLayout1 = new CommandWheelForms.Controls.ButtonLayout();
+            this.sensitivityLabel = new System.Windows.Forms.Label();
+            this.sensitivityNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.sensitivityNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // infoLabel
@@ -142,11 +145,39 @@ namespace CommandWheelForms.Forms
             this.buttonLayout1.Size = new System.Drawing.Size(390, 40);
             this.buttonLayout1.TabIndex = 0;
             // 
+            // sensitivityLabel
+            // 
+            this.sensitivityLabel.AutoSize = true;
+            this.sensitivityLabel.Location = new System.Drawing.Point(12, 226);
+            this.sensitivityLabel.Name = "sensitivityLabel";
+            this.sensitivityLabel.Size = new System.Drawing.Size(71, 17);
+            this.sensitivityLabel.TabIndex = 5;
+            this.sensitivityLabel.Text = "Sensitivity";
+            // 
+            // sensitivityNumericUpDown
+            // 
+            this.sensitivityNumericUpDown.Location = new System.Drawing.Point(15, 246);
+            this.sensitivityNumericUpDown.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.sensitivityNumericUpDown.Name = "sensitivityNumericUpDown";
+            this.sensitivityNumericUpDown.Size = new System.Drawing.Size(89, 22);
+            this.sensitivityNumericUpDown.TabIndex = 6;
+            this.sensitivityNumericUpDown.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
             // SettingsEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 379);
+            this.Controls.Add(this.sensitivityNumericUpDown);
+            this.Controls.Add(this.sensitivityLabel);
             this.Controls.Add(this.rightHotkeyButton);
             this.Controls.Add(this.leftHotkeyButton);
             this.Controls.Add(this.ShowHotkeyButton);
@@ -165,6 +196,7 @@ namespace CommandWheelForms.Forms
             this.Name = "SettingsEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
+            ((System.ComponentModel.ISupportInitialize)(this.sensitivityNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +215,7 @@ namespace CommandWheelForms.Forms
         private System.Windows.Forms.Label rightHotkeyLabel;
         private System.Windows.Forms.TextBox rightHotkeyTextbox;
         private System.Windows.Forms.Button rightHotkeyButton;
+        private System.Windows.Forms.Label sensitivityLabel;
+        private System.Windows.Forms.NumericUpDown sensitivityNumericUpDown;
     }
 }

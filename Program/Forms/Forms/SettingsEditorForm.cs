@@ -21,6 +21,7 @@ namespace CommandWheelForms.Forms
         public IList<int> ShowHotkey { get; private set; }
         public IList<int> MoveLeftHotkey { get; private set; }
         public IList<int> MoveRightHotkey { get; private set; }
+        public float Sensitivity => (float)(sensitivityNumericUpDown.Value / 100);
 
         private KeyNameConverter converter = new KeyNameConverter();
 
@@ -38,6 +39,7 @@ namespace CommandWheelForms.Forms
             ShowHotkey = userSettings.ShowHotkey;
             MoveLeftHotkey = userSettings.MoveLeftHotkey;
             MoveRightHotkey = userSettings.MoveRightHotkey;
+            sensitivityNumericUpDown.Value = (int)(userSettings.Sensitivity * 100);
 
             textBoxes = new[] { showHotkeyTextbox, leftHotkeyTextbox, rightHotkeyTextbox };
             buttons = new[] { ShowHotkeyButton, leftHotkeyButton, rightHotkeyButton };

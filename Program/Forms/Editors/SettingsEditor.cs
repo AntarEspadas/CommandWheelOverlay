@@ -23,6 +23,7 @@ namespace CommandWheelForms.Editors
                 userSettings.ShowHotkey = form.ShowHotkey;
                 userSettings.MoveLeftHotkey = form.MoveLeftHotkey;
                 userSettings.MoveRightHotkey = form.MoveRightHotkey;
+                userSettings.Sensitivity = form.Sensitivity;
                 inputHandler.LoadHotkeys(userSettings);
             }
             inputHandler.PauseOutput = false;
