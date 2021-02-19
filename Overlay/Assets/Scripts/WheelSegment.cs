@@ -67,11 +67,24 @@ public class WheelSegment : MonoBehaviour
 
     public void ForceUnhighlight()
     {
-        var group = highlight.GetComponent<CanvasGroup>();
+        CanvasGroup group = null;
 
-        LeanTween.cancel(_tweenId);
-        group.alpha = 0;
-        highlight.gameObject.SetActive(false);
-        _highlighted = false;
+        try
+        {
+            group = highlight.GetComponent<CanvasGroup>();
+            LeanTween.cancel(_tweenId);
+            group.alpha = 0;
+            highlight.gameObject.SetActive(false);
+            _highlighted = false;
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.StackTrace);
+            Debug.Log(highlight);
+            Debug.Log(group);
+            if (highlight != null)
+                Debug.Log(highlight.gameObject);
+            throw;
+        }
     }
 }
