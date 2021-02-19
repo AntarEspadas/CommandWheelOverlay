@@ -24,7 +24,12 @@ namespace CommandWheelForms.Settings
 
         private UserSettings()
         {
-
+            if (settings.UpgradeRequired)
+            {
+                settings.Upgrade();
+                settings.UpgradeRequired = false;
+                settings.Save();
+            }
         }
 
         public void Save()
