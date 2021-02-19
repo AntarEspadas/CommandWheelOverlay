@@ -62,6 +62,7 @@ namespace CommandWheelOverlay.Controller
             bool accepted = Settings.Editor.EditSettings(settings, InputHandler);
             if (accepted)
             {
+                View.SetSensitivity(settings.Sensitivity);
                 Model.SaveSettings(settings);
             }
         }
