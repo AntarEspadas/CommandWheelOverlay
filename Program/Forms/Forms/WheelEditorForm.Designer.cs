@@ -114,7 +114,7 @@ namespace CommandWheelForms.Forms
             // 
             this.addButtonButton.Location = new System.Drawing.Point(9, 112);
             this.addButtonButton.Name = "addButtonButton";
-            this.addButtonButton.Size = new System.Drawing.Size(75, 29);
+            this.addButtonButton.Size = new System.Drawing.Size(91, 29);
             this.addButtonButton.TabIndex = 5;
             this.addButtonButton.Text = "Add Button";
             this.addButtonButton.UseVisualStyleBackColor = true;
