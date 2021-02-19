@@ -20,6 +20,7 @@ namespace CommandWheelForms.Settings
         public IList<int> MoveLeftHotkey { get => settings.MoveLeftHotkey?.ToList(); set => settings.MoveLeftHotkey = value?.ToArray(); }
         public IList<int> MoveRightHotkey { get => settings.MoveRightHotkey?.ToList(); set => settings.MoveRightHotkey = value?.ToArray(); }
         public int Port { get => settings.Port; set => settings.Port = value; }
+        public float Sensitivity { get => settings.Sensitivity; set => settings.Sensitivity = value; }
 
         private UserSettings()
         {

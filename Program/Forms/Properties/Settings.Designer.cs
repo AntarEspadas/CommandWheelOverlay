@@ -76,5 +76,17 @@ namespace CommandWheelForms.Properties {
                 this["Port"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public float Sensitivity {
+            get {
+                return ((float)(this["Sensitivity"]));
+            }
+            set {
+                this["Sensitivity"] = value;
+            }
+        }
     }
 }
