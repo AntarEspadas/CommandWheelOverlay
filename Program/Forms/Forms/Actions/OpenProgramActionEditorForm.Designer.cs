@@ -111,7 +111,7 @@ namespace CommandWheelForms.Forms.Actions
             this.MinimizeBox = false;
             this.Name = "OpenProgramActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "OpenProgramActionEditorForm";
+            this.Text = "Edit Action";
             this.ResumeLayout(false);
             this.PerformLayout();
 

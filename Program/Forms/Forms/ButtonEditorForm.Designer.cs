@@ -221,7 +221,7 @@ namespace CommandWheelForms.Forms
             this.MinimizeBox = false;
             this.Name = "ButtonEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ButtonEditorForm";
+            this.Text = "Edit Button";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.mainPanel.ResumeLayout(false);

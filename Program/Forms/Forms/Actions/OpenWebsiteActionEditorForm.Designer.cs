@@ -88,7 +88,7 @@ namespace CommandWheelForms.Forms.Actions
             this.MinimizeBox = false;
             this.Name = "OpenWebsiteActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "OpenWebsiteActionEditorForm";
+            this.Text = "Edit Action";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OpenWebsiteActionEditorForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

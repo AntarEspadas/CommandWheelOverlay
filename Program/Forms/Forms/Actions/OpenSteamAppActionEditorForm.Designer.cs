@@ -76,7 +76,7 @@ namespace CommandWheelForms.Forms.Actions
             this.MinimizeBox = false;
             this.Name = "OpenSteamAppActionEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "OpenSteamAppActionEditorForm";
+            this.Text = "Edit Action";
             this.ResumeLayout(false);
             this.PerformLayout();
 

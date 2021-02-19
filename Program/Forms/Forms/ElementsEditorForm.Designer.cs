@@ -149,7 +149,7 @@ namespace CommandWheelForms.Forms
             this.MinimizeBox = false;
             this.Name = "ElementsEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ElementsEditorForm";
+            this.Text = "Elements";
             this.Resize += new System.EventHandler(this.ElementsEditorForm_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

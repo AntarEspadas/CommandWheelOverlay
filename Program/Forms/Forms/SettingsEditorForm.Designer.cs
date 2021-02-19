@@ -164,7 +164,7 @@ namespace CommandWheelForms.Forms
             this.MinimizeBox = false;
             this.Name = "SettingsEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SettingsEditorForm";
+            this.Text = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
 

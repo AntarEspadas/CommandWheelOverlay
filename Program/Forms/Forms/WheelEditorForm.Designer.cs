@@ -206,7 +206,7 @@ namespace CommandWheelForms.Forms
             this.MinimizeBox = false;
             this.Name = "WheelEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "WheelEditorForm";
+            this.Text = "Edit Wheel";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
