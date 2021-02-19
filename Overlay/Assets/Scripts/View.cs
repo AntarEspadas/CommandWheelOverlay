@@ -223,4 +223,9 @@ public class View : MonoBehaviour, IOverlayView
     {
         throw new System.NotImplementedException();
     }
+
+    public void SetSensitivity(float sensitivity)
+    {
+        cursorMovement.sensitivity = sensitivity;
+    }
 }

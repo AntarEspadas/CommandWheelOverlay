@@ -66,6 +66,11 @@ namespace CommandWheelOverlay.Connection
             bridge.Pass(parameters: deltas);
         }
 
+        public void SetSensitivity(float sensitivity)
+        {
+            bridge.Pass(parameters: sensitivity);
+        }
+
         public void Show()
         {
 #if NO_CONNECTION

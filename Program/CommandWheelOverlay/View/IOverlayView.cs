@@ -14,5 +14,6 @@ namespace CommandWheelOverlay.View
         void MoveRight();
         void Show();
         void Hide();
+        void SetSensitivity(float sensitivity);
     }
 }
