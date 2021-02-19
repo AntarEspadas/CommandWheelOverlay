@@ -87,6 +87,7 @@ namespace CommandWheelForms.Forms
             controller.View = view;
             controller.InputHandler = inputHandler;
             view.UpdateElements(new SimplifiedWheelElements(controller.Elements));
+            view.SetSensitivity(settings.Sensitivity);
             
         }
 
